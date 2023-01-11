@@ -226,14 +226,13 @@ client.on('messageCreate' , async message => {
 console.log("[CMD] : Loaded BotHelp")
 
 // Web UI
-/*
+
 const app = require('express')();
 /*app.get("/", (req, res) => {
     res.send("Online!")
 })
 
 app.listen(5555)
-*/
 
 console.log("----------")
 console.log('[WEB] : Now online at port : 5555')
