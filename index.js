@@ -228,7 +228,7 @@ console.log("[CMD] : Loaded BotHelp")
 // Web UI
 
 const app = require('express')();
-/*app.get("/", (req, res) => {
+app.get("/", (req, res) => {
     res.send("Online!")
 })
 
