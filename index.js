@@ -1,4 +1,4 @@
-const {Client, GatewayIntentBits, DiscordAPIError, Message, channelLink, EmbedBuilder} = require('discord.js');
+const {Client, GatewayIntentBits, DiscordAPIError, Message, channelLink, EmbedBuilder, ActivityType} = require('discord.js');
 const dotenv = require('dotenv')
 const prefix = "แมว";
 
@@ -248,7 +248,7 @@ console.log('[WEB] : Now online at port : 5555')
 
 client.on('ready', ()=>{
     console.log('[BOT] : Mao is wake up!')
-    client.user.setPresence({ activities: [{ name: 'Mao == แมว!' }], status: 'online' });
+    client.user.setPresence({ activities: [{ name: 'Mao == แมว!' , type: ActivityType.Watching }], status: 'online' });
 })
 
 //Join servermessage
