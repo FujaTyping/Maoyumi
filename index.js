@@ -257,7 +257,7 @@ client.on('guildCreate', guild => {
     .setColor(721032)
     .setTitle(`ขอบคุณที่เชิญหนูเข้า - Server นี้นะ`)
     .setDescription("สวัสดีทุกคนนะคะหนูชื่อ - Mao\nเป็น ChatBot ที่สร้างจาก FujaTyping และ Miu\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง 😺 help เพื่อดูคำสั่งทั้งหมด")
-    .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1061883754932613130/CatbotWelcome.png")
+    .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1063060259524059156/MaobotWelcome.png")
     .setTimestamp()
     .setFooter({ text: 'Welcome message from system !'});
 
