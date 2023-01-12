@@ -39,7 +39,7 @@ const gptResponse = await openai.createCompletion({
 // Chat Bot
 client.on('messageCreate', async message => {
     //if(message.channelId == "1060184115447599194" || message.channelId == "1061522412715376690" || message.channelId == "1061529756203499571") {
-    if(message.content.includes("แมว") || message.content.includes('<@1060182470630330529>')) {
+    if(message.content.includes("แมว") || message.content.includes('<@1060182470630330529>') || message.content.includes('Mao')) {
         if(message.author.bot) return;
 
         // Gpt Response here
@@ -82,10 +82,12 @@ client.on('messageCreate', async message => {
             "คุณรู้หรือไม่ ? : Friday night funkin เป็น เกมแนวกดเพลง" , `คนนี้หน้าเหมือน ${message.author.username} เลย  👉🏻👉🏻👉🏻` , "Error : 404 [Just kidding]" , "Error : 403 [Just kidding]",
             "Huhhh ?" , "What ?" , "I love emoji  👌🏻" , "🫱🏻 🥜" , "🤌🏻" , "👎🏻" , "👍🏻" , "That's cool" , "Cool" , "Do you see that ?",
             "เห็นนั้นไหม ?" , "มีใครอยู่ข้างหลังคุณอะ !!" , "👻 แหร่ๆๆ\nน่ากลัวไหม ?" , "ฮั่นแน่ !" , "จ๊ะเอ๋ตัวเอง !" , "เชื่ยๆ" , "ลองดูคลิปนี้ดูสิ : https://bit.ly/3jXwWMq",
-            // Music
+            // Music 
+            /*
             "ลองฟังเพลงนี้ดูสิ : https://bit.ly/3ItInWl", "ลองฟังเพลงนี้ดูสิ : https://bit.ly/3Xc1YOJ" , "ลองฟังเพลงนี้ดูสิ : https://bit.ly/3ihqM9s" , "ลองฟังเพลงที่ดูสิ : https://bit.ly/3XckEhn",
             "ลองฟังเพลงนี้ดูสิ : https://bit.ly/3GJsRUW" , "ลองฟังเพลงนี้ดูสิ : https://bit.ly/3Cwc9FV" , "ลองฟังเพลงนี้ดูสิ : https://bit.ly/3jNQYIY" , "ลองฟังเพลงนี้ดูสิ : https://bit.ly/3ZgaONp",
             "ลองฟังเพลงนี้ดูสิ : https://bit.ly/3WWnJlV" , "ลองฟังเพลงนี้ดูสิ : https://bit.ly/3ikMLfD" , "ลองฟังเพลงนี้ดูสิ : https://bit.ly/3QlbkFT" , "" ,
+            */
             // Joke
             "หนูมีมุขตลกมาเล่าให้ฟัง !\n.....\nวันอะไรไม่ควรสระผม\nเฉลย : วันพฤหัส เพราะวันพฤหัส สระ บ่ ดี" , "หนูมีมุขตลกมาเล่าให้ฟัง !\n.....\nเลขอะไรเอ่ย มาก่อน 1 2 3 4\nเฉลย : ก็ 1 2 3 3 ไง" , "หนูมีมุขตลกมาเล่าให้ฟัง !\n.....\nนกอะไรอยู่ในทะเล\nเฉลย : นกอินทรี (Nok in sea)",
             "หนูมีมุขตลกมาเล่าให้ฟัง !\n.....\nลิงอะไรที่เราชอบ\nเฉลย : ลิงจั๊กๆ รักจริงๆ" , "หนูมีมุขตลกมาเล่าให้ฟัง !\n.....\nปีอะไรมีหลายสี\nเฉลย : ปีโป้" , "หนูมีมุขตลกมาเล่าให้ฟัง !\n.....\nมดอะไรใหญ่กว่ามดเอ็กซ์\nเฉลย : มดเอ็กซ์แอล",
@@ -94,6 +96,7 @@ client.on('messageCreate', async message => {
 
         const MiuResponseAnswer = Math.floor(Math.random() * MiuDatabasesAnswer.length);
 
+        /*
         const ResponseAnswer = new EmbedBuilder()
             .setColor(16711680)
             .setTitle(`คำตอบของคุณ - ${message.author.username}`)
@@ -103,8 +106,9 @@ client.on('messageCreate', async message => {
             .setThumbnail(message.author.avatarURL())
             .setTimestamp()
             .setFooter({ text: 'ฟังไทยได้แล้วไว้ยยยยยยย!!!!'});
+        */
 
-        message.reply({ embeds: [ResponseAnswer] });
+        message.reply(MiuDatabasesAnswer[MiuResponseAnswer]);
     }
 });
 console.log("[CMD] : Loaded ChatBot")
@@ -122,6 +126,7 @@ client.on('messageCreate', async message =>{
 
         const FoodResponseAnswer = Math.floor(Math.random() * ListFood.length);
 
+        /*
         const RandomFoodList = new EmbedBuilder()
             .setColor(2795263)
             .setTitle(`${message.author.username} - เมนูนี้คุณคงจะชอบนะ`)
@@ -129,9 +134,9 @@ client.on('messageCreate', async message =>{
             .setThumbnail(message.author.avatarURL())
             .setTimestamp()
             .setFooter({ text: 'ระบบสุ่มอาหาร (ฐานข้อมูลยังอยู่ใน Hatyaiwittayalai school)'});
+        */
 
-		message.reply({ embeds: [RandomFoodList] })
-        message.react("👍🏻");
+		message.reply(ListFood[FoodResponseAnswer])
 	}
 });
 console.log("[CMD] : Loaded RandomFood")
@@ -142,9 +147,11 @@ const got = require('got');
 client.on(`messageCreate`, async message => {
     if(message.content.includes("meme") || message.content.includes("มีม")) {
         if(message.author.bot) return;
-        message.reply(`รอแปปหนึงนะค่ะ กำลังหามีมให้ ${message.author.username}  🔎\n`)
+        message.reply(`รอแปปหนึงนะค่ะ กำลังหามีมให้ <@${message.author.id}> 🔎\n`)
+
         got("https://meme-api.com/gimme").then( (response) =>{
             const data = JSON.parse(response.body);
+            /*
             const MemeResponse = new EmbedBuilder ()
                 .setColor(16777215)
                 .setTitle(`หนูมีมีมให้คุณด้วยละ - ${message.author.username}`)
@@ -153,8 +160,9 @@ client.on(`messageCreate`, async message => {
                 .setImage(`${data['url']}`)
                 .setTimestamp()
                 .setFooter({ text: 'Use : MemeAPI'});
+            */
 
-            message.reply({ embeds: [MemeResponse] })
+            message.reply({files: [`${data['url']}`]})
         })
     }
 });
@@ -167,6 +175,7 @@ client.on('messageCreate' , async message => {
 
         const NumberRespones = Math.floor(Math.random() * 45);
 
+        /*
         const RandomNumLRist = new EmbedBuilder()
             .setColor(524494)
             .setTitle(`หนูสุ่มตัวเลขให้คุณแล้วนะ - ${message.author.username}`)
@@ -174,9 +183,9 @@ client.on('messageCreate' , async message => {
             .setThumbnail(message.author.avatarURL())
             .setTimestamp()
             .setFooter({ text: 'ระบบสุ่มตัวเลข ตั้งแต่ 1-44'});
+        */
 
-        message.reply({ embeds: [RandomNumLRist] })
-        message.react("🎉");
+        message.reply("เรามีผู้โชคดี 🎉🎉🎉\n เลขที่ "+ NumberRespones)
     }
 });
 console.log("[CMD] : Loaded RandomNumber")
@@ -188,8 +197,8 @@ client.on('messageCreate' , async message => {
 
         const CatSetting = new EmbedBuilder()
             .setColor(0)
-            .setTitle(`การตั้งค่า - Just A Little Cat`)
-            .setDescription("ภาษา : ไทย-TH : ✅ | English-EN : ✅ | 中國人-CN : 🟨\n...\nSlash command :  ❌\n...\nคำหยาบ :  ✅  (อยู่ในระดับสูงสุด)\nหมายเหตุ : หากเปิดอยู่คำตอบที่บอทตอบบางคำอาจจะเป็นคำพูดที่ไม่เหมาะสม !\n...\nPrefix : `แมว` หรือ <@1060182470630330529>")
+            .setTitle(`การตั้งค่า - Mao`)
+            .setDescription("ภาษา : ไทย-TH : ✅ | English-EN : ✅ | 中國人-CN : 🟨 | Français-FR : 🟨\n...\nSlash command :  ❌\n...\nEmbed message : 🟨\n...\nคำหยาบ :  ✅  (อยู่ในระดับสูงสุด)\nหมายเหตุ : หากเปิดอยู่คำตอบที่บอทตอบบางคำอาจจะเป็นคำพูดที่ไม่เหมาะสม !\n...\nPrefix : `แมว` หรือ <@1060182470630330529>")
             .setThumbnail("https://cdn.discordapp.com/attachments/988037995531759658/1061963539671171162/562-5626046_anime-cat-girl-kawaii-removebg-preview.png")
             .setTimestamp()
             .setFooter({ text: 'Bot setting (เปลื่ยนแปลงไม่ได้ Haha!) - V.0.1 BETA'});
@@ -206,7 +215,7 @@ client.on('messageCreate' , async message => {
 
         const CatHelp = new EmbedBuilder()
             .setColor(16580861)
-            .setTitle(`คำสั่งข่วยเหลือ - Just A Little Cat`)
+            .setTitle(`คำสั่งข่วยเหลือ - Mao`)
             .setDescription("นี้คือคำสั่งทั้งหมดของหนู !")
             .addFields(
                 { name: 'แมว หรือ <@1060182470630330529>', value: 'เป็นการคุยกับบอท', inline: true },
@@ -238,8 +247,8 @@ console.log("----------")
 console.log('[WEB] : Now online at port : 5555')
 
 client.on('ready', ()=>{
-    console.log('[BOT] : Cat is wake up!')
-    client.user.setPresence({ activities: [{ name: 'หนูไม่กลัวมาวินละๆ' }], status: 'online' });
+    console.log('[BOT] : Mao is wake up!')
+    client.user.setPresence({ activities: [{ name: 'Mao == แมว!' }], status: 'online' });
 })
 
 //Join servermessage
@@ -247,8 +256,7 @@ client.on('guildCreate', guild => {
     const ServerMessage = new EmbedBuilder()
     .setColor(721032)
     .setTitle(`ขอบคุณที่เชิญหนูเข้า - Server นี้นะ`)
-    .setDescription("สวัสดีทุกคนนะค่ะหนูชื่อ - Just A Little Cat\nเป็น ChatBot ที่สร้างจาก FujaTyping และ Miu\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- เมื่อมีคำว่า แมว หรือ <@1060182470630330529> ในปรโยค จะเป็นการสื่อสารกับบอท\nเช่น แมว <ตามด้วยข้อความ>\n\
-    - เมื่อมีคำว่า หิว หรือ ข้าว ในปรโยค จะเป็นการใช้ระบบสุ่มอาหาร \nเช่น หิวข้าวจัง หรือ อยากกินข้าว\n- เมื่อมีคำว่า มีม หรือ meme ในปรโยค จะเป็นการให้บอทหามีมให้\nเช่น ขอมีมหน่อย หรือ give me meme\n- เมื่อมีคำว่า สุ่ม หรือ เลข จะเป็นการใช้ระบบสุ่มตัวเลข\nเช่น สุ่มเลขให้หน่อย หรือ เลขไรดี\n.....\nคำสั่งอื่นๆในอนาตค !")
+    .setDescription("สวัสดีทุกคนนะค่ะหนูชื่อ - Mao\nเป็น ChatBot ที่สร้างจาก FujaTyping และ Miu\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง 😺 help เพื่อดูคำสั่งทั้งหมด")
     .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1061883754932613130/CatbotWelcome.png")
     .setTimestamp()
     .setFooter({ text: 'Welcome message from system !'});
