@@ -10,6 +10,7 @@ const client = new Client(
             GatewayIntentBits.Guilds,
             GatewayIntentBits.GuildMessages,
             GatewayIntentBits.MessageContent,
+            GatewayIntentBits.GuildMembers,
         ]
     }
 );
@@ -264,5 +265,21 @@ client.on('guildCreate', guild => {
     guild.systemChannel.send({ embeds: [ServerMessage] })
 });
 console.log("[GUILD] : Loaded JoinServer")
+
+//User userjoin
+client.on('guildMemberAdd', (member)  => { 
+    const channel = member.guild.channels.cache.get('1015645355406278679');
+
+    const JoinMsg = new EmbedBuilder()
+        .setColor(2752256)
+        .setTitle(`ยินดีต้อนรับสมาชิกใหม่ - Welcome`)
+        .setDescription(`ยินดีต้อนรับ <@${member.id}> เข้าสู่ YDev Community !\nYDev Community เป็นสถานที่ที่จะสามารถ Hang out / หาเพื่อน / พูดคุย กันได้\n.....\n- กรุณาอ่านกฏของดีสที่ <#1026828154469355541>\n- อย่างลืมไปเช็คประกาศบ่อยด้วยละ <#1015943699827527710>\n- กิจกรรมก็มีบ่อยๆนะ <#1015943896800448533>`)
+        .setTimestamp()
+        .setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1063497446728155176/UserWelcome.png")
+        .setFooter({ text: 'Welcome message from system !'});
+
+    channel.send({ embeds: [JoinMsg] })
+})
+console.log("[GUILD] : Loaded UserjoinMsg")
 
 client.login(process.env.TOKEN)
