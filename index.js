@@ -248,7 +248,7 @@ console.log('[WEB] : Now online at port : 5555')
 
 client.on('ready', ()=>{
     console.log('[BOT] : Mao is wake up!')
-    client.user.setPresence({ activities: [{ name: 'Mao == แมว!' , type: ActivityType.Watching }], status: 'online' });
+    client.user.setPresence({ activities: [{ name: '😺 help | Mao == แมว!' , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
 })
 
 //Join servermessage
