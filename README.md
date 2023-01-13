@@ -1,6 +1,6 @@
 # Cat-bot-git
 
-Just A Little Cat#5556 | Thai Chat bot
+MAO#5263 | Thai Chat bot
 
 ## การติดตั้ง (ใช้ใน Terminal)
 1. ให้ Clone project นี้ไปยัง folders (ติดตั้ง [Git](https://git-scm.com/downloads) ก่อนนะเดี๋ยวใช้ไม่ได้ !)
