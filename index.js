@@ -1,6 +1,6 @@
 const {Client, GatewayIntentBits, DiscordAPIError, Message, channelLink, EmbedBuilder, ActivityType} = require('discord.js');
 const dotenv = require('dotenv')
-const prefix = "แมว";
+const prefix = "mao!";
 
 dotenv.config();
 
@@ -14,6 +14,34 @@ const client = new Client(
         ]
     }
 );
+
+// Readcommandfile
+const fs = require("fs");
+
+client.commands = new Collection();
+
+const commandFiles = fs.readdirSync('./Commands/').filter(f => f.endsWith('.js'))
+for (const file of commandFiles) {
+    const props = require(`./Commands/${file}`)
+    console.log(`[CMD] : Loaded ${file}`)
+    client.commands.set(props.config.name, props)
+}
+
+client.on("messageCreate", async message => {
+    if(message.author.bot) return;
+    if(message.channel.type === "dm") return;
+    
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0];
+    let args = messageArray.slice(1);
+
+    if(!cmd.startsWith(prefix)) return;
+
+    let commandfile = client.commands.get(cmd.slice(prefix.length));
+    if(commandfile) commandfile.run(client,message,args);
+});
+
+// ---------------------------------------------------------------------
 
 /*
 const { Configuration , OpenAIApi } = require('openai');
@@ -190,50 +218,6 @@ client.on('messageCreate' , async message => {
     }
 });
 console.log("[CMD] : Loaded RandomNumber")
-
-// BotSetting
-client.on('messageCreate' , async message => {
-    if(message.content == "😺 ตั้งค่า" || message.content == "😺 setting") {
-        if(message.author.bot) return;
-
-        const CatSetting = new EmbedBuilder()
-            .setColor(0)
-            .setTitle(`การตั้งค่า - Mao`)
-            .setDescription("ภาษา : ไทย-TH : ✅ | English-EN : ✅ | 中國人-CN : 🟨 | Français-FR : 🟨\n...\nSlash command :  ❌\n...\nEmbed message : 🟨\n...\nคำหยาบ :  ✅  (อยู่ในระดับสูงสุด)\nหมายเหตุ : หากเปิดอยู่คำตอบที่บอทตอบบางคำอาจจะเป็นคำพูดที่ไม่เหมาะสม !\n...\nPrefix : `แมว` หรือ <@1060182470630330529>")
-            .setThumbnail("https://cdn.discordapp.com/attachments/988037995531759658/1061963539671171162/562-5626046_anime-cat-girl-kawaii-removebg-preview.png")
-            .setTimestamp()
-            .setFooter({ text: 'Bot setting (เปลื่ยนแปลงไม่ได้ Haha!) - V.0.1 BETA'});
-
-        message.reply({ embeds: [CatSetting] })
-    }
-});
-console.log("[CMD] : Loaded BotSetting")
-
-//BotHelp
-client.on('messageCreate' , async message => {
-    if(message.content == "😺 ช่วย" || message.content == "😺 help") {
-        if(message.author.bot) return;
-
-        const CatHelp = new EmbedBuilder()
-            .setColor(16580861)
-            .setTitle(`คำสั่งข่วยเหลือ - Mao`)
-            .setDescription("นี้คือคำสั่งทั้งหมดของหนู !")
-            .addFields(
-                { name: 'แมว หรือ <@1060182470630330529>', value: 'เป็นการคุยกับบอท', inline: true },
-                { name: 'หิว หรือ กิน', value: 'เป็นการใช้ระบบสุ่มอาหาร', inline: true },
-                { name: 'มีม หรือ meme', value: 'เป็นการให้บอทหามีมให้', inline: true },
-                { name: 'สุ่ม หรือ เลข', value: 'เป็นการใช้ระบบสุ่มตัวเลข', inline: true },
-                { name: '😺 ตั้งค่า หรือ 😺 setting', value: 'เป็นการดูตั้งค่าของบอท', inline: true },
-                { name: '😺 ช่วย หรือ 😺 help', value: 'เป็นการดูคำสั่งทั้งหมดของบอท', inline: true },
-            )
-            .setThumbnail("https://cdn.discordapp.com/attachments/988037995531759658/1061963539671171162/562-5626046_anime-cat-girl-kawaii-removebg-preview.png")
-            .setTimestamp()
-            .setFooter({ text: 'Bot help - V.0.1 BETA'});
-
-        message.reply({ embeds: [CatHelp] })
-    }
-});
-console.log("[CMD] : Loaded BotHelp")
 
 // Web UI
 
