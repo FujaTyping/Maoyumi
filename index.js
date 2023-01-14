@@ -286,7 +286,7 @@ console.log("[GUILD] : Loaded UserjoinMsg")
 client.on('guildMemberRemove', (member)  => { 
     const channel = member.guild.channels.cache.get('1015645355406278679');
 
-    const JoinMsg = new EmbedBuilder()
+    const LeaveMsg = new EmbedBuilder()
         .setColor(16711680)
         .setTitle(`สมาชิกได้ออกไปแล้ว - Goodbye`)
         .setDescription(`ลาก่อน <@${member.id}> ได้ออกจาก YDev Community !\nเอาไว้เจอกันใหม่นะครับ Goodluck !`)
@@ -294,7 +294,7 @@ client.on('guildMemberRemove', (member)  => {
         .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1063640374393966592/UserLeave.png")
         .setFooter({ text: 'Leave message from system !'});
 
-    channel.send({ embeds: [JoinMsg] })
+    channel.send({ embeds: [LeaveMsg] })
 })
 console.log("[GUILD] : Loaded UserleaveMsg")
 
