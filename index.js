@@ -68,7 +68,7 @@ const gptResponse = await openai.createCompletion({
 // Chat Bot
 client.on('messageCreate', async message => {
     //if(message.channelId == "1060184115447599194" || message.channelId == "1061522412715376690" || message.channelId == "1061529756203499571") {
-    if(message.content.includes("แมว") || message.content.includes('<@1060182470630330529>') || message.content.includes('Mao') || message.content.includes('เเมว')) {
+    if(message.content.includes("แมว") || message.content.includes('<@1060182470630330529>') || message.content.includes('MAO') || message.content.includes('Mao') || message.content.includes('mao')) {
         if(message.author.bot) return;
 
         // Gpt Response here
@@ -233,7 +233,7 @@ console.log('[WEB] : Now online at port : 5555')
 
 client.on('ready', ()=>{
     console.log('[BOT] : Mao is wake up!')
-    client.user.setPresence({ activities: [{ name: '😺 help | Mao == แมว!' , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
+    client.user.setPresence({ activities: [{ name: 'mao!help | Mao == แมว!' , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
 })
 
 //Join servermessage
@@ -241,7 +241,7 @@ client.on('guildCreate', guild => {
     const ServerMessage = new EmbedBuilder()
     .setColor(721032)
     .setTitle(`ขอบคุณที่เชิญหนูเข้า - Server นี้นะ`)
-    .setDescription("สวัสดีทุกคนนะคะหนูชื่อ - Mao\nเป็น ChatBot ที่สร้างจาก FujaTyping และ Miu\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง 😺 help เพื่อดูคำสั่งทั้งหมด")
+    .setDescription("สวัสดีทุกคนนะคะหนูชื่อ - Mao\nเป็น ChatBot ที่สร้างจาก FujaTyping และ Miu\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง mao!help เพื่อดูคำสั่งทั้งหมด")
     .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1063060259524059156/MaobotWelcome.png")
     .setTimestamp()
     .setFooter({ text: 'Welcome message from system !'});
