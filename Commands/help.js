@@ -19,8 +19,9 @@ module.exports = {
                 { name: 'สุ่ม หรือ เลข', value: 'เป็นการใช้ระบบสุ่มตัวเลข', inline: true },
                 { name: 'mao!setting', value: 'เป็นการดูตั้งค่าของบอท', inline: true },
                 { name: 'mao!help', value: 'เป็นการดูคำสั่งทั้งหมดของบอท', inline: true },
+                { name: 'mao!rps', value: 'เป็นการเล่นเกมเป่ายิงชุบกับบอท', inline: true },
             )
-            .setThumbnail("https://cdn.discordapp.com/attachments/988037995531759658/1061963539671171162/562-5626046_anime-cat-girl-kawaii-removebg-preview.png")
+            .setThumbnail("https://cdn.discordapp.com/attachments/988037995531759658/1064139171121336330/OIP-removebg-preview.png")
             .setTimestamp()
             .setFooter({ text: 'Bot help - V.0.1 BETA'});
 
