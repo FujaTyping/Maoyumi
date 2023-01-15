@@ -6,7 +6,7 @@ module.exports = {
         description: 'แสดงตั้งค่าทั้งหมดของบอท',
         usage: `mao!setting`,
     },
-    async run (bot,message,args) {
+    async run (client,message,args) {
         
         const CatSetting = new EmbedBuilder()
             .setColor(0)

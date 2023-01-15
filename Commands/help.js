@@ -6,7 +6,7 @@ module.exports = {
         description: 'แสดงคำสั่งทั้งหมดของบอท',
         usage: `mao!help`,
     },
-    async run (bot,message,args) {
+    async run (client,message,args) {
         
         const CatHelp = new EmbedBuilder()
             .setColor(16580861)
