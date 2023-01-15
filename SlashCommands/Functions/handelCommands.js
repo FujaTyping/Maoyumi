@@ -1,11 +1,8 @@
 const { REST } = require("@discordjs/rest");
 const { Routes } = require('discord-api-types/v9');
-const dotenv = require('dotenv')
 const fs = require('fs');
 
-dotenv.config();
-
-const clientId = process.env.CLIENTID ; 
+const clientId = "1060182470630330529" ; // Change id for your bot
 const guildId = "0" ; 
 
 module.exports = (client) => {
