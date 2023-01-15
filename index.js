@@ -42,6 +42,7 @@ client.on("messageCreate", async message => {
 });
 
 // Readcommandfile-slash
+/*
 const Slashfunctions = fs.readdirSync("./SlashCommands/Functions").filter(file => file.endsWith(".js"));
 const SlasheventFiles = fs.readdirSync("./SlashCommands/Events").filter(file => file.endsWith(".js"));
 const SlashcommandFolders = fs.readdirSync("./SlashCommands/Commands");
@@ -53,6 +54,7 @@ const SlashcommandFolders = fs.readdirSync("./SlashCommands/Commands");
     client.handleEvents(SlasheventFiles, "./SlashCommands/Events");
     client.handleCommands(SlashcommandFolders, "./SlashCommands/Commands");
 })();
+*/
 
 // ---------------------------------------------------------------------
 
