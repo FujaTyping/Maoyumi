@@ -16,7 +16,7 @@ module.exports = {
                 .setColor(16745728)
                 .setTitle(`เกมเป่ายิงชุบ - Rock Paper Scissors`)
                 .setDescription("กรุณาพิมพ์คำสั่งให้ถูกต้อง !\nคำสั่ง : mao!rps <rps>\nเช่น : mao!rps rock / mao!rps paper / mao!rps scissors")
-                .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1064067338242117642/ezgif-4-83f97196ce.gif")
+                .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1064395804468580453/RPS.png")
                 .setTimestamp()
                 .setFooter({ text: 'Rps - command'});
 
@@ -44,7 +44,7 @@ module.exports = {
                     { name: `คุณเลือก`, value: `${args[0]}`, inline: true },
                     { name: 'หนูเลือก', value: `${comp_val}`, inline: true },
                 )
-                .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1064119274047811635/RPS-tied.png")
+                .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1064395805173223484/RPS-tied_1.png")
                 .setTimestamp()
                 .setFooter({ text: 'Rps - command'});
 
@@ -59,7 +59,7 @@ module.exports = {
                     { name: `คุณเลือก`, value: `${args[0]}`, inline: true },
                     { name: 'หนูเลือก', value: `${comp_val}`, inline: true },
                 )
-                .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1064119273489973288/RPS-lost.png")
+                .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1064395804690874408/RPS-lost_1.png")
                 .setTimestamp()
                 .setFooter({ text: 'Rps - command'});
 
@@ -74,7 +74,7 @@ module.exports = {
                 { name: `คุณเลือก`, value: `${args[0]}`, inline: true },
                 { name: 'หนูเลือก', value: `${comp_val}`, inline: true },
             )
-            .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1064119273166995536/RPS-win_1.png")
+            .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1064395804929957928/RPS-win_2.png")
             .setTimestamp()
             .setFooter({ text: 'Rps - command'});
 
