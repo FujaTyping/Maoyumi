@@ -83,14 +83,14 @@ const gptResponse = await openai.createCompletion({
 // Chat Bot
 client.on('messageCreate', async message => {
     //if(message.channelId == "1060184115447599194" || message.channelId == "1061522412715376690" || message.channelId == "1061529756203499571") {
-    if(message.content.includes("แมว") || message.content.includes('<@1060182470630330529>') || message.content.includes('MAO') || message.content.includes('Mao')) {
+    if(message.content.includes("แมว") || message.content.includes('<@1060182470630330529>') || message.content.includes('MAO') || message.content.includes('Mao') || message.content.includes("เเมว")) {
         if(message.author.bot) return;
 
         // Gpt Response here
 
         const MiuDatabasesAnswer = [
             // Message
-            `<@${message.content.id}> มีอะไรหรอคะ ?` , `<@${message.content.id}> เรียกทำไมหรอ ?`, "🤔 🤔 🤔", "opps !", "หนูไปทำอะไรให้ ?",
+            `<@${message.author.id}> มีอะไรหรอคะ ?` , `<@${message.author.id}> เรียกทำไมหรอ ?`, "🤔 🤔 🤔", "opps !", "หนูไปทำอะไรให้ ?",
             "ไม่รู้อะ", "ใช่เลย !" , "ขอโทษได้ไหมล่ะ !" , "😆" , "😔", "หนูทำอะไรผิด ?",
             "มาวินอย่ากินหนูนะ !!!" , "🤬" , "😡" , "It's time to play !", "ได้เวลาเล่นแล้ว !",
             "เรื่องของมึง !" , "I don't care !" , "เสือก !" , "😭" , "😎",
