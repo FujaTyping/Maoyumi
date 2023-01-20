@@ -12,9 +12,9 @@ module.exports = {
 
         const Info = new EmbedBuilder()
             .setColor(9079434)
-            .setTitle("ข้อมูลเชิฟเวอร์")
+            .setTitle("ข้อมูลเชิฟเวอร์ - Server info")
             .setThumbnail(message.guild.iconURL())
-            .setDescription(`ชื่อเชิฟเวอร์ : **${message.guild}** - Server info`)
+            .setDescription(`ชื่อเชิฟเวอร์ : **${message.guild}** `)
             .addFields(
                 { name: 'เจ้าของเชิฟเวอร์', value: `${owner}`, inline: true },
                 { name: 'จำนวนสมาชิกในเชิฟเวอร์นี้', value: `${message.guild.memberCount} คน`, inline: true },
