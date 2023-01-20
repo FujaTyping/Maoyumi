@@ -58,28 +58,6 @@ const SlashcommandFolders = fs.readdirSync("./SlashCommands/Commands");
 
 // ---------------------------------------------------------------------
 
-/*
-const { Configuration , OpenAIApi } = require('openai');
-const configuration = new Configuration({
-    organization: process.env.OPENAIORG,
-    apiKey: process.env.OPENAIKEY,
-});
-const openai = new OpenAIApi(configuration);
-*/
-
-/*
-const gptResponse = await openai.createCompletion({
-    model: "davinci",
-    prompt: `ChatGPT เป็นแชทบอทที่เป็นมิตร.\n\ 
-    ChatGPT: ฉันจะทำอะไรให้คุณได้บ้าง ?\n\
-    ${message.author.username}: ${message.content}\n\
-    ChatGPT:`,
-    temperature: 1,
-    max_tokens: 100,
-    stop: ["ChatGPT:","FujaTyping:"],
-})
-*/
-
 // Chat Bot
 client.on('messageCreate', async message => {
     //if(message.channelId == "1060184115447599194" || message.channelId == "1061522412715376690" || message.channelId == "1061529756203499571") {
