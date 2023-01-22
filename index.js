@@ -64,8 +64,6 @@ client.on('messageCreate', async message => {
     if(message.content.includes("แมว") || message.content.includes('<@1060182470630330529>') || message.content.includes('MAO') || message.content.includes('Mao') || message.content.includes("เเมว")) {
         if(message.author.bot) return;
 
-        // Gpt Response here
-
         const MiuDatabasesAnswer = [
             // Message
             `<@${message.author.id}> มีอะไรหรอคะ ?` , `<@${message.author.id}> เรียกทำไมหรอ ?`, "🤔 🤔 🤔", "opps !", "หนูไปทำอะไรให้ ?",
