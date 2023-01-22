@@ -8,8 +8,12 @@ module.exports = {
         usage: `mao!toTH`,
     },
     async run (client,message,args) {
-        const UserText = message.content;
-        const rawtext = await translate(UserText, {to: 'th'});
-        message.reply(`**แปลเป็น ภาษาไทย** : ${rawtext}`);
+        if (!args[0]) {
+            message.reply('กรุณาพิมพ์คำสั่งให้ถูกต้อง !\n- mao!toTH <text>\nเช่น mao!toTH Hello');
+        } else {
+            const UserText = message.content;
+            const rawtext = await translate(UserText, {to: 'th'});
+            message.reply(`**แปลเป็น ภาษาไทย** : ${rawtext}`);
+        }
     }
 }
