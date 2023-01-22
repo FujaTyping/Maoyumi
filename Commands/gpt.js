@@ -1,4 +1,7 @@
 const {EmbedBuilder} = require('discord.js');
+//const fetch = require('node-fetch');
+const translate = require('translate-google')
+API_URL = 'https://api-inference.huggingface.co/models/r3dhummingbird/DialoGPT-medium-joshua';
 
 module.exports = {
     config: {
@@ -8,43 +11,41 @@ module.exports = {
     },
     async run (client,message,args) {
         if (!args[0]) {
-            const Notgpt = new EmbedBuilder()
-                .setColor(4194164)
-                .setTitle(`Gpt AI - Chat`)
-                .setDescription("กรุณาพิมพ์คำสั่งให้ถูกต้อง !\nคำสั่ง : mao!gpt <prompt>\nเช่น : mao!gpt hello / mao!gpt สวัสดี หรือ ข้อความอะไรก็ได้")
-                .setThumbnail("https://www.bing.com/th?id=OSK.b31f563c6377b6a1f180c5fcc837290c&w=116&h=116&c=7&o=6&pid=SANGAM")
-                .setTimestamp()
-                .setFooter({ text: 'OpanAI - Gpt'});
-
-            message.reply({  embeds: [Notgpt] });
+            message.reply('กรุณาพิมพ์คำสั่งให้ถูกต้อง !\n- mao!gpt <text>\nเช่น mao!gpt hello , mao!gpt สวัสดี');
         } else {
-            message.reply(`กำลังประมวลผลข้อมูล ...`);
             const UserText = args[0];
+            const rawtext = await translate(UserText, {to: 'en'});
+            //message.reply(`${rawtext}`);
 
-            const { Configuration , OpenAIApi } = require('openai');
-            const configuration = new Configuration({
-                organization: process.env.OPENAIORG,
-                apiKey: process.env.OPENAIKEY,
+            const payload = {
+                inputs: {
+                    text: rawtext
+                }
+            };
+
+            const headers = {
+                'Authorization': 'Bearer ' + process.env.HUGGINGFACE_TOKEN
+            };
+            
+            //message.channel.startTyping();
+
+            const response = await fetch(API_URL, {
+                method: 'post',
+                body: JSON.stringify(payload),
+                headers: headers
             });
-            const openai = new OpenAIApi(configuration);
-    
-            const gptResponse = await openai.createCompletion({
-                model: "davinci",
-                prompt: `${UserText}`,
-                temperature: 1,
-                max_tokens: 100,
-                stop: ["ChatGPT:","FujaTyping:"],
-            })
+            const data = await response.json();
+            let botResponse = '';
+            if (data.hasOwnProperty('generated_text')) {
+                botResponse = data.generated_text;
+            } else if (data.hasOwnProperty('error')) {
+                botResponse = data.error;
+            }
 
-            const Responsegpt = new EmbedBuilder()
-                .setColor(4194164)
-                .setTitle(`Gpt AI - Chat`)
-                .setDescription("Chat Gpt : "+`${gptResponse.data.choices[0].text}`)
-                .setThumbnail("https://www.bing.com/th?id=OSK.b31f563c6377b6a1f180c5fcc837290c&w=116&h=116&c=7&o=6&pid=SANGAM")
-                .setTimestamp()
-                .setFooter({ text: 'OpanAI - Gpt'});
-
-            message.reply({  embeds: [Responsegpt] });
+            //message.channel.stopTyping();
+            const translated = await translate(botResponse, {to: 'th'});
+            //message.reply(`${botResponse}`);
+            message.reply(`${translated}`);
     
         }
     }
