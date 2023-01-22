@@ -13,7 +13,7 @@ module.exports = {
         if (!args[0]) {
             message.reply('กรุณาพิมพ์คำสั่งให้ถูกต้อง !\n- mao!gpt <text>\nเช่น mao!gpt hello , mao!gpt สวัสดี');
         } else {
-            const UserText = args[0];
+            const UserText = message.content;
             const rawtext = await translate(UserText, {to: 'en'});
             //message.reply(`${rawtext}`);
 
