@@ -41,21 +41,6 @@ client.on("messageCreate", async message => {
     if(commandfile) commandfile.run(client,message,args);
 });
 
-// Readcommandfile-slash
-/*
-const Slashfunctions = fs.readdirSync("./SlashCommands/Functions").filter(file => file.endsWith(".js"));
-const SlasheventFiles = fs.readdirSync("./SlashCommands/Events").filter(file => file.endsWith(".js"));
-const SlashcommandFolders = fs.readdirSync("./SlashCommands/Commands");
-
-(async () => {
-    for (file of Slashfunctions) {
-        require(`./SlashCommands/Functions/${file}`)(client);
-    }
-    client.handleEvents(SlasheventFiles, "./SlashCommands/Events");
-    client.handleCommands(SlashcommandFolders, "./SlashCommands/Commands");
-})();
-*/
-
 // ---------------------------------------------------------------------
 
 // Chat Bot
@@ -220,10 +205,10 @@ app.get("/", (req, res) => {
 app.listen(5555)
 
 console.log("----------")
-console.log('[WEB] : Now online at port : 5555')
+console.log('[SERVICE] : Now online at port : 5555')
 
 client.on('ready', ()=>{
-    console.log('[BOT] : Mao is wake up!')
+    console.log('[API] : MAO is wake up!')
     client.user.setPresence({ activities: [{ name: 'mao!help | MAO == แมว!' , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
 })
 
