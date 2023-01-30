@@ -121,7 +121,7 @@ console.log('[SERVICE] : Now online at port : 5555')
 
 client.on('ready', ()=>{
     console.log('[API] : MAO is wake up!')
-    client.user.setPresence({ activities: [{ name: 'mao!help | MAO == แมว!' , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
+    client.user.setPresence({ activities: [{ name: `mao!help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
 })
 
 //Join servermessage
