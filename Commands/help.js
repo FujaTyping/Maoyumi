@@ -9,8 +9,8 @@ module.exports = {
     async run (client,message,args) {
         
         const CatHelp = new EmbedBuilder()
-            .setColor(16580861)
-            .setTitle(`คำสั่งข่วยเหลือ - Mao`)
+            .setColor(15401215)
+            .setTitle(`คำสั่งข่วยเหลือ - MAO`)
             .setDescription("นี้คือคำสั่งทั้งหมดของหนู !\n.....\nกำลังปรับปรุ่งระบบ help : ตอนนี้สามารถ ดู Command ได้ที่ https://bit.ly/MAO5263")
             /*.addFields(
                 { name: 'แมว หรือ <@1060182470630330529>', value: 'เป็นการคุยกับบอท', inline: true },
