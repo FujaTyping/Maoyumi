@@ -26,12 +26,18 @@ let CommandCount = 0;
 
 client.commands = new Collection();
 
-const commandFiles = fs.readdirSync('./Commands/').filter(f => f.endsWith('.js'))
-for (const file of commandFiles) {
-    const props = require(`./Commands/${file}`)
-    console.log(`[FS] : Loaded ${file}`)
-    CommandCount=CommandCount+1;
-    client.commands.set(props.config.name, props)
+const commandFolders = fs.readdirSync(`./Commands/`)
+
+for (const folder of commandFolders) {
+    const commandFiles = fs.readdirSync(`./Commands/${folder}`).filter(file => file.endsWith('.js'));
+
+    for (const file of commandFiles) {
+        const props = require(`./Commands/${folder}/${file}`);
+        console.log(`[FS] : Loaded ${file}`)
+        CommandCount=CommandCount+1;
+        client.commands.set(props.config.name, props)
+    }
+
 }
 console.log(`[FS] : Successfully loaded ${CommandCount} commands`);
 
