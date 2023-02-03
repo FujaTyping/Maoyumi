@@ -16,7 +16,7 @@ module.exports = {
                 client.login(process.env.TOKEN);
                 client.user.setPresence({ activities: [{ name: `mao!help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
                 message.edit("Restart complete !")
-                console.log(`[API] : ${client.user.tag} Restarted !`)
+                console.log(`[CLIENT] : ${client.user.tag} Restarted by the admin !`)
             })
         } else {
             message.reply(`<@${message.author.id}> คุณไม่มีสิทธ์ Restart หนูนะคะ !`)

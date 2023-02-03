@@ -2,8 +2,11 @@ const {Client, GatewayIntentBits, DiscordAPIError, Message, channelLink, EmbedBu
 const dotenv = require('dotenv')
 const prefix = "mao!";
 
+console.log(`[WORKER] : Starting`);
+
 dotenv.config();
 
+console.log(`[CLIENT] : Creating instance`);
 const client = new Client(
     {
         intents:[
@@ -14,18 +17,23 @@ const client = new Client(
         ]
     }
 );
+console.log(`[CLIENT] : Finish create instance`);
 
+console.log('[CLIENT] : Loading commands');
 // Readcommandfile
 const fs = require("fs");
+let CommandCount = 0;
 
 client.commands = new Collection();
 
 const commandFiles = fs.readdirSync('./Commands/').filter(f => f.endsWith('.js'))
 for (const file of commandFiles) {
     const props = require(`./Commands/${file}`)
-    console.log(`[CMD] : Loaded ${file}`)
+    console.log(`[FS] : Loaded ${file}`)
+    CommandCount=CommandCount+1;
     client.commands.set(props.config.name, props)
 }
+console.log(`[FS] : Successfully loaded ${CommandCount} commands`);
 
 client.on("messageCreate", async message => {
     if(message.author.bot) return;
@@ -129,8 +137,9 @@ console.log("----------")
 console.log('[SERVICE] : Now online at port : 5555')
 
 client.on('ready', ()=>{
-    console.log(`[API] : ${client.user.tag} is Alive !`)
+    console.log(`[API] : Connected ${client.user.tag} successfully !`)
     client.user.setPresence({ activities: [{ name: `mao!help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
+    console.log("[WORKER] : Finished")
 })
 
 //Join servermessage
@@ -179,4 +188,5 @@ client.on('guildMemberRemove', (member)  => {
 })
 console.log("[GUILD] : Loaded UserleaveMsg")
 
+console.log('[API] : Connecting to Discord network');
 client.login(process.env.TOKEN)
