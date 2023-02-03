@@ -1,4 +1,4 @@
-// By : Rageous0/rps-discord.js
+// Base on : Rageous0/rps-discord.js
 
 const {EmbedBuilder} = require('discord.js');
 

@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Mochiy Pop One;
+    background-color: black;
+    background-image: url('https://cdn.discordapp.com/attachments/1061529756203499571/1071047813837881414/output-onlinepngtools.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+    color: white;
+}
+
+img {
+    vertical-align: middle;
+}

@@ -132,15 +132,20 @@ console.log("[CMD] : Loaded ChatBot")
 
 // Web UI
 
-const app = require('express')();
+const express = require('express');
+const app = express();
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, '/Assets')))
+
 app.get("/", (req, res) => {
-    res.send("Online!")
+    res.sendFile(__dirname + "/Assets/index.html")
 })
 
-app.listen(5555)
+app.listen(5263)
 
 console.log("----------")
-console.log('[SERVICE] : Now online at port : 5555')
+console.log('[SERVICE] : Now online at port : 5263 | localhost:5263')
 
 client.on('ready', ()=>{
     console.log(`[API] : Connected ${client.user.tag} successfully !`)
