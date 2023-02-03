@@ -12,8 +12,8 @@ module.exports = {
             got("https://meme-api.com/gimme").then( (response) =>{
                 const data = JSON.parse(response.body);
 
-                message.edit("เจอมีมให้คุณแล้ว !")
                 message.edit({files: [`${data['url']}`]})
+                message.edit("เจอมีมให้คุณแล้ว !")
             })
         })
     }
