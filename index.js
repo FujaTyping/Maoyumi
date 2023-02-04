@@ -23,6 +23,7 @@ console.log('[CLIENT] : Loading commands');
 // Readcommandfile
 const fs = require("fs");
 let CommandCount = 0;
+let FolderCount = 0;
 
 client.commands = new Collection();
 
@@ -30,15 +31,17 @@ const commandFolders = fs.readdirSync(`./Commands/`)
 
 for (const folder of commandFolders) {
     const commandFiles = fs.readdirSync(`./Commands/${folder}`).filter(file => file.endsWith('.js'));
+    FolderCount=FolderCount+1;
 
     for (const file of commandFiles) {
         const props = require(`./Commands/${folder}/${file}`);
-        console.log(`[FS] : Loaded ${file}`)
+        //console.log(`[FS] : Loaded ${file}`)
         CommandCount=CommandCount+1;
         client.commands.set(props.config.name, props)
     }
 
 }
+console.log(`[FS] : Successfully loaded ${FolderCount} folders`);
 console.log(`[FS] : Successfully loaded ${CommandCount} commands`);
 
 client.on("messageCreate", async message => {
