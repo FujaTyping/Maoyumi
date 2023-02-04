@@ -14,7 +14,7 @@ module.exports = {
         if(!rps.includes(args[0])) {
             const EmbedRps = new EmbedBuilder()
                 .setColor(16745728)
-                .setTitle(`เกมเป่ายิงชุบ - Rock Paper Scissors`)
+                .setAuthor({ name: `เกมเป่ายิงชุบ - Rock Paper Scissors` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
                 .setDescription("กรุณาพิมพ์คำสั่งให้ถูกต้อง !\nคำสั่ง : mao!rps <rps>\nเช่น : mao!rps rock / mao!rps paper / mao!rps scissors")
                 .setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1069971358269853736/RPS_2.png")
                 .setTimestamp()

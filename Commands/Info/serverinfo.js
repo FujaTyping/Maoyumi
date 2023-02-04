@@ -12,7 +12,7 @@ module.exports = {
 
         const Info = new EmbedBuilder()
             .setColor(16777215)
-            .setTitle("ข้อมูลเชิฟเวอร์ - Server info")
+            .setAuthor({ name: `ข้อมูลเชิฟเวอร์ - Server info` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
             .setThumbnail(message.guild.iconURL())
             .setDescription(`ชื่อเชิฟเวอร์ : **${message.guild}** `)
             .addFields(

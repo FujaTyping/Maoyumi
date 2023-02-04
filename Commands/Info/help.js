@@ -10,7 +10,7 @@ module.exports = {
         
         const CatHelp = new EmbedBuilder()
             .setColor(16777215)
-            .setTitle(`คำสั่งข่วยเหลือ - MAO`)
+            .setAuthor({ name: `คำสั่งข่วยเหลือ - MAO` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
             .setDescription("นี้คือคำสั่งทั้งหมดของหนู !\n.....\nกำลังปรับปรุ่งระบบ help : ตอนนี้สามารถ ดู Command ได้ที่ https://bit.ly/MAO5263")
             /*.addFields(
                 { name: 'แมว หรือ <@1060182470630330529>', value: 'เป็นการคุยกับบอท', inline: true },
