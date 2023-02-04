@@ -8,7 +8,7 @@ module.exports = {
     },
     async run (client,message,args) {
         const Youravatar = new EmbedBuilder()
-            .setColor(16777215)
+            .setColor(15401215)
             .setTitle(`นี้คือ อวาตาร ของคุณ - Your avatar`)
             .setDescription("คุณดูดีมากเลย ❤ !")
             .setImage(message.author.avatarURL())

@@ -69,7 +69,7 @@ client.on('messageCreate', async message => {
         let MiuDatabasesAnswer = [];
 
         if (!Chatargs[0]) {
-            MiuDatabasesAnswer = [`<@${message.author.id}> มีอะไรให้หนูช่วยไหม ?`,`มีอะไรหรอ <@${message.author.id}> ?`,`เรียกทำไมหรอ <@${message.author.id}> ?`];
+            MiuDatabasesAnswer = [`<@${message.author.username}> มีอะไรให้หนูช่วยไหม ?`,`มีอะไรหรอ <@${message.author.username}> ?`,`เรียกทำไมหรอ <@${message.author.username}> ?`];
         } else {
             MiuDatabasesAnswer = [
                 // Message
@@ -113,19 +113,11 @@ client.on('messageCreate', async message => {
 
         const MiuResponseAnswer = Math.floor(Math.random() * MiuDatabasesAnswer.length);
 
-        /*
         const ResponseAnswer = new EmbedBuilder()
-            .setColor(16711680)
-            .setTitle(`คำตอบของคุณ - ${message.author.username}`)
-            //.setDescription(`${gptResponse.data.choices[0].text}`)
-            //.setDescription(`ตอนนี้ปิดปรับปรุ่งระบบ ChatBot 🚫\nกำลังปรับปรุ่ง : prefix กับ Database !\n.....\nขออภัยในความไม่สะดวกนะคะ !`)
-            .setDescription(MiuDatabasesAnswer[MiuResponseAnswer])
-            .setThumbnail(message.author.avatarURL())
-            .setTimestamp()
-            .setFooter({ text: 'ฟังไทยได้แล้วไว้ยยยยยยย!!!!'});
-        */
+            .setColor(15401215)
+            .setAuthor({ name: MiuDatabasesAnswer[MiuResponseAnswer] , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
 
-        message.reply(MiuDatabasesAnswer[MiuResponseAnswer]);
+        message.reply({ embeds : [ResponseAnswer] });
     }
 });
 console.log("[CMD] : Loaded ChatBot")
