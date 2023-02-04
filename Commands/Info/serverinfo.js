@@ -11,7 +11,7 @@ module.exports = {
         // console.log(owner)
 
         const Info = new EmbedBuilder()
-            .setColor(9079434)
+            .setColor(16777215)
             .setTitle("ข้อมูลเชิฟเวอร์ - Server info")
             .setThumbnail(message.guild.iconURL())
             .setDescription(`ชื่อเชิฟเวอร์ : **${message.guild}** `)

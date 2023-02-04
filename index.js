@@ -69,7 +69,7 @@ client.on('messageCreate', async message => {
         let MiuDatabasesAnswer = [];
 
         if (!Chatargs[0]) {
-            MiuDatabasesAnswer = [`<@${message.author.username}> มีอะไรให้หนูช่วยไหม ?`,`มีอะไรหรอ <@${message.author.username}> ?`,`เรียกทำไมหรอ <@${message.author.username}> ?`];
+            MiuDatabasesAnswer = [`${message.author.username} มีอะไรให้หนูช่วยไหม ?`,`มีอะไรหรอ ${message.author.username} ?`,`เรียกทำไมหรอ ${message.author.username} ?`];
         } else {
             MiuDatabasesAnswer = [
                 // Message
