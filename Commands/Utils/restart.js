@@ -12,7 +12,7 @@ module.exports = {
     async run (client,message,args) {
         if (message.author.id == "729556554491232256") {
             const RestartCMD = new EmbedBuilder()
-                .setColor(15401215)
+                .setColor(16777215)
                 .setAuthor({ name: "กำลังรีสตาร์ทบอท ..." , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
                 .setTimestamp()
 
@@ -21,7 +21,7 @@ module.exports = {
                 client.login(process.env.TOKEN);
                 client.user.setPresence({ activities: [{ name: `mao!help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
                 const ComRestart = new EmbedBuilder()
-                    .setColor(15401215)
+                    .setColor(16777215)
                     .setAuthor({ name: "รีสตาร์ทบอทเสร็จแล้วคะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
                     .setTimestamp()
 
@@ -30,7 +30,7 @@ module.exports = {
             })
         } else {
             const CantRestart = new EmbedBuilder()
-                .setColor(15401215)
+                .setColor(16711680)
                 .setAuthor({ name: `${message.author.username} คุณไม่มีสิทธ์รีสตาร์ทหนูนะคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
                 .setTimestamp()
 
