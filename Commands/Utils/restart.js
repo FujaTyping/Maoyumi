@@ -11,15 +11,30 @@ module.exports = {
     },
     async run (client,message,args) {
         if (message.author.id == "729556554491232256") {
-            message.reply("Restarting ...").then(message => {
+            const RestartCMD = new EmbedBuilder()
+                .setColor(15401215)
+                .setAuthor({ name: "กำลังรีสตาร์ทบอท ..." , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
+                .setTimestamp()
+
+            message.reply({ embeds : [RestartCMD] }).then(message => {
                 client.destroy();
                 client.login(process.env.TOKEN);
                 client.user.setPresence({ activities: [{ name: `mao!help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
-                message.edit("Restart complete !")
-                console.log(`[CLIENT] : ${client.user.tag} Restarted by the admin !`)
+                const ComRestart = new EmbedBuilder()
+                    .setColor(15401215)
+                    .setAuthor({ name: "รีสตาร์ทบอทเสร็จแล้วคะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
+                    .setTimestamp()
+
+                message.edit({ embeds : [ComRestart] })
+                console.log(`[CLIENT] : ${client.user.tag} Restarted by the OWNER !`)
             })
         } else {
-            message.reply(`<@${message.author.id}> คุณไม่มีสิทธ์ Restart หนูนะคะ !`)
+            const CantRestart = new EmbedBuilder()
+                .setColor(15401215)
+                .setAuthor({ name: `${message.author.username} คุณไม่มีสิทธ์รีสตาร์ทหนูนะคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
+                .setTimestamp()
+
+            message.reply({ embeds : [CantRestart] })
         }
     }
 }
