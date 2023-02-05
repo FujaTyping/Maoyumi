@@ -83,7 +83,7 @@ client.on('messageCreate', async message => {
         messages = messages.map(m=>m[1])
         messages.unshift(message)
 
-        let users = [...new Set([...messages.map(m=> m.member.displayName), client.user.username])]
+        let users = [...new Set([...messages.map(m=> m.author.username), client.user.username])]
 
         let lastUser = users.pop()
 
@@ -91,7 +91,7 @@ client.on('messageCreate', async message => {
 
         for (let i = messages.length - 1; i >= 0; i--) {
             const m = messages[i]
-            prompt += `${m.member.displayName}: ${m.content}\n`
+            prompt += `${m.author.username}: ${m.content}\n`
         }
         prompt = await translate(prompt, {to: 'en'});
         prompt += `${client.user.username}:`
