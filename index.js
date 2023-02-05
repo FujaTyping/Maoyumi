@@ -93,13 +93,8 @@ client.on('messageCreate', async message => {
             const m = messages[i]
             prompt += `${m.author.username}: ${m.content}\n`
         }
-        
-        prompt = await translate(prompt, {to: 'en'}).catch(error => {
-            message.reply("เกิดข้อผิดพลาด =>  `"+error+"`  ลองพิมพ์อีกครั้งดูสิ !")
-            return
-        });
-        prompt += `${client.user.username}:`
         //console.log("prompt:", prompt)
+        prompt += `${client.user.username}:`
 
         const response = await openai.createCompletion({
             prompt,
@@ -108,34 +103,15 @@ client.on('messageCreate', async message => {
             stop: ["\n"]
         })
 
-        //console.log("response", response.data.choices[0].text)
-        const Finishm = await translate(response.data.choices[0].text, {to: 'th'}).catch(error => {
-            message.reply("เกิดข้อผิดพลาด =>  `"+error+"`  ลองพิมพ์อีกครั้งดูสิ !")
-            return
-        });
-        //await message.channel.send(Finishm)
+        /*
+        const ResponseAnswer = new EmbedBuilder()
+        .setColor(15401215)
+        .setAuthor({ name: ` :  ${Finishm}` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
+        .setTimestamp()
 
-        if (Finishm == "undefined" || prompt == "undefined" || Finishm == "") {
-            /*
-            const ResponseError = new EmbedBuilder()
-            .setColor(16711680)
-            .setAuthor({ name: ` :  มีบ้างอย่างผิดผลาด !` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
-            .setTimestamp()
-
-            message.reply({ embeds : [ResponseError] });
-            */
-            message.reply(`มีบ้างอย่างผิดผลาด !`)
-        } else {
-            /*
-            const ResponseAnswer = new EmbedBuilder()
-            .setColor(15401215)
-            .setAuthor({ name: ` :  ${Finishm}` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
-            .setTimestamp()
-
-            message.reply({ embeds : [ResponseAnswer] });
-            */
-            message.reply(`${Finishm}`)
-        }
+        message.reply({ embeds : [ResponseAnswer] });
+        */
+        message.reply(`${response.data.choices[0].text}`)
         
     }
 });
