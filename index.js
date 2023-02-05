@@ -93,7 +93,11 @@ client.on('messageCreate', async message => {
             const m = messages[i]
             prompt += `${m.author.username}: ${m.content}\n`
         }
-        prompt = await translate(prompt, {to: 'en'});
+        
+        prompt = await translate(prompt, {to: 'en'}).catch(error => {
+            message.reply("ERR =>  `"+error+"`")
+            return
+        });
         prompt += `${client.user.username}:`
         //console.log("prompt:", prompt)
 
@@ -105,12 +109,15 @@ client.on('messageCreate', async message => {
         })
 
         //console.log("response", response.data.choices[0].text)
-        const Finishm = await translate(response.data.choices[0].text, {to: 'th'});
+        const Finishm = await translate(response.data.choices[0].text, {to: 'th'}).catch(error => {
+            message.reply("ERR =>  `"+error+"`")
+            return
+        });
         //await message.channel.send(Finishm)
 
         const ResponseAnswer = new EmbedBuilder()
             .setColor(15401215)
-            .setAuthor({ name: " :  " + Finishm , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
+            .setAuthor({ name: ` :  ${Finishm}` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
             .setTimestamp()
 
         message.reply({ embeds : [ResponseAnswer] });
