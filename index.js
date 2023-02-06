@@ -107,6 +107,9 @@ client.on('messageCreate', async message => {
                 max_tokens: 256,
                 stop: ["\n"]
             })
+
+            const rawres = response.data.choices[0].text
+            Ans = rawres.replaceAll("ฉัน", "หนู");
     
             /*
             const ResponseAnswer = new EmbedBuilder()
@@ -116,7 +119,7 @@ client.on('messageCreate', async message => {
     
             message.reply({ embeds : [ResponseAnswer] });
             */
-            message.reply(`${response.data.choices[0].text}`)
+            message.reply(`${Ans}`)
         }
         
     }
