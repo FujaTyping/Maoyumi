@@ -109,7 +109,8 @@ client.on('messageCreate', async message => {
             })
 
             const rawres = response.data.choices[0].text
-            Ans = rawres.replaceAll("ฉัน", "หนู");
+            let Ans = rawres.replaceAll("ฉัน", "หนู");
+            Ans = Ans.replaceAll("ครับ", "คะ")
     
             /*
             const ResponseAnswer = new EmbedBuilder()
