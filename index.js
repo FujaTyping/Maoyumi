@@ -61,7 +61,6 @@ client.on("messageCreate", async message => {
 // ---------------------------------------------------------------------
 
 const { OpenAIApi, Configuration } = require("openai")
-const translate = require('translate-google')
 const config = new Configuration({
     apiKey: process.env.OPENAI_KEY
 })
@@ -153,7 +152,8 @@ client.on('guildCreate', guild => {
     .setColor(15401215)
     .setTitle(`ขอบคุณที่เชิญหนูเข้า - Server นี้นะ`)
     .setDescription("สวัสดีทุกคนนะคะหนูชื่อ - Mao\nเป็น ChatBot ที่สร้างจาก FujaTyping และ Miu\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง mao!help เพื่อดูคำสั่งทั้งหมด")
-    .setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1069976864178839632/ezgif-4-83f97196ce.png")
+    //.setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1069976864178839632/ezgif-4-83f97196ce.png")
+    .setThumbnail("https://cdn.discordapp.com/attachments/1071401485239332864/1072106650258898984/00000-4163793642-Anime_girl_cat_purple_smile.png")
     .setTimestamp()
     .setFooter({ text: 'Welcome message from system !'});
 

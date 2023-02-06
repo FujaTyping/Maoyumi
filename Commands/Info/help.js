@@ -21,7 +21,7 @@ module.exports = {
                 { name: 'mao!help', value: 'เป็นการดูคำสั่งทั้งหมดของบอท', inline: true },
                 { name: 'mao!rps', value: 'เป็นการเล่นเกมเป่ายิงชุบกับบอท', inline: true },
             )*/
-            .setThumbnail("https://cdn.discordapp.com/attachments/1024635780360056883/1069968391290503208/00006-3271186202-Anime_girl_cat.png")
+            .setThumbnail("https://cdn.discordapp.com/attachments/1071401485239332864/1072106650258898984/00000-4163793642-Anime_girl_cat_purple_smile.png")
             .setTimestamp()
             .setFooter({ text: 'Bot help - V.0.1 BETA'});
 
