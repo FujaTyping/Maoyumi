@@ -76,42 +76,49 @@ client.on('messageCreate', async message => {
 
         message.channel.sendTyping()
 
-        let messages = Array.from(await message.channel.messages.fetch({
-            limit: PAST_MESSAGES,
-            before: message.id
-        }))
-        messages = messages.map(m=>m[1])
-        messages.unshift(message)
+        if (message.author.id == "881775476841009202") { //Blacklist people
+            
+            message.reply("หนูไม่อยากคุยกับคุณแล้วคะ !")
+            
+        } else {
 
-        let users = [...new Set([...messages.map(m=> m.author.username), client.user.username])]
-
-        let lastUser = users.pop()
-
-        let prompt = `The following is a conversation between ${users.join(", ")}, and ${lastUser}. \n\n`
-
-        for (let i = messages.length - 1; i >= 0; i--) {
-            const m = messages[i]
-            prompt += `${m.author.username}: ${m.content}\n`
+            let messages = Array.from(await message.channel.messages.fetch({
+                limit: PAST_MESSAGES,
+                before: message.id
+            }))
+            messages = messages.map(m=>m[1])
+            messages.unshift(message)
+    
+            let users = [...new Set([...messages.map(m=> m.author.username), client.user.username])]
+    
+            let lastUser = users.pop()
+    
+            let prompt = `The following is a conversation between ${users.join(", ")}, and ${lastUser}. \n\n`
+    
+            for (let i = messages.length - 1; i >= 0; i--) {
+                const m = messages[i]
+                prompt += `${m.author.username}: ${m.content}\n`
+            }
+            //console.log("prompt:", prompt)
+            prompt += `${client.user.username}:`
+    
+            const response = await openai.createCompletion({
+                prompt,
+                model: "text-davinci-003",
+                max_tokens: 256,
+                stop: ["\n"]
+            })
+    
+            /*
+            const ResponseAnswer = new EmbedBuilder()
+            .setColor(15401215)
+            .setAuthor({ name: ` :  ${Finishm}` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
+            .setTimestamp()
+    
+            message.reply({ embeds : [ResponseAnswer] });
+            */
+            message.reply(`${response.data.choices[0].text}`)
         }
-        //console.log("prompt:", prompt)
-        prompt += `${client.user.username}:`
-
-        const response = await openai.createCompletion({
-            prompt,
-            model: "text-davinci-003",
-            max_tokens: 256,
-            stop: ["\n"]
-        })
-
-        /*
-        const ResponseAnswer = new EmbedBuilder()
-        .setColor(15401215)
-        .setAuthor({ name: ` :  ${Finishm}` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
-        .setTimestamp()
-
-        message.reply({ embeds : [ResponseAnswer] });
-        */
-        message.reply(`${response.data.choices[0].text}`)
         
     }
 });
