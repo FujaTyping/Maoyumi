@@ -101,7 +101,7 @@ client.on('messageCreate', async message => {
             //console.log("prompt:", prompt)
             prompt += `${client.user.username}:`
     
-            const Haveerror = false
+            var Haveerror = false
 
             const response = await openai.createCompletion({
                 prompt,
@@ -109,7 +109,7 @@ client.on('messageCreate', async message => {
                 max_tokens: 256,
                 stop: ["\n"]
             }).catch(error => {
-                message.reply("ERROR : ดูเหมือนว่าจะมีอะไรไม่ถูกต้องนะ =>  `"+error+"`  ลองพิมพ์ใหม่ดูสิ :(")
+                message.reply("ดูเหมือนว่าจะมีอะไรไม่ถูกต้องนะ =>  `"+error+"`  ลองพิมพ์ใหม่ดูสิ :(")
                 Haveerror = true
             })
 
@@ -126,7 +126,7 @@ client.on('messageCreate', async message => {
     
             message.reply({ embeds : [ResponseAnswer] });
             */
-           if (Haveerror == true) {
+           if (Haveerror) {
                 message.reply("Something happened !")
            } else {
                 message.reply(`${Ans}`)
