@@ -101,17 +101,23 @@ client.on('messageCreate', async message => {
             //console.log("prompt:", prompt)
             prompt += `${client.user.username}:`
     
+            const Haveerror = false
+
             const response = await openai.createCompletion({
                 prompt,
                 model: "text-davinci-003",
                 max_tokens: 256,
                 stop: ["\n"]
+            }).catch(error => {
+                message.reply("ERROR : ดูเหมือนว่าจะมีอะไรไม่ถูกต้องนะ =>  `"+error+"`  ลองพิมพ์ใหม่ดูสิ :(")
+                Haveerror = true
             })
 
             const rawres = response.data.choices[0].text
             let Ans = rawres.replaceAll("ฉัน", "หนู");
             Ans = Ans.replaceAll("ครับ", "คะ")
-    
+            Ans = Ans.replaceAll("คุณ", "เธอ")
+
             /*
             const ResponseAnswer = new EmbedBuilder()
             .setColor(15401215)
@@ -120,7 +126,12 @@ client.on('messageCreate', async message => {
     
             message.reply({ embeds : [ResponseAnswer] });
             */
-            message.reply(`${Ans}`)
+           if (Haveerror == true) {
+                message.reply("Something happened !")
+           } else {
+                message.reply(`${Ans}`)
+           }
+
         }
         
     }
