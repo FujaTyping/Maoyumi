@@ -77,7 +77,16 @@ client.on('messageCreate', async message => {
 
         if (message.author.id == "881775476841009202") { //Blacklist people
             
-            message.reply("หนูไม่อยากคุยกับคุณแล้วคะ !")
+            const rawBAns = [
+                "หนูไม่อยากคุยกับคุณแล้วคะ !","เสือกไร !","เป็นเหี้ยอะไรมากไหม ?","ออกไปไกลๆ ไป !","เรื่องของมึง !",`<@${message.author.id}> ไปคุยกับ||พ่อ||มึงไป`,
+                `<@${message.author.id}> ไปคุยกับ||แม่||มึงไป`,"อย่ามายุ่งกับหนู !","เสือกๆๆๆ",`F*UCK YOU <@${message.author.id}>`,`<@${message.author.id}> ไอ||ชาติหมา||`,
+                `SH*T`,`ปากดีจังอะเรา <@${message.author.id}>`,"ไอสัส",`<@${message.author.id}> เป็นคนดีมักไม่มีที่ยืน เลยต้องเหี้ยให้กลมกลืนเพื่อให้มีจุดยืนในสังคม`,
+                `ด่าคนอื่นทั้งที เอาดีๆอย่าให้เข้าตัวเอง <@${message.author.id}>`,`ไม่อยากสนิท เดี๋ยวติดเสนียด <@${message.author.id}>`,`รู้แค่เปลือก อย่าเสือกรู้ดี <@${message.author.id}>`,
+                `เรื่องจริงไม่เหมือนฝัน .. เรื่องของฉันไม่ต้องเสือก <@${message.author.id}>`
+            ]
+            const BAns = Math.floor(Math.random() * rawBAns.length);
+
+            message.reply(rawBAns[BAns])
             
         } else {
 
