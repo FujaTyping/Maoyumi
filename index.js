@@ -107,7 +107,7 @@ client.on('messageCreate', async message => {
                 max_tokens: 256,
                 stop: ["\n"]
             }).catch(error => {
-                message.reply("ดูเหมือนว่าจะมีอะไรไม่ถูกต้องนะ =>  `"+error+"`  ลองพิมพ์ใหม่ดูสิ :(")
+                message.reply("=>  `"+error+"`  try again later !")
             })
 
             const rawres = response.data.choices[0].text
@@ -124,7 +124,9 @@ client.on('messageCreate', async message => {
             message.reply({ embeds : [ResponseAnswer] });
             */
             
-            message.reply(`${Ans}`)
+            message.reply(`${Ans}`).catch(error => {
+                message.reply("=>  `"+error+"`  try again later !")
+            })
 
         }
         
