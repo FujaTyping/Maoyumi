@@ -11,7 +11,7 @@ module.exports = {
 
         const RdNb = new EmbedBuilder()
             .setColor(15401215)
-            .setAuthor({ name: `เรามีผู้โชคดี 🎉🎉🎉\nเลขที่ ${NumberRespones}` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
+            .setAuthor({ name: `เรามีผู้โชคดี 🎉🎉🎉\nเลขที่ ${NumberRespones}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
             .setTimestamp()
 
         message.reply({  embeds: [RdNb] })

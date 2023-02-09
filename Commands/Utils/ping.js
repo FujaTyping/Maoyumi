@@ -9,7 +9,7 @@ module.exports = {
     async run (client,message,args) {
         const PingCMD = new EmbedBuilder()
             .setColor(16777215)
-            .setAuthor({ name: "🏓 pong !" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
+            .setAuthor({ name: "🏓 pong !" , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
             .setTimestamp()
 
         message.reply({ embeds : [PingCMD] }).then(async message => {
@@ -18,7 +18,7 @@ module.exports = {
 			let ping_result = `ความล่าช้าของบอท : ${websocket} ms\nความล่าช้าของ API : ${delay} ms`;
             const PingEdit = new EmbedBuilder()
                 .setColor(16777215)
-                .setAuthor({ name: ping_result , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
+                .setAuthor({ name: ping_result , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
                 .setTimestamp()
 
             message.edit({ embeds : [PingEdit] })

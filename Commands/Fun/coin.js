@@ -20,7 +20,7 @@ module.exports = {
 
         const Coinflip = new EmbedBuilder()
             .setColor(16758784)
-            .setAuthor({ name: `เกมโยนเหรียญ - Coinflip` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
+            .setAuthor({ name: `เกมโยนเหรียญ - Coinflip` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
             .setDescription("โยนเหรียญได้ "+"**"+Coindata[CoinAnswer]+"**")
             .setThumbnail(thumimg)
             .setTimestamp()

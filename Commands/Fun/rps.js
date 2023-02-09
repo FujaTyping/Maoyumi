@@ -14,7 +14,7 @@ module.exports = {
         if(!rps.includes(args[0])) {
             const EmbedRps = new EmbedBuilder()
                 .setColor(16745728)
-                .setAuthor({ name: `เกมเป่ายิงชุบ - Rock Paper Scissors` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
+                .setAuthor({ name: `เกมเป่ายิงชุบ - Rock Paper Scissors` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
                 .setDescription("กรุณาพิมพ์คำสั่งให้ถูกต้อง !\nคำสั่ง : mao!rps <rps>\nเช่น : mao!rps rock / mao!rps paper / mao!rps scissors")
                 .setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1069971358269853736/RPS_2.png")
                 .setTimestamp()
@@ -38,7 +38,7 @@ module.exports = {
           if(i === comp_res) {
             const Rpstied = new EmbedBuilder()
                 .setColor(16777215)
-                .setAuthor({ name: `เกมเป่ายิงชุบ - Rock Paper Scissors` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
+                .setAuthor({ name: `เกมเป่ายิงชุบ - Rock Paper Scissors` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
                 .setDescription("โอ้ - แย่จังเสมอกัน !\nเอาใหม่ปะละ >:D")
                 .addFields(
                     { name: `คุณเลือก`, value: `${args[0]}`, inline: true },
@@ -53,7 +53,7 @@ module.exports = {
           if(i > comp_res) {
             const Rpswin = new EmbedBuilder()
                 .setColor(16711680)
-                .setAuthor({ name: `เกมเป่ายิงชุบ - Rock Paper Scissors` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
+                .setAuthor({ name: `เกมเป่ายิงชุบ - Rock Paper Scissors` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
                 .setDescription("เย้ - หนูชนะแล้ว !")
                 .addFields(
                     { name: `คุณเลือก`, value: `${args[0]}`, inline: true },
@@ -68,7 +68,7 @@ module.exports = {
           if(i < comp_res) {
             const Rpslose = new EmbedBuilder()
             .setColor(65300)
-            .setAuthor({ name: `เกมเป่ายิงชุบ - Rock Paper Scissors` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071290286166265856/00006-3271186202-Anime_girl_cat.png'})
+            .setAuthor({ name: `เกมเป่ายิงชุบ - Rock Paper Scissors` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
             .setDescription("ไม่นะ - คุณชนะแล้ว :(")
             .addFields(
                 { name: `คุณเลือก`, value: `${args[0]}`, inline: true },
