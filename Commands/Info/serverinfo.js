@@ -12,9 +12,9 @@ module.exports = {
 
         const Info = new EmbedBuilder()
             .setColor(16777215)
-            .setAuthor({ name: `ข้อมูลเชิฟเวอร์ - Server info` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
+            .setAuthor({ name: "Server info - ข้อมูลเชิฟเวอร์" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
             .setThumbnail(message.guild.iconURL())
-            .setDescription(`ชื่อเชิฟเวอร์ : **${message.guild}** `)
+            .setDescription(`ชื่อเชิฟเวอร์ : **${message.guild}**\nID เชิฟเวอร์ : **${message.guild.id}**\nสร้างเมื่อ : **${message.guild.createdAt.toLocaleString()}**\n`)
             .addFields(
                 { name: 'เจ้าของเชิฟเวอร์', value: `${owner}`, inline: true },
                 { name: 'จำนวนสมาชิกในเชิฟเวอร์นี้', value: `${message.guild.memberCount} คน`, inline: true },
@@ -23,8 +23,7 @@ module.exports = {
                 { name: 'เชิฟเวอร์นี้อยู่ในประเทศ', value: `${message.guild.preferredLocale}`, inline: true },
             )
             .setTimestamp()
-            .setFooter({ text: 'Server info - command'});
 
-        message.channel.send({  embeds: [Info] })
+        message.channel.send({  embeds: [Info] } )
     }
 }
