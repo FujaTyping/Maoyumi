@@ -4,7 +4,7 @@ module.exports = {
     config: {
         name: 'coin',
         description: 'เกมโยนเหรียญ',
-        usage: `m!coin`,
+        usage: `m.coin`,
     },
     async run (client,message,args) {
         const Coindata = [ "หัว","ก้อย" ];

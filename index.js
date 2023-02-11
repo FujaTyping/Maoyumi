@@ -1,6 +1,6 @@
 const {Client, GatewayIntentBits, DiscordAPIError, Message, channelLink, EmbedBuilder, ActivityType, Collection} = require('discord.js');
 const dotenv = require('dotenv')
-const prefix = "m!";
+const prefix = "m.";
 
 console.log(`[WORKER] : Starting`);
 

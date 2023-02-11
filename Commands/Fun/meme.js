@@ -5,7 +5,7 @@ module.exports = {
     config: {
         name: 'meme',
         description: 'หามีม',
-        usage: `m!meme`,
+        usage: `m.meme`,
     },
     async run (client,message,args) {
         const Load = new EmbedBuilder()

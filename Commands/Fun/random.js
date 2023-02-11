@@ -4,7 +4,7 @@ module.exports = {
     config: {
         name: 'random',
         description: 'สุ่มเลข',
-        usage: `m!random`,
+        usage: `m.random`,
     },
     async run (client,message,args) {
         const NumberRespones = Math.floor(Math.random() * 45);

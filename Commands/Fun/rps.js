@@ -6,7 +6,7 @@ module.exports = {
     config: {
         name: 'rps',
         description: 'เกมเป่ายิงชุบ',
-        usage: `m!rps`,
+        usage: `m.rps`,
     },
     async run (client,message,args) {
         let rps = ["scissors", "paper", "rock"];

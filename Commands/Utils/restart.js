@@ -7,7 +7,7 @@ module.exports = {
     config: {
         name: 'restart',
         description: 'restart bot',
-        usage: `m!restart`,
+        usage: `m.restart`,
     },
     async run (client,message,args) {
         if (message.author.id == "729556554491232256") {
