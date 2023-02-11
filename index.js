@@ -163,7 +163,7 @@ console.log('[SERVICE] : Now online at port : 5263 | localhost:5263')
 
 client.on('ready', ()=>{
     console.log(`[API] : Connected ${client.user.tag} successfully !`)
-    client.user.setPresence({ activities: [{ name: `mao!help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
+    client.user.setPresence({ activities: [{ name: `m.help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
     console.log("[WORKER] : Finished")
 })
 
