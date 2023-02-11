@@ -4,7 +4,7 @@ module.exports = {
     config: {
         name: 'serverinfo',
         description: 'Show server info',
-        usage: `mao!serverinfo`,
+        usage: `m!serverinfo`,
     },
     async run (client,message,args) {
         let owner = await message.guild.fetchOwner()

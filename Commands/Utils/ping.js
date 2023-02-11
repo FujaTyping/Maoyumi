@@ -4,7 +4,7 @@ module.exports = {
     config: {
         name: 'ping',
         description: 'Test bot',
-        usage: `mao!ping`,
+        usage: `m!ping`,
     },
     async run (client,message,args) {
         const PingCMD = new EmbedBuilder()

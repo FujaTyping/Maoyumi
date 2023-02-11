@@ -7,7 +7,7 @@ module.exports = {
     config: {
         name: 'timeout',
         description: 'set time out to user',
-        usage: `mao!timeout`,
+        usage: `m!timeout`,
     },
     async run (client,message,args) {
         const person = args[0]

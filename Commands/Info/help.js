@@ -4,7 +4,7 @@ module.exports = {
     config: {
         name: 'help',
         description: 'แสดงคำสั่งทั้งหมดของบอท',
-        usage: `mao!help`,
+        usage: `m!help`,
     },
     async run (client,message,args) {
         
