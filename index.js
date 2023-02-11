@@ -1,6 +1,6 @@
 const {Client, GatewayIntentBits, DiscordAPIError, Message, channelLink, EmbedBuilder, ActivityType, Collection} = require('discord.js');
 const dotenv = require('dotenv')
-const prefix = "mao!";
+const prefix = "m!";
 
 console.log(`[WORKER] : Starting`);
 
@@ -70,7 +70,7 @@ const PAST_MESSAGES = 1
 // Chat Bot
 client.on('messageCreate', async message => {
     //if(message.channelId == "1060184115447599194" || message.channelId == "1061522412715376690" || message.channelId == "1061529756203499571") {
-    if(message.content.includes("แมว") || message.content.includes('<@1060182470630330529>') || message.content.includes('MAO') || message.content.includes('Mao') || message.content.includes("เเมว")) {
+    if(message.content.includes("แมว") || message.content.includes('<@1060182470630330529>') || message.content.includes('MAO') || message.content.includes('Mao') || message.content.includes("เเมว") || message.content.includes("mao")) {
         if(message.author.bot) return;
 
         message.channel.sendTyping()
@@ -86,7 +86,7 @@ client.on('messageCreate', async message => {
             ]
             const BAns = Math.floor(Math.random() * rawBAns.length);
 
-            message.reply(rawBAns[BAns])
+            message.reply(`<:MAO:1073785621748916265>  : `+rawBAns[BAns])
             
         } else {
 
@@ -133,7 +133,7 @@ client.on('messageCreate', async message => {
             message.reply({ embeds : [ResponseAnswer] });
             */
             
-            message.reply(`${Ans}`).catch(error => {
+            message.reply(`<:MAO:1073785621748916265>  : ${Ans}`).catch(error => {
                 message.reply("=>  `"+error+"`  try again later !")
             })
 
