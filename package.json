@@ -1,7 +1,7 @@
 {
-  "name": "catbot",
+  "name": "maobot",
   "version": "1.0.0",
-  "description": "",
+  "description": "a simple chat bot use javascript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "npm": ">8.19.2"
   },
   "keywords": [],
-  "author": "",
+  "author": "FujaTyping",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.7.1",
