@@ -150,7 +150,8 @@ client.on('messageCreate', async message => {
 
         message.channel.sendTyping()
 
-        if (message.author.id == "881775476841009202") { //Blacklist people
+        message.reply("<a:TYPING:1074264222864789565>").then(async message => {
+          if (message.author.id == "881775476841009202") { //Blacklist people
             
             const rawBAns = [
                 "หนูไม่อยากคุยกับคุณแล้วคะ !","เสือกไร !","เป็นเหี้ยอะไรมากไหม ?","ออกไปไกลๆ ไป !","เรื่องของมึง !",`<@${message.author.id}> ไปคุยกับ||พ่อ||มึงไป`,
@@ -161,7 +162,7 @@ client.on('messageCreate', async message => {
             ]
             const BAns = Math.floor(Math.random() * rawBAns.length);
 
-            message.reply(`<:MAO:1073785621748916265>  : `+rawBAns[BAns])
+            message.edit(`<:MAO:1073785621748916265>  : `+rawBAns[BAns])
             
         } else {
 
@@ -191,7 +192,7 @@ client.on('messageCreate', async message => {
                 max_tokens: 256,
                 stop: ["\n"]
             }).catch(error => {
-                message.reply("=>  `"+error+"`  try again later !")
+                message.edit("=>  `"+error+"`  try again later !")
             })
 
             const rawres = response.data.choices[0].text
@@ -209,12 +210,13 @@ client.on('messageCreate', async message => {
             message.reply({ embeds : [ResponseAnswer] });
             */
             
-            message.reply(`<:MAO:1073785621748916265>  : ${Ans}`).catch(error => {
-                message.reply("=>  `"+error+"`  try again later !")
+            message.edit(`<:MAO:1073785621748916265>  : ${Ans}`).catch(error => {
+                message.edit("=>  `"+error+"`  try again later !")
             })
 
         }
-        
+      })
+
     }
 });
 console.log("[CMD] : Loaded ChatBot")
