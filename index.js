@@ -79,7 +79,7 @@ client.distube
     if (channel) channel.send(`=> \`${e.toString().slice(0, 1974)}\` try again later !`)
     else console.error(e)
   })
-  .on('empty', channel => channel.send('ห้องนี้ไม่มีใครอยู่เลย หนูขอออกจากห้องนะคะ...'))
+  .on('empty', channel => channel.send('ห้องนี้ไม่มีใครอยู่เลย หนูขอออกจากห้องนะคะ !'))
   .on('searchNoResult', (message, query) => {
     const NoseaCMD = new EmbedBuilder()
       .setColor(16711680)
@@ -90,7 +90,7 @@ client.distube
     message.channel.send({ embeds : [NoseaCMD] })
   }
   )
-  .on('finish', queue => queue.textChannel.send('เล่นเพลงเสร็จแล้วคะ !'))
+  .on('finish', queue => queue.textChannel.send('เล่นเพลงเสร็จแล้วคะ !\nใช้คำสั่ง `m.stop` เพื่อนำบอทออกจากห้อง'))
 
 console.log(`[CLIENT] : Finish create instance`);
 
