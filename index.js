@@ -1,5 +1,6 @@
 const {Client, GatewayIntentBits, DiscordAPIError, Message, channelLink, EmbedBuilder, ActivityType, Collection} = require('discord.js');
 const dotenv = require('dotenv')
+const { DisTube } = require('distube')
 const prefix = "m.";
 
 console.log(`[WORKER] : Starting`);
@@ -17,6 +18,79 @@ const client = new Client(
         ]
     }
 );
+
+const { SpotifyPlugin } = require('@distube/spotify')
+const { SoundCloudPlugin } = require('@distube/soundcloud')
+const { YtDlpPlugin } = require('@distube/yt-dlp')
+
+// Music
+
+client.distube = new DisTube(client, {
+    leaveOnStop: false,
+    emitNewSongOnly: true,
+    emitAddSongWhenCreatingQueue: false,
+    emitAddListWhenCreatingQueue: false,
+    plugins: [
+      new SpotifyPlugin({
+        emitEventsAfterFetching: true
+      }),
+      new SoundCloudPlugin(),
+      new YtDlpPlugin()
+    ]
+})
+
+const status = queue =>
+  `ระดับเสียง : \`${queue.volume}%\` | วนซ้ำเพลง : \`${
+    queue.repeatMode ? (queue.repeatMode === 2 ? 'คิวเพลงทั้งหมด' : 'เพลงนี้') : 'ปิด'
+  }\``
+client.distube
+  .on('playSong', (queue, song) => {
+    const PlayCMD = new EmbedBuilder()
+      .setColor(14024959)
+      .setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+      .setDescription(`ระยะเวลา : \`${song.formattedDuration}\`\nโดย : ${song.user}`)
+      .setTimestamp()
+
+    queue.textChannel.send({ embeds : [PlayCMD] })
+  }
+  )
+  .on('addSong', (queue, song) => {
+    const AddsongCMD = new EmbedBuilder()
+      .setColor(14024959)
+      .setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+      .setDescription(`เพลงถูกเพิ่มไปยังคิวแล้ว - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
+      .setTimestamp()
+
+    queue.textChannel.send({ embeds : [AddsongCMD] })
+  }
+  )
+  .on('addList', (queue, playlist) => {
+    const AddListCMD = new EmbedBuilder()
+      .setColor(14024959)
+      .setAuthor({ name: `${playlist.name}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+      .setDescription(`เพลย์ลิสถูกเพิ่มไปยังคิวแล้ว ${playlist.songs.length} - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
+      .setTimestamp()
+
+    queue.textChannel.send({ embeds : [AddListCMD] })
+  }
+  )
+  .on('error', (channel, e) => {
+    if (channel) channel.send(`=> \`${e.toString().slice(0, 1974)}\` try again later !`)
+    else console.error(e)
+  })
+  .on('empty', channel => channel.send('ห้องนี้ไม่มีใครอยู่เลย หนูขอออกจากห้องนะคะ...'))
+  .on('searchNoResult', (message, query) => {
+    const NoseaCMD = new EmbedBuilder()
+      .setColor(16711680)
+      .setAuthor({ name: `${query}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+      .setDescription(`หนูไม่พบเพลงนี้ - ลองใส่ชื่อเพลง / ลิงค์ เพลงใหม่ดูสิ !`)
+      .setTimestamp()
+
+    message.channel.send({ embeds : [NoseaCMD] })
+  }
+  )
+  .on('finish', queue => queue.textChannel.send('เล่นเพลงเสร็จแล้วคะ !'))
+
 console.log(`[CLIENT] : Finish create instance`);
 
 console.log('[CLIENT] : Loading commands');
