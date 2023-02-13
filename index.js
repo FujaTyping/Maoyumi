@@ -49,7 +49,7 @@ client.distube
     const PlayCMD = new EmbedBuilder()
       .setColor(14024959)
       .setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
-      .setDescription(`ระยะเวลา : \`${song.formattedDuration}\`\nโดย : ${song.user}`)
+      .setDescription(`เล่นเพลง - โดย : ${song.user}\nระยะเวลา : \`${song.formattedDuration}\``)
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [PlayCMD] })
@@ -69,7 +69,7 @@ client.distube
     const AddListCMD = new EmbedBuilder()
       .setColor(14024959)
       .setAuthor({ name: `${playlist.name}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
-      .setDescription(`เพลย์ลิสถูกเพิ่มไปยังคิวแล้ว ${playlist.songs.length} - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
+      .setDescription(`เพลย์ลิสถูกเพิ่มไปยังคิวแล้ว ทั้งหมด \`${playlist.songs.length}\` เพลง - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [AddListCMD] })
