@@ -162,7 +162,7 @@ client.on('messageCreate', async message => {
             ]
             const BAns = Math.floor(Math.random() * rawBAns.length);
 
-            message.edit(`<:MAO:1073785621748916265>  : `+rawBAns[BAns])
+            message.edit(`<:MAOVALENTINE:1075067014185504920>  : `+rawBAns[BAns])
             
         } else {
 
@@ -210,7 +210,7 @@ client.on('messageCreate', async message => {
             message.reply({ embeds : [ResponseAnswer] });
             */
             
-            message.edit(`<:MAO:1073785621748916265>  : ${Ans}`).catch(error => {
+            message.edit(`<:MAOVALENTINE:1075067014185504920>  : ${Ans}`).catch(error => {
                 message.edit("=>  `"+error+"`  try again later !")
             })
 
