@@ -17,9 +17,9 @@ module.exports = {
                 { name: 'หิว หรือ กิน', value: 'เป็นการใช้ระบบสุ่มอาหาร', inline: true },
                 { name: 'มีม หรือ meme', value: 'เป็นการให้บอทหามีมให้', inline: true },
                 { name: 'สุ่ม หรือ เลข', value: 'เป็นการใช้ระบบสุ่มตัวเลข', inline: true },
-                { name: 'mao!setting', value: 'เป็นการดูตั้งค่าของบอท', inline: true },
-                { name: 'mao!help', value: 'เป็นการดูคำสั่งทั้งหมดของบอท', inline: true },
-                { name: 'mao!rps', value: 'เป็นการเล่นเกมเป่ายิงชุบกับบอท', inline: true },
+                { name: 'm.setting', value: 'เป็นการดูตั้งค่าของบอท', inline: true },
+                { name: 'm.help', value: 'เป็นการดูคำสั่งทั้งหมดของบอท', inline: true },
+                { name: 'm.rps', value: 'เป็นการเล่นเกมเป่ายิงชุบกับบอท', inline: true },
             )*/
             .setThumbnail("https://cdn.discordapp.com/attachments/1071401485239332864/1072106650258898984/00000-4163793642-Anime_girl_cat_purple_smile.png")
             .setTimestamp()
