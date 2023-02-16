@@ -199,7 +199,6 @@ client.on('messageCreate', async message => {
             let Ans = rawres.replaceAll("ฉัน", "หนู");
             Ans = Ans.replaceAll("เรา", "หนู")
             Ans = Ans.replaceAll("ครับ", "คะ")
-            Ans = Ans.replaceAll("คุณ", "เธอ")
 
             /*
             const ResponseAnswer = new EmbedBuilder()
@@ -258,38 +257,6 @@ client.on('guildCreate', guild => {
     guild.systemChannel.send({ embeds: [ServerMessage] })
 });
 console.log("[GUILD] : Loaded JoinServer")
-
-//User userjoin
-client.on('guildMemberAdd', (member)  => { 
-    const channel = member.guild.channels.cache.get('1015645355406278679');
-
-    const JoinMsg = new EmbedBuilder()
-        .setColor(2752256)
-        .setTitle(`ยินดีต้อนรับสมาชิกใหม่ - Welcome`)
-        .setDescription(`ยินดีต้อนรับ <@${member.id}> เข้าสู่ YDev Community !\nYDev Community เป็นสถานที่ที่จะสามารถ Hang out / หาเพื่อน / พูดคุย กันได้\n.....\n- กรุณาอ่านกฏของดีสที่ <#1026828154469355541>\n- อย่างลืมไปเช็คประกาศบ่อยด้วยละ <#1015943699827527710>\n- กิจกรรมก็มีบ่อยๆนะ <#1015943896800448533>`)
-        .setTimestamp()
-        .setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1063643581690155148/UserWelcome.png")
-        .setFooter({ text: 'Welcome message from system !'});
-
-    channel.send({ embeds: [JoinMsg] })
-})
-console.log("[GUILD] : Loaded UserjoinMsg")
-
-//User userleave
-client.on('guildMemberRemove', (member)  => { 
-    const channel = member.guild.channels.cache.get('1015645355406278679');
-
-    const LeaveMsg = new EmbedBuilder()
-        .setColor(16711680)
-        .setTitle(`สมาชิกได้ออกไปแล้ว - Goodbye`)
-        .setDescription(`ลาก่อน <@${member.id}> ได้ออกจาก YDev Community !\nเอาไว้เจอกันใหม่นะครับ Goodluck !`)
-        .setTimestamp()
-        .setImage("https://cdn.discordapp.com/attachments/988037995531759658/1063640374393966592/UserLeave.png")
-        .setFooter({ text: 'Leave message from system !'});
-
-    channel.send({ embeds: [LeaveMsg] })
-})
-console.log("[GUILD] : Loaded UserleaveMsg")
 
 console.log('[API] : Connecting to Discord network');
 client.login(process.env.TOKEN)
