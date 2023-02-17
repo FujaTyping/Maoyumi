@@ -145,7 +145,7 @@ const PAST_MESSAGES = 1
 // Chat Bot
 client.on('messageCreate', async message => {
     //if(message.channelId == "1060184115447599194" || message.channelId == "1061522412715376690" || message.channelId == "1061529756203499571") {
-    if(message.content.includes("แมว") || message.content.includes('<@1060182470630330529>') || message.content.includes('MAO') || message.content.includes('Mao') || message.content.includes("เเมว") || message.content.includes("mao")) {
+    if(message.content.includes("มาว") || message.content.includes('<@1060182470630330529>') || message.content.includes('MAO') || message.content.includes('Mao') || message.content.includes("ม่าว") || message.content.includes("mao")) {
         if(message.author.bot) return;
 
         message.channel.sendTyping()
