@@ -140,7 +140,7 @@ const config = new Configuration({
     apiKey: process.env.OPENAI_KEY
 })
 const openai = new OpenAIApi(config)
-const PAST_MESSAGES = 1
+const PAST_MESSAGES = 2
 
 // Chat Bot
 client.on('messageCreate', async message => {
