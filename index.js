@@ -50,6 +50,7 @@ client.distube
       .setColor(14024959)
       .setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
       .setDescription(`เล่นเพลง - โดย : ${song.user}\nระยะเวลา : \`${song.formattedDuration}\``)
+      .setImage(song.thumbnail)
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [PlayCMD] })
@@ -60,6 +61,7 @@ client.distube
       .setColor(14024959)
       .setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
       .setDescription(`เพลงถูกเพิ่มไปยังคิวแล้ว - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
+      .setThumbnail(song.thumbnail)
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [AddsongCMD] })
@@ -171,7 +173,7 @@ client.on('messageCreate', async message => {
             ]
             const BAns = Math.floor(Math.random() * rawBAns.length);
 
-            message.edit(`<:MAOVALENTINE:1075067014185504920>  : `+rawBAns[BAns])
+            message.edit(`<:MAO:1073785621748916265>  : `+rawBAns[BAns])
             
         } else {
 
@@ -201,7 +203,7 @@ client.on('messageCreate', async message => {
                 max_tokens: 256,
                 stop: ["\n"]
             }).catch(error => {
-                message.edit("=>  `"+error+"`  try again later !")
+                return message.edit("=>  `"+error+"`  try again later !")
             })
 
             const rawres = response.data.choices[0].text
@@ -219,7 +221,7 @@ client.on('messageCreate', async message => {
             message.reply({ embeds : [ResponseAnswer] });
             */
             
-            message.edit(`<:MAOVALENTINE:1075067014185504920>  : ${Ans}`).catch(error => {
+            message.edit(`<:MAO:1073785621748916265>  : ${Ans}`).catch(error => {
                 message.edit("=>  `"+error+"`  try again later !")
             })
 
