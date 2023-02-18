@@ -130,7 +130,16 @@ client.on("messageCreate", async message => {
     if(!cmd.startsWith(prefix)) return;
 
     let commandfile = client.commands.get(cmd.slice(prefix.length));
-    if(commandfile) commandfile.run(client,message,args);
+    if (message.author.id == "881775476841009202") { //Blacklist People
+      const BlackPerms = new EmbedBuilder()
+        .setColor(16711680)
+        .setAuthor({ name: `คุณ ${message.author.username} ไม่มีสิทธ์ใช้งานคำสั่งของหนูนะคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+        .setTimestamp()
+
+      message.reply({  embeds: [BlackPerms] })
+    } else {
+      if(commandfile) commandfile.run(client,message,args);
+    }
 });
 
 // ---------------------------------------------------------------------
