@@ -255,17 +255,7 @@ console.log('[SERVICE] : Now online at port : 5263 | localhost:5263')
 
 client.on('ready', ()=>{
     console.log(`[API] : Connected ${client.user.tag} successfully !`)
-    let ActChange = [
-      `${client.guilds.cache.size} Servers`,
-      `${client.users.cache.size} Members`
-    ]
-    console.log("[WORKER] : Finished")
-    console.log("----------")
-    console.log("[API] : Activities change every 10 sec")
-    setInterval(() => {
-      const ChangeText =  ActChange[Math.floor(Math.random() * ActChange.length)]
-      client.user.setPresence({ activities: [{ name: `m.help | ${ChangeText}` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
-    }, 10000);
+    client.user.setPresence({ activities: [{ name: `m.help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
 })
 
 //Join servermessage
