@@ -237,15 +237,21 @@ client.on('messageCreate', async message => {
 console.log("[CMD] : Loaded ChatBot")
 
 // Web UI
-
+/*
 const express = require('express');
 const app = express();
 const path = require('path');
 
 app.use(express.static(path.join(__dirname, '/Assets')))
-
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/Assets/index.html")
+})
+*/
+
+// Web UI (Simple)
+const app = require('express')();
+app.get("/", (req, res) => {
+    res.send("Online!")
 })
 
 app.listen(5263)
