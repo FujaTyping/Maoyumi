@@ -22,7 +22,7 @@ module.exports = {
                 .setTimestamp()
             if (!queue) return message.channel.send({ embeds : [NoQspngP] })
             const q = queue.songs
-              .map((song, i) => `**${`${i} .**`} ${song.name} - ${song.user}`)
+              .map((song, i) => `**${`${i}#**`} ${song.name} - โดย : ${song.user}`)
               .join('\n')
             const QueueSer = new EmbedBuilder()
               .setColor(14024959)

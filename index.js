@@ -51,7 +51,7 @@ client.distube
       .setURL(`${song.url}`)
       .setColor(14024959)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
-      .setDescription(`เล่นเพลง - โดย : ${song.user}\nระยะเวลา : \`${song.formattedDuration}\``)
+      .setDescription(`กำลังเล่นเพลงในห้อง <#${queue.voiceChannel.id}> - โดย : ${song.user}\nระยะเวลา : \`${song.formattedDuration}\``)
       .setImage(song.thumbnail)
       .setTimestamp()
 

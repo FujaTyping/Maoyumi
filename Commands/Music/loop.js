@@ -34,10 +34,11 @@ module.exports = {
             break
         }
         mode = queue.setRepeatMode(mode)
-        mode = mode ? (mode === 2 ? 'ลูปคิว' : 'ลูปเพลง') : 'ปืด'
+        mode = mode ? (mode === 2 ? 'ทั้งหมดในคิวนี้' : 'เพลงนี้เท่านั้น') : 'ปืด (ปกติ)'
         const ChangeLoop = new EmbedBuilder()
             .setColor(14024959)
-            .setAuthor({ name: `เปลี่ยนลูปเป็น : ${mode}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+            .setAuthor({ name: `ระบบลูป / วนซ้ำ : ${mode}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+            .setDescription("m.loop <song / queue>\n`song` คือ วนซ้ำแค่เพลงนี้เพลงเดียว\n`queue` คือ วนซ้ำทั้งหมดในคิว\nถ้าไม่พิมพ์อะไรต่อท้ายเลยจะเป็นการปิดระบบลูป")
             .setTimestamp()
         message.channel.send({ embeds : [ChangeLoop] })
         }
