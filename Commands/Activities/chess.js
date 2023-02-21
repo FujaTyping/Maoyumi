@@ -20,6 +20,7 @@ module.exports = {
                     .setColor(14024959)
                     .setAuthor({ name: `กิจกรรม Chess in the Park` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
                     .setDescription(`Chess in the Park ถูกใช้ในห้อง : <#${message.member.voice.channel.id}>\n[คลิกที่นี้เพื่อเข้าร่วมกิจกรรมนะคะ !](${invite.code})`)
+                    .setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1077548895753752607/CIP.png")
                     .setTimestamp()
 
                 return message.channel.send({  embeds : [StartACT] });

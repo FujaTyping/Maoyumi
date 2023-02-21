@@ -20,6 +20,7 @@ module.exports = {
                     .setColor(14024959)
                     .setAuthor({ name: `กิจกรรม Letter Tile` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
                     .setDescription(`Letter Tile ถูกใช้ในห้อง : <#${message.member.voice.channel.id}>\n[คลิกที่นี้เพื่อเข้าร่วมกิจกรรมนะคะ !](${invite.code})`)
+                    .setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1077548164627841064/LL.png")
                     .setTimestamp()
 
                 return message.channel.send({  embeds : [StartACT] });
