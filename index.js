@@ -1,6 +1,7 @@
 const {Client, GatewayIntentBits, DiscordAPIError, Message, channelLink, EmbedBuilder, ActivityType, Collection} = require('discord.js');
 const dotenv = require('dotenv')
 const { DisTube } = require('distube')
+const { DiscordTogether } = require('discord-together');
 const prefix = "m.";
 
 console.log(`[WORKER] : Starting`);
@@ -19,6 +20,8 @@ const client = new Client(
         ]
     }
 );
+
+client.discordTogether = new DiscordTogether(client);
 
 const { SpotifyPlugin } = require('@distube/spotify')
 const { SoundCloudPlugin } = require('@distube/soundcloud')
