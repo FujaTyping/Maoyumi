@@ -15,15 +15,12 @@ module.exports = {
     
             return message.channel.send({  embeds : [NotinVC] })
         } else {
-            client.discordTogether.createTogetherCode(message.member.voice.channel.id, 'betrayal').then(async invite => {
-                const StartACT = new EmbedBuilder()
-                    .setColor(14024959)
-                    .setAuthor({ name: `กิจกรรม Betrayal` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
-                    .setDescription(`Betrayal ถูกใช้ในห้อง : <#${message.member.voice.channel.id}>\n[>> คลิกที่นี้เพื่อเข้าร่วมกิจกรรมนะคะ ! <<](${invite.code})`)
-                    .setTimestamp()
-
-                return message.channel.send({  embeds : [StartACT] });
-            });
+            const Closed = new EmbedBuilder()
+                .setColor(16711680)
+                .setAuthor({ name: `คุณ ${message.author.username} เกม Betrayal ถูกปิดใช้งานถาวรแล้วนะคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+                .setTimestamp()
+  
+            return message.channel.send({  embeds : [Closed] })
         }
     }
 }
