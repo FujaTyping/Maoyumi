@@ -204,33 +204,24 @@ client.on('messageCreate', async message => {
             //console.log("prompt:", prompt)
             prompt += `${client.user.username}:`
 
-            const response = await openai.createCompletion({
-                prompt,
-                model: "text-davinci-003",
-                max_tokens: 256,
-                stop: ["\n"]
-            }).catch(error => {
-                return message.edit("=>  `"+error+"`  try again later !")
-            })
+            try {
+                const response = await openai.createCompletion({
+                  prompt,
+                  model: "text-davinci-003",
+                  max_tokens: 256,
+                  stop: ["\n"]
+              })
 
-            const rawres = response.data.choices[0].text
-            let Ans = rawres.replaceAll("ฉัน", "หนู");
-            Ans = Ans.replaceAll("ผม", "หนู")
-            Ans = Ans.replaceAll("เรา", "หนู")
-            Ans = Ans.replaceAll("ครับ", "คะ")
-
-            /*
-            const ResponseAnswer = new EmbedBuilder()
-            .setColor(15401215)
-            .setAuthor({ name: ` :  ${Finishm}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
-            .setTimestamp()
-    
-            message.reply({ embeds : [ResponseAnswer] });
-            */
-            
-            message.edit(`<:MAO:1073785621748916265>  : ${Ans}`).catch(error => {
-                message.edit("=>  `"+error+"`  try again later !")
-            })
+              const rawres = response.data.choices[0].text
+              let Ans = rawres.replaceAll("ฉัน", "หนู");
+              Ans = Ans.replaceAll("เรา", "หนู")
+              Ans = Ans.replaceAll("ครับ", "คะ")
+              Ans = Ans.replaceAll("คุณ", "เธอ")
+              
+              message.edit(`<:MAO:1073785621748916265>  : ${Ans}`)
+            } catch (error) {
+              message.edit("=>  `"+error+"` try again later !")
+            }
 
         }
       })
