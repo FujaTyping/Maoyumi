@@ -88,7 +88,9 @@ client.distube
     if (channel) channel.send(`=> \`${e.toString().slice(0, 1974)}\` try again later !`)
     else console.error(e)
   })
-  .on('empty', channel => channel.send('ห้องนี้ไม่มีใครอยู่เลย หนูขอออกจากห้องนะคะ !'))
+  .on('empty', queue => {
+    queue.textChannel.send(`ห้องนี้ไม่มีใครอยู่เลย หนูขอออกจากห้องนะคะ !`)
+  })
   .on('searchNoResult', (message, query) => {
     const NoseaCMD = new EmbedBuilder()
       .setColor(16711680)
