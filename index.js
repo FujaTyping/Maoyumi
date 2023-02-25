@@ -264,7 +264,7 @@ client.on('ready', ()=>{
 //Join servermessage
 client.on('guildCreate', guild => {
     const ServerMessage = new EmbedBuilder()
-    .setColor(15401215)
+    .setColor(14024959)
     .setTitle(`ขอบคุณที่เชิญหนูเข้า - Server นี้นะ`)
     .setDescription("สวัสดีทุกคนนะคะหนูชื่อ - Mao\nเป็น ChatBot ที่สร้างจาก FujaTyping และ Miu\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง m.help เพื่อดูคำสั่งทั้งหมด")
     //.setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1069976864178839632/ezgif-4-83f97196ce.png")
