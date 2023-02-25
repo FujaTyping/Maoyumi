@@ -130,18 +130,17 @@ for (const folder of commandFolders) {
 }
 
 // Readcommandfile-slash
-
-const Slashfunctions = fs.readdirSync("./Functions").filter(file => file.endsWith(".js"));
+const SlashFunctions = fs.readdirSync("./Functions").filter(file => file.endsWith(".js"));
 const SlasheventFiles = fs.readdirSync("./Events").filter(file => file.endsWith(".js"));
 const SlashcommandFolders = fs.readdirSync("./SlashCommands");
 
 (async () => {
-    for (file of Slashfunctions) {
+    for (file of SlashFunctions) {
         require(`./Functions/${file}`)(client);
     }
     client.handleEvents(SlasheventFiles, "./Events");
     client.handleCommands(SlashcommandFolders, "./SlashCommands");
-});
+})();
 
 console.log(`[FS] : Successfully loaded ${FolderCount} folders`);
 console.log(`[FS] : Successfully loaded ${CommandCount} commands`);

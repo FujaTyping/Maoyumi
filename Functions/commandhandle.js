@@ -6,7 +6,7 @@ const fs = require('fs');
 dotenv.config();
 
 const clientId = process.env.CLIENT_ID ; 
-const token = process.env.TOKEN
+const token = process.env.TOKEN ;
 const guildId = "0" ; 
 
 module.exports = (client) => {
