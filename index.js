@@ -141,7 +141,7 @@ const SlashcommandFolders = fs.readdirSync("./SlashCommands");
     }
     client.handleEvents(SlasheventFiles, "./Events");
     client.handleCommands(SlashcommandFolders, "./SlashCommands");
-})();
+});
 
 console.log(`[FS] : Successfully loaded ${FolderCount} folders`);
 console.log(`[FS] : Successfully loaded ${CommandCount} commands`);
