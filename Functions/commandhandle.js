@@ -6,6 +6,7 @@ const fs = require('fs');
 dotenv.config();
 
 const clientId = process.env.CLIENT_ID ; 
+const token = process.env.TOKEN
 const guildId = "0" ; 
 
 module.exports = (client) => {
@@ -22,7 +23,7 @@ module.exports = (client) => {
 
         const rest = new REST({
             version: '9'
-        }).setToken(process.env.TOKEN);
+        }).setToken(token);
 
         (async () => {
             try {
@@ -38,6 +39,6 @@ module.exports = (client) => {
             } catch (error) {
                 console.error(error);
             }
-        })();
+        });
     };
 };
