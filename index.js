@@ -113,6 +113,7 @@ let CommandCount = 0;
 let FolderCount = 0;
 
 client.commands = new Collection();
+client.slashcommands = new Collection();
 
 const commandFolders = fs.readdirSync(`./Commands/`)
 
@@ -164,7 +165,11 @@ client.on("messageCreate", async message => {
 
       message.reply({  embeds: [BlackPerms] })
     } else {
-      if(commandfile) commandfile.run(client,message,args);
+      try {
+        commandfile.run(client,message,args)
+      } catch (error) {
+        message.reply("=>  `"+error+"` try again later !")
+      }
     }
 });
 
