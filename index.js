@@ -106,7 +106,8 @@ client.distube
 console.log(`[CLIENT] : Finish create instance`);
 
 console.log('[CLIENT] : Loading commands');
-// Readcommandfile
+
+// Readcommandfile-nonslash
 const fs = require("fs");
 let CommandCount = 0;
 let FolderCount = 0;
@@ -127,6 +128,21 @@ for (const folder of commandFolders) {
     }
 
 }
+
+// Readcommandfile-slash
+
+const Slashfunctions = fs.readdirSync("./Functions").filter(file => file.endsWith(".js"));
+const SlasheventFiles = fs.readdirSync("./Events").filter(file => file.endsWith(".js"));
+const SlashcommandFolders = fs.readdirSync("./SlashCommands");
+
+(async () => {
+    for (file of Slashfunctions) {
+        require(`./Functions/${file}`)(client);
+    }
+    client.handleEvents(SlasheventFiles, "./Events");
+    client.handleCommands(SlashcommandFolders, "./SlashCommands");
+})();
+
 console.log(`[FS] : Successfully loaded ${FolderCount} folders`);
 console.log(`[FS] : Successfully loaded ${CommandCount} commands`);
 
@@ -207,7 +223,7 @@ client.on('messageCreate', async message => {
             prompt += `${client.user.username}:`
 
             try {
-                const response = await openai.createCompletion({
+              const response = await openai.createCompletion({
                   prompt,
                   model: "text-davinci-003",
                   max_tokens: 256,
