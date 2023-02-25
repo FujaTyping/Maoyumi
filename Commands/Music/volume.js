@@ -23,7 +23,6 @@ module.exports = {
                 .setTimestamp()
 
             message.channel.send({ embeds : [HTvol] })
-            client.distube.voices.leave(message)
           }
     }
 }
