@@ -165,6 +165,15 @@ console.log(`[FS] : Successfully loaded ${SlashCommandCount} [/] commands`);
 
 // ---------------------------------------------------------------------
 
+const cooldown = new Set();
+
+function addToCooldown(ID) {
+  cooldown.add(ID);
+  setTimeout(() => {
+      cooldown.delete(ID);
+  }, 3000 /* 5 seconds */);
+}
+
 client.on("messageCreate", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
@@ -184,11 +193,16 @@ client.on("messageCreate", async message => {
 
       message.reply({  embeds: [BlackPerms] })
     } else {
-      try {
-        commandfile.run(client,message,args)
-      } catch (error) {
-        message.reply("=>  `"+error+"` try again later !")
-      }
+      if (cooldown.has(message.author.id)) {
+        message.reply(`⏰  ใจเย็นก่อน คุณ <@${message.author.id}> ใช้คำสั่งเร็วเกินไปแล้ว !\nกรุณารอ \`3\` วินาที เพื่อใช้คำสั่งอีกครั้ง`)
+     } else {
+        try {
+          commandfile.run(client,message,args)
+          addToCooldown(message.author.id);
+        } catch (error) {
+          message.reply("```diff\n- "+error+" try again later !\n```")
+        }
+     }
     }
 });
 
@@ -261,7 +275,7 @@ client.on('messageCreate', async message => {
               
               message.edit(`<:MAO:1073785621748916265>  : ${Ans}`)
             } catch (error) {
-              message.edit("=>  `"+error+"` try again later !")
+              message.edit("```diff\n- "+error+" try again later !\n```")
             }
 
         }
