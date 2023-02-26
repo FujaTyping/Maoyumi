@@ -85,7 +85,7 @@ client.distube
   }
   )
   .on('error', (channel, e) => {
-    if (channel) channel.send(`=> \`${e.toString().slice(0, 1974)}\` try again later !`)
+    if (channel) channel.send("```diff\n"+`- ${e.toString().slice(0, 1974)}`+" try again later !\n```")
     else console.error(e)
   })
   .on('empty', queue => {

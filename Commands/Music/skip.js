@@ -29,7 +29,7 @@ module.exports = {
             .setTimestamp()
         message.channel.send({ embeds : [SongSkip] })
         } catch (e) {
-        message.channel.send(`=> \`${e}\` try again later!`)
+        message.channel.send("```diff\n"+`- ${e}`+" try again later !\n```")
         }
         }
     }
