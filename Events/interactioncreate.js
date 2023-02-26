@@ -12,7 +12,7 @@ module.exports = {
         } catch (error) {
             //console.log(error);
             await interaction.reply({
-                content: '=>  `There was an error while executing this command !`', 
+                content: "```diff\n- There was an error while executing this command try again later !\n```", 
                 ephemeral: true
             });
         } 

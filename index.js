@@ -188,13 +188,13 @@ client.on("messageCreate", async message => {
     if (message.author.id == "881775476841009202") { //Blacklist People
       const BlackPerms = new EmbedBuilder()
         .setColor(16711680)
-        .setAuthor({ name: `คุณ ${message.author.username} ไม่มีสิทธ์ใช้งานคำสั่งของหนูนะคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+        .setAuthor({ name: `คุณ ${message.author.username} ไม่มีสิทธ์ใช้งานคำสั่งของหนูนะคะ !\n(Banned by the owner)` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
         .setTimestamp()
 
       message.reply({  embeds: [BlackPerms] })
     } else {
       if (cooldown.has(message.author.id)) {
-        message.reply(`⏰  ใจเย็นก่อน คุณ <@${message.author.id}> ใช้คำสั่งเร็วเกินไปแล้ว !\nกรุณารอ \`3\` วินาที เพื่อใช้คำสั่งอีกครั้ง`)
+        message.reply(`⏰  ใจเย็นก่อน คุณ <@${message.author.id}> ใช้คำสั่งเร็วเกินไปแล้ว !\nกรุณารอ \`3 วินาที\` เพื่อใช้คำสั่งอีกครั้ง`)
      } else {
         try {
           commandfile.run(client,message,args)
