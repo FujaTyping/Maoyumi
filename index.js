@@ -131,6 +131,9 @@ for (const folder of commandFolders) {
 }
 
 // Readcommandfile-slash
+let SlashCommandCount = 0;
+let SlashCommandFolderCount = 0;
+
 const SlashFunctions = fs.readdirSync("./Functions").filter(file => file.endsWith(".js"));
 const SlasheventFiles = fs.readdirSync("./Events").filter(file => file.endsWith(".js"));
 const SlashcommandFolders = fs.readdirSync("./SlashCommands");
@@ -143,8 +146,24 @@ const SlashcommandFolders = fs.readdirSync("./SlashCommands");
     client.handleCommands(SlashcommandFolders, "./SlashCommands");
 })();
 
+for (const folder of SlashcommandFolders) {
+    const SlashcommandFiles = fs.readdirSync(`./SlashCommands/${folder}`).filter(file => file.endsWith('.js'));
+    SlashCommandFolderCount=SlashCommandFolderCount+1;
+
+    for (const file of SlashcommandFiles) {
+        const props = require(`./SlashCommands/${folder}/${file}`);
+        //console.log(`[FS] : Loaded ${file}`)
+        SlashCommandCount=SlashCommandCount+1;
+    }
+
+}
+
 console.log(`[FS] : Successfully loaded ${FolderCount} folders`);
 console.log(`[FS] : Successfully loaded ${CommandCount} commands`);
+console.log(`[FS] : Successfully loaded ${SlashCommandFolderCount} [/] folders`);
+console.log(`[FS] : Successfully loaded ${SlashCommandCount} [/] commands`);
+
+// ---------------------------------------------------------------------
 
 client.on("messageCreate", async message => {
     if(message.author.bot) return;
