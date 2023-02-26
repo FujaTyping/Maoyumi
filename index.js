@@ -194,7 +194,7 @@ client.on("messageCreate", async message => {
       message.reply({  embeds: [BlackPerms] })
     } else {
       if (cooldown.has(message.author.id)) {
-        message.reply(`⏰  ใจเย็นก่อน คุณ <@${message.author.id}> ใช้คำสั่งเร็วเกินไปแล้ว !\nกรุณารอ \`3 วินาที\` เพื่อใช้คำสั่งอีกครั้ง`)
+        message.reply(`⏰ คุณ <@${message.author.id}> ใช้คำสั่งเร็วเกินไป !\nกรุณารอ \`3 วินาที\` เพื่อใช้คำสั่งอีกครั้ง`)
      } else {
         try {
           commandfile.run(client,message,args)
