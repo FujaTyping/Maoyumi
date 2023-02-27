@@ -3,7 +3,7 @@ const { SlashCommandBuilder,EmbedBuilder } = require(`@discordjs/builders`)
 module.exports = {
     data: new SlashCommandBuilder()
     .setName("botping")
-    .setDescription("ดูความล่าช้าของบอท | ตรวจสอบการตอบสนองของบอท"),
+    .setDescription("ดูการตอบสนองของบอท"),
     async execute(interaction, client) {
         const PingCMD = new EmbedBuilder()
         .setColor(16777215)

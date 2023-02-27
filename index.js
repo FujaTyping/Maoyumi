@@ -171,7 +171,7 @@ function addToCooldown(ID) {
   cooldown.add(ID);
   setTimeout(() => {
       cooldown.delete(ID);
-  }, 3000 /* 5 seconds */);
+  }, 3000 /* 3 seconds */);
 }
 
 client.on("messageCreate", async message => {

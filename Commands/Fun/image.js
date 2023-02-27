@@ -1,4 +1,4 @@
-const {EmbedBuilder} = require('discord.js');
+const {EmbedBuilder,ActionRowBuilder,ButtonBuilder,ButtonStyle,Events} = require('discord.js');
 
 module.exports = {
     config: {
@@ -7,23 +7,20 @@ module.exports = {
         usage: `m.image`,
     },
     async run (client,message,args) {
-        const seed = Math.floor(Math.random() * 1000);
-        const hight = Math.floor(Math.random() * 400) + 100;
-        const wight = Math.floor(Math.random() * 400) + 100;
-        const Msgname = message.author.username
+        const slashBT = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                    .setLabel('View docs')
+                    .setURL('https://bit.ly/DocsMAO')
+                    .setStyle(ButtonStyle.Link),
+        );
 
-        const Load = new EmbedBuilder()
-            .setColor(14024959)
-            .setAuthor({ name: `รอแปปหนึงนะคะ กำลังหารูปให้ ${Msgname} 🔎` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+        const Wanmove = new EmbedBuilder()
+        .setColor(16777215)
+        .setAuthor({ name: "คำสั่งนี้ถูกย้ายเป็น Slash command เรียบร้อยแล้ว !" , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+        .setDescription('ลองใช้คำสั่ง `/imagine` แทนดูสิ')
+        .setTimestamp()
 
-        message.reply({  embeds: [Load] }).then(message => {
-            const SendImg = new EmbedBuilder()
-            .setColor(14024959)
-            .setAuthor({ name: `รูปนี้ก็สวยดีนะคะ ${Msgname} !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
-            .setImage(`https://picsum.photos/seed/${seed}/${hight}/${wight}`)
-            .setTimestamp()
-
-            message.edit({ embeds : [SendImg] })
-        })
+        message.reply({ embeds : [Wanmove] , components: [slashBT]})
     }
 }
