@@ -2,7 +2,7 @@ const { SlashCommandBuilder,EmbedBuilder } = require(`@discordjs/builders`)
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName("botinvite")
+    .setName("invite")
     .setDescription("เชิญบอทเข้าเชิฟเวอร์ของคุณ"),
     async execute(interaction, client) {
         const PingCMD = new EmbedBuilder()

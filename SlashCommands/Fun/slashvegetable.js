@@ -3,7 +3,7 @@ const { SlashCommandBuilder,EmbedBuilder } = require(`@discordjs/builders`)
 module.exports = {
     data: new SlashCommandBuilder()
     .setName("vegetable")
-    .setDescription("เก็บผักทำไม ?"),
+    .setDescription("เก็บผักหาเงิน"),
     async execute(interaction, client) {
         const veget = [
             "🍅","🍆","🌽","🌶","🍄","🥑","🥒","🥬","🥦","🥔","🧄","🧅","🥕"

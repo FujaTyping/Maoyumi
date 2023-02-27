@@ -271,7 +271,6 @@ client.on('messageCreate', async message => {
               let Ans = rawres.replaceAll("ฉัน", "หนู");
               Ans = Ans.replaceAll("เรา", "หนู")
               Ans = Ans.replaceAll("ครับ", "คะ")
-              Ans = Ans.replaceAll("คุณ", "เธอ")
               
               message.edit(`<:MAO:1073785621748916265>  : ${Ans}`)
             } catch (error) {
