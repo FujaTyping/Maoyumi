@@ -20,7 +20,7 @@ module.exports = {
         if (!command) return
         
         const ListbanID = client.config.banID
-        if (message.author.id == ListbanID){ //Blacklist People
+        if (interaction.user.id == ListbanID){ //Blacklist People
             const BlackPerms = new EmbedBuilder()
               .setColor(16711680)
               .setAuthor({ name: `คุณ ${interaction.user.username} ไม่มีสิทธ์ใช้งาน Slash commands ของหนูนะคะ !\n(Banned by the owner)` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
