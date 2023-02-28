@@ -29,7 +29,7 @@ module.exports = {
           } else {
             if (cooldown.has(interaction.user.id)) {
                 interaction.reply(`⏰ คุณ <@${interaction.user.id}> ใช้คำสั่งเร็วเกินไป !\nกรุณารอ \`5 วินาที\` เพื่อใช้ Slash commands อีกครั้ง`)
-           } else {
+            } else {
                 try{
                     await command.execute(interaction, client);
                     addToCooldown(interaction.user.id);
@@ -37,7 +37,7 @@ module.exports = {
                     //console.log(error);
                     await interaction.reply("```diff\n- There was an error while executing this command try again later !\n```");
                 } 
-           }
+            }
         }
 
     },
