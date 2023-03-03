@@ -57,6 +57,11 @@ module.exports = {
                 await interaction.editReply({ embeds : [SendImg] });
                 addToCooldown(interaction.user.id);
             } catch (error) {
+                const Err = new EmbedBuilder()
+                    .setColor(16711680)
+                    .setAuthor({ name: `❌ Error` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+                    .setTimestamp()
+                await interaction.editReply({ embeds : [Err] });
                 await interaction.followUp({ content: "```diff\n- "+`${error}`+" try again later !\n```", ephemeral: true });
             }
         }
