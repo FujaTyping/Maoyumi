@@ -2,6 +2,8 @@ const {Client, WebhookClient , GatewayIntentBits, DiscordAPIError, Message, chan
 const dotenv = require('dotenv')
 const { DisTube } = require('distube')
 const { DiscordTogether } = require('discord-together');
+const wait = require('node:timers/promises').setTimeout;
+const term = require( 'terminal-kit' ).terminal ;
 
 console.log(`[WORKER] : Starting`);
 
@@ -332,10 +334,22 @@ app.listen(5263)
 console.log("----------")
 console.log('[SERVICE] : Now online at port : 5263 | localhost:5263')
 
-client.on('ready', ()=>{
+client.on('ready', async ()=>{
     console.log(`[API] : Connected ${client.user.tag} successfully !`)
     client.user.setPresence({ activities: [{ name: `${prefix}help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
     console.log("[WORKER] : Finished")
+    await wait(3000)
+    await clearevery()
+    term.table( [
+      [ 'MAO#5263' , 'Status : Online' ] ,
+      ] , {
+        borderChars: 'lightRounded' ,
+        borderAttr: { color: 'magenta' } ,
+        width: 60 ,
+        fit: true
+      }
+    ) ;
+    console.log("[Console] : Log now clear")
 })
 
 //Join servermessage
@@ -352,6 +366,10 @@ client.on('guildCreate', guild => {
     guild.systemChannel.send({ embeds: [ServerMessage] })
 });
 console.log("[GUILD] : Loaded JoinServer")
+
+function clearevery() {
+  console.clear()
+}
 
 console.log('[API] : Connecting to Discord network');
 client.login(process.env.TOKEN)
