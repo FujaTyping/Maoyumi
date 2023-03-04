@@ -15,13 +15,13 @@ module.exports = {
     
             return message.channel.send({  embeds : [NotinVC] })
         } else {
-            const ConLeave = new EmbedBuilder()
-                .setColor(14024959)
-                .setAuthor({ name: `ออกจากห้องแล้วคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+            const DisableMusic = new EmbedBuilder()
+                .setColor(16711680)
+                .setAuthor({ name: `ปิดใช้งานระบบเล่นเพลงถาวรแล้ว !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+                .setDescription('ถูกปิดใช้งานเนื่องจากขัดต่อข้อกำหนดในการให้บริการของ Discord (ToS)\nในอนาคตอาจจะเปิดให้ใช้งานได้แค่ Spotify กับ Soundcloud เท่านั้น')
                 .setTimestamp()
 
-            message.channel.send({ embeds : [ConLeave] })
-            client.distube.voices.leave(message)
+            return message.channel.send({  embeds : [DisableMusic] })
         }
     }
 }

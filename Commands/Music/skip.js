@@ -15,22 +15,13 @@ module.exports = {
     
             return message.channel.send({  embeds : [NotinVC] })
         } else {
-        const queue = client.distube.getQueue(message)
-        const NoQspngP = new EmbedBuilder()
-            .setColor(16711680)
-            .setAuthor({ name: `ไม่มีคิวเพลงที่เล่นอยู่ขณะนี้นะตะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
-            .setTimestamp()
-        if (!queue) return message.channel.send({ embeds : [NoQspngP] })
-        try {
-        const song = await queue.skip()
-        const SongSkip = new EmbedBuilder()
-            .setColor(14024959)
-            .setAuthor({ name: `ข้ามเพลงเรียบร้อยแล้วคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
-            .setTimestamp()
-        message.channel.send({ embeds : [SongSkip] })
-        } catch (e) {
-        message.channel.send("```diff\n"+`- ${e}`+" try again later !\n```")
-        }
+            const DisableMusic = new EmbedBuilder()
+                .setColor(16711680)
+                .setAuthor({ name: `ปิดใช้งานระบบเล่นเพลงถาวรแล้ว !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+                .setDescription('ถูกปิดใช้งานเนื่องจากขัดต่อข้อกำหนดในการให้บริการของ Discord (ToS)\nในอนาคตอาจจะเปิดให้ใช้งานได้แค่ Spotify กับ Soundcloud เท่านั้น')
+                .setTimestamp()
+
+            return message.channel.send({  embeds : [DisableMusic] })
         }
     }
 }
