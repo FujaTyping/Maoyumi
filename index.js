@@ -77,6 +77,7 @@ client.distube
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
       .setDescription(`กำลังเล่นเพลงในห้อง <#${queue.voiceChannel.id}> - โดย : ${song.user}\nระยะเวลา : \`${song.formattedDuration}\``)
       .setImage(song.thumbnail)
+      .setFooter({ text: '⚠ ตอนนี้ระบบเล่นเพลงมีปัญหาอยู่ เกิดจาก : discord.js | v.14.7.2-dev.1677888622-dc142c4.0'})
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [PlayCMD] })
@@ -90,6 +91,7 @@ client.distube
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
       .setDescription(`เพลงถูกเพิ่มไปยังคิวแล้ว - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
       .setThumbnail(song.thumbnail)
+      .setFooter({ text: '⚠ ตอนนี้ระบบเล่นเพลงมีปัญหาอยู่ เกิดจาก : discord.js | v.14.7.2-dev.1677888622-dc142c4.0'})
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [AddsongCMD] })
@@ -100,6 +102,7 @@ client.distube
       .setColor(14024959)
       .setAuthor({ name: `${playlist.name}` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
       .setDescription(`เพลย์ลิสถูกเพิ่มไปยังคิวแล้ว ทั้งหมด \`${playlist.songs.length}\` เพลง - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
+      .setFooter({ text: '⚠ ตอนนี้ระบบเล่นเพลงมีปัญหาอยู่ เกิดจาก : discord.js | v.14.7.2-dev.1677888622-dc142c4.0'})
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [AddListCMD] })
