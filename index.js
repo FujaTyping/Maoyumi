@@ -1,4 +1,4 @@
-const {Client, GatewayIntentBits, DiscordAPIError, Message, channelLink, EmbedBuilder, ActivityType, Collection} = require('discord.js');
+const {Client, WebhookClient , GatewayIntentBits, DiscordAPIError, Message, channelLink, EmbedBuilder, ActivityType, Collection} = require('discord.js');
 const dotenv = require('dotenv')
 const { DisTube } = require('distube')
 const { DiscordTogether } = require('discord-together');
@@ -21,6 +21,22 @@ const client = new Client(
 );
 
 client.config = require("./config.json")
+
+const webhookClient = new WebhookClient({ url: client.config.webhook });
+
+client.on("debug", ( e ) => {
+  const Debugembed = new EmbedBuilder()
+    .setAuthor({ name: `MAO Debug` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+    .setDescription(`${e}`)
+    .setColor(657930);
+
+  webhookClient.send({
+    content: null,
+    embeds: [Debugembed]
+  });
+  //console.log(e)
+});
+
 const prefix = client.config.prefix
 
 client.discordTogether = new DiscordTogether(client);

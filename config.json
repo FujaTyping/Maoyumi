@@ -1,4 +1,5 @@
 {
     "prefix": "m.",
-    "banID": ["881775476841009202"]
+    "banID": ["881775476841009202"],
+    "webhook": "https://discord.com/api/webhooks/1081447386842415205/Is3XKT4LFsDlAllshXJoODYMVyu74Jwb7vMkpW7INFwSa1A5aykur_Do5Y4HVC7dMY2L"
 }
