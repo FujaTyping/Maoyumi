@@ -22,7 +22,9 @@ const client = new Client(
 
 client.config = require("./config.json")
 
+/*
 const webhookClient = new WebhookClient({ url: client.config.webhook });
+console.log(`[CLIENT] : Debug mode is ON`);
 
 client.on("debug", ( e ) => {
   const Debugembed = new EmbedBuilder()
@@ -36,6 +38,7 @@ client.on("debug", ( e ) => {
   });
   //console.log(e)
 });
+*/
 
 const prefix = client.config.prefix
 
