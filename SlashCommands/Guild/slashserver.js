@@ -1,4 +1,4 @@
-const { SlashCommandBuilder,EmbedBuilder } = require(`@discordjs/builders`)
+const { SlashCommandBuilder,EmbedBuilder,PermissionsBitField } = require(`discord.js`);
 const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
@@ -9,6 +9,22 @@ module.exports = {
 		subcommand
 			.setName('info')
 			.setDescription('ดูข้อมูลเชิฟเวอร์')
+    )
+    .addSubcommand(subcommand =>
+		subcommand
+			.setName('timeout')
+			.setDescription('หมดเวลาคนในเชิฟเวอร์')
+            .addUserOption(option => 
+                option.setName('target')
+                    .setDescription('เลือกคนที่ต้องการหมดเวลา')
+                    .setRequired(true))
+            .addNumberOption(option =>
+                option.setName('duration')
+                    .setDescription('ระบุระยะเวลาที่ต้องการหมเดเวลา (นาที)')
+                    .setRequired(true))
+            .addStringOption(option =>
+                option.setName('reason')
+                    .setDescription('ระบุเหตุผลการหมดเวลา'))
     ),
     async execute(interaction, client) {
         const CmdChoics = interaction.options.getSubcommand()
@@ -31,7 +47,48 @@ module.exports = {
                 )
                 .setTimestamp()
     
-            await interaction.reply({  embeds: [Info] } )
+            await interaction.reply({  embeds: [Info] })
+        } else if (CmdChoics == "timeout") {
+
+            if (interaction.member.permissions.has([PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers])) {
+                const guild = interaction.guild
+                const userTarget = interaction.options.getUser('target')
+                const duration = interaction.options.getNumber('duration')
+                const reason = interaction.options.getString('reason') ?? 'ไม่ระบุเหตผล'
+                //const realUser = userTarget.member
+                const InguildUser = await guild.members.fetch(userTarget)
+                const realTime = duration * 60000
+    
+                if (duration <= "0" ) {
+                    const Timelimut = new EmbedBuilder()
+                        .setColor(16711680)
+                        .setAuthor({ name: "กรุณาระบุตัวเลขที่ มากกว่า 0 คะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+                        .setTimestamp()
+                    
+                    await interaction.reply({  embeds: [Timelimut] })
+                } else {
+                    const TimeputCmD = new EmbedBuilder()
+                        .setColor(1703715)
+                        .setAuthor({ name: "Timeout เรียบร้อยแล้วคะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+                        .setDescription(`คุณ ${userTarget} ถูก Timeout โดย ${interaction.user.username}`)
+                        .setThumbnail(InguildUser.user.avatarURL())
+                        .addFields(
+                            { name: 'ระยะเวลา', value: `${duration} นาที`, inline: true },
+                            { name: 'เหตุผล', value: `${reason}`, inline: true },
+                        )
+                        .setTimestamp()
+                    
+                    await InguildUser.timeout(realTime,reason)
+                    await interaction.reply({  embeds: [TimeputCmD] })
+                }
+            } else {
+                const ReqPrems = new EmbedBuilder()
+                    .setColor(16711680)
+                    .setAuthor({ name: `คุณ ${interaction.user.username} ไม่มีสิทธิ Timeout คนอื่นนะคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+                    .setTimestamp()
+                
+                await interaction.reply({  embeds: [ReqPrems] })
+            }
         }
     }
 }
