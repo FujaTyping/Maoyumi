@@ -68,7 +68,7 @@ module.exports = {
                     await interaction.reply({  embeds: [Timelimut] })
                 } else {
                     const TimeputCmD = new EmbedBuilder()
-                        .setColor(1703715)
+                        .setColor(14024959)
                         .setAuthor({ name: "Timeout เรียบร้อยแล้วคะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
                         .setDescription(`คุณ ${userTarget} ถูก Timeout โดย ${interaction.user.username}`)
                         .setThumbnail(InguildUser.user.avatarURL())
