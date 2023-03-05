@@ -7,23 +7,21 @@ module.exports = {
         usage: `m.serverinfo`,
     },
     async run (client,message,args) {
-        let owner = await message.guild.fetchOwner()
-        // console.log(owner)
+        const slashBT = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                    .setLabel('View docs')
+                    .setURL('https://bit.ly/DocsMAO')
+                    .setStyle(ButtonStyle.Link),
+        );
 
-        const Info = new EmbedBuilder()
-            .setColor(16777215)
-            .setAuthor({ name: "Server info - ข้อมูลเชิฟเวอร์" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
-            .setThumbnail(message.guild.iconURL())
-            .setDescription(`ชื่อเชิฟเวอร์ : **${message.guild}**\nID เชิฟเวอร์ : **${message.guild.id}**\nสร้างเมื่อ : **${message.guild.createdAt.toLocaleString()}**\n`)
-            .addFields(
-                { name: 'เจ้าของเชิฟเวอร์', value: `${owner}`, inline: true },
-                { name: 'จำนวนสมาชิกในเชิฟเวอร์นี้', value: `${message.guild.memberCount} คน`, inline: true },
-                { name: 'จำนวน Emoji ในเชิฟเวอร์นี้', value:  `${message.guild.emojis.cache.size} อัน`, inline: true },
-                { name: 'จำนวนบทบาทในเชิฟเวอร์นี้', value: `${message.guild.roles.cache.size} บทบาท`, inline: true },
-                { name: 'เชิฟเวอร์นี้อยู่ในประเทศ', value: `${message.guild.preferredLocale}`, inline: true },
-            )
-            .setTimestamp()
+        const Wanmove = new EmbedBuilder()
+        .setColor(16777215)
+        .setAuthor({ name: "คำสั่งนี้ถูกย้ายเป็น Slash command เรียบร้อยแล้ว !" , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+        .setDescription('ลองใช้คำสั่ง `/server info` แทนดูสิ')
+        .setFooter({ text: '⚠ หากไม่สารถใช้ Slash command ได้ กรุณาเชิญบอทใหม่ !'})
+        .setTimestamp()
 
-        message.channel.send({  embeds: [Info] } )
+        message.reply({ embeds : [Wanmove] , components: [slashBT]})
     }
 }
