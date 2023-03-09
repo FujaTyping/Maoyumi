@@ -10,14 +10,14 @@ module.exports = {
         if (!message.member.voice.channel) {
           const NotinVC = new EmbedBuilder()
             .setColor(16711680)
-            .setAuthor({ name: `กรุณาเข้าห้องก่อนจะเล่นเพลงนะคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+            .setAuthor({ name: `กรุณาเข้าห้องก่อนจะเล่นเพลงนะคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
             .setTimestamp()
 
           return message.channel.send({  embeds : [NotinVC] })
         } else {
           const DisableMusic = new EmbedBuilder()
             .setColor(16711680)
-            .setAuthor({ name: `ปิดใช้งานระบบเล่นเพลงถาวรแล้ว !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+            .setAuthor({ name: `ปิดใช้งานระบบเล่นเพลงถาวรแล้ว !` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
             .setDescription('ถูกปิดใช้งานเนื่องจากขัดต่อข้อกำหนดในการให้บริการของ Discord (ToS)\nในอนาคตอาจจะเปิดให้ใช้งานได้แค่ Spotify กับ Soundcloud เท่านั้น')
             .setTimestamp()
 

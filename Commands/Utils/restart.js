@@ -19,7 +19,7 @@ module.exports = {
             message.reply({ embeds : [RestartCMD] }).then(message => {
                 client.destroy();
                 client.login(process.env.TOKEN);
-                client.user.setPresence({ activities: [{ name: `m.!help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
+                client.user.setPresence({ activities: [{ name: `m.!help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/maoyumi" }]});
                 const ComRestart = new EmbedBuilder()
                     .setColor(16777215)
                     .setAuthor({ name: "รีสตาร์ทบอทเสร็จแล้วคะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})

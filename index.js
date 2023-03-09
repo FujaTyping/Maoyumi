@@ -29,7 +29,7 @@ console.log(`[CLIENT] : Debug mode is ON`);
 
 client.on("debug", ( e ) => {
   const Debugembed = new EmbedBuilder()
-    .setAuthor({ name: `MAO Debug` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+    .setAuthor({ name: `Maoyumi Debug` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
     .setDescription(`${e}`)
     .setColor(657930);
 
@@ -131,7 +131,7 @@ client.on("messageCreate", async message => {
     if (message.author.id == ListbanID) { //Blacklist People
       const BlackPerms = new EmbedBuilder()
         .setColor(16711680)
-        .setAuthor({ name: `คุณ ${message.author.username} ไม่มีสิทธ์ใช้งานคำสั่งของหนูนะคะ !\n(Banned by the owner)` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+        .setAuthor({ name: `คุณ ${message.author.username} ไม่มีสิทธ์ใช้งานคำสั่งของหนูนะคะ !\n(Banned by the owner)` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
         .setTimestamp()
 
       message.reply({  embeds: [BlackPerms] })
@@ -161,7 +161,7 @@ const PAST_MESSAGES = 2
 // Chat Bot
 client.on('messageCreate', async message => {
     //if(message.channelId == "1060184115447599194" || message.channelId == "1061522412715376690" || message.channelId == "1061529756203499571") {
-    if(message.content.includes("มาว") || message.content.includes('<@1060182470630330529>') || message.content.includes('MAO') || message.content.includes('Mao') || message.content.includes("ม่าว") || message.content.includes("mao")) {
+    if(message.content.includes("มาวยูมิ") || message.content.includes('<@1060182470630330529>') || message.content.includes('Maoyumi') || message.content.includes('maoyumi') || message.content.includes("ม่าวยูมิ")) {
         if(message.author.bot) return;
 
         message.channel.sendTyping()
@@ -178,7 +178,7 @@ client.on('messageCreate', async message => {
             ]
             const BAns = Math.floor(Math.random() * rawBAns.length);
 
-            message.edit(`<:MAO:1073785621748916265>  : `+rawBAns[BAns])
+            message.edit(`No Emoji  : `+rawBAns[BAns])
             
         } else {
 
@@ -215,7 +215,7 @@ client.on('messageCreate', async message => {
               Ans = Ans.replaceAll("เรา", "หนู")
               Ans = Ans.replaceAll("ครับ", "คะ")
               
-              message.edit(`<:MAO:1073785621748916265>  : ${Ans}`)
+              message.edit(`No Emoji  : ${Ans}`)
             } catch (error) {
               message.edit("```diff\n- "+error+" try again later !\n```")
             }
@@ -252,12 +252,12 @@ console.log('[SERVICE] : Now online at port : 5263 | localhost:5263')
 
 client.on('ready', async ()=>{
     console.log(`[API] : Connected ${client.user.tag} successfully !`)
-    client.user.setPresence({ activities: [{ name: `${prefix}help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/mao" }]});
+    client.user.setPresence({ activities: [{ name: `${prefix}help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/maoyumi" }]});
     console.log("[WORKER] : Finished")
     await wait(3000)
     await clearevery()
     term.table( [
-      [ 'MAO#5263' , 'Status : Online' ] ,
+      [ 'Maoyumi#5263' , 'Status : Online' ] ,
       ] , {
         borderChars: 'lightRounded' ,
         borderAttr: { color: 'magenta' } ,
@@ -273,7 +273,7 @@ client.on('guildCreate', guild => {
     const ServerMessage = new EmbedBuilder()
     .setColor(14024959)
     .setTitle(`ขอบคุณที่เชิญหนูเข้า - Server นี้นะ`)
-    .setDescription("สวัสดีทุกคนนะคะหนูชื่อ - Mao\nเป็น ChatBot ที่สร้างจาก FujaTyping\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง `m.help` เพื่อดูคำสั่งทั้งหมด")
+    .setDescription("สวัสดีทุกคนนะคะหนูชื่อ - Maoyumi\nเป็น ChatBot ที่สร้างจาก FujaTyping\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง `m.help` เพื่อดูคำสั่งทั้งหมด")
     //.setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1069976864178839632/ezgif-4-83f97196ce.png")
     .setThumbnail("https://cdn.discordapp.com/attachments/1071401485239332864/1072106650258898984/00000-4163793642-Anime_girl_cat_purple_smile.png")
     .setTimestamp()

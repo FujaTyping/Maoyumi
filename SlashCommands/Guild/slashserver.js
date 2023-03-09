@@ -4,7 +4,7 @@ const wait = require('node:timers/promises').setTimeout;
 module.exports = {
     data: new SlashCommandBuilder()
     .setName("server")
-    .setDescription("คำสั่งเชิฟเวอร์ของ MAO")
+    .setDescription("คำสั่งเชิฟเวอร์ของ Maoyumi")
     .addSubcommand(subcommand =>
 		subcommand
 			.setName('info')
@@ -62,14 +62,14 @@ module.exports = {
                 if (duration <= "0" ) {
                     const Timelimut = new EmbedBuilder()
                         .setColor(16711680)
-                        .setAuthor({ name: "กรุณาระบุตัวเลขที่ มากกว่า 0 คะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+                        .setAuthor({ name: "กรุณาระบุตัวเลขที่ มากกว่า 0 คะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
                         .setTimestamp()
                     
                     await interaction.reply({  embeds: [Timelimut] })
                 } else {
                     const TimeputCmD = new EmbedBuilder()
                         .setColor(14024959)
-                        .setAuthor({ name: "Timeout เรียบร้อยแล้วคะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+                        .setAuthor({ name: "Timeout เรียบร้อยแล้วคะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
                         .setDescription(`คุณ ${userTarget} ถูก Timeout โดย ${interaction.user.username}`)
                         .setThumbnail(InguildUser.user.avatarURL())
                         .addFields(
@@ -84,7 +84,7 @@ module.exports = {
             } else {
                 const ReqPrems = new EmbedBuilder()
                     .setColor(16711680)
-                    .setAuthor({ name: `คุณ ${interaction.user.username} ไม่มีสิทธิ Timeout คนอื่นนะคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1071401485239332864/1073205416328183908/00000-4163793642-Anime_girl_cat_purple_smile.png'})
+                    .setAuthor({ name: `คุณ ${interaction.user.username} ไม่มีสิทธิ Timeout คนอื่นนะคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
                     .setTimestamp()
                 
                 await interaction.reply({  embeds: [ReqPrems] })
