@@ -46,9 +46,7 @@ module.exports = {
                 .setColor(16777215)
                 .setAuthor({ name: "เชิญหนูเข้าเชิฟเวอร์ของคุณกัน !" , iconURL: `${Authorprofile}`})
                 .setThumbnail(`${Authorprofile}`)
-                .setDescription("ปิดปรับปรุ่งอยู่")
-                //.setDescription("เชิญบอท : [>> กดที่นี้เพื่อเชิญบอท <<](https://discord.com/oauth2/authorize?client_id=1060182470630330529&permissions=8&scope=bot%20applications.commands)\nDocs : https://example.com\n...\nคำสั่งมีมากกว่า 28 อย่าง")
-                //.setImage("https://cdn.discordapp.com/attachments/1015943699827527710/1079203464816640100/SC.png")
+                .setDescription("เชิญบอท : [>> กดที่นี้เพื่อเชิญบอท <<](https://discord.com/api/oauth2/authorize?client_id=1060182470630330529&permissions=8&scope=bot%20applications.commands)\nคำสั่งทั้งหมด : `/bot help`")
                 .setFooter({ text: '⚠ ตอนเชิญบอท กรุณาให้สิทธิ สร้างคำสั่งในเชิฟเวอร์ ด้วยนะ !'})
                 .setTimestamp()
 
@@ -58,7 +56,7 @@ module.exports = {
                 .setColor(16777215)
                 .setAuthor({ name: "นี้คือคำสั่งทั้งหมดของหนู !" , iconURL: `${Authorprofile}`})
                 .setThumbnail(`${Authorprofile}`)
-                .setDescription("ปิดปรับปรุ่งอยู่")
+                .setDescription("Prefix : `m.` (ปิดใช้งานไปแล้ว)\nคำสั่ง : ตอนนี้ย้ายไปใช้ Slash commands [/] หมดแล้ว\nคำสั่งทั้งหมด : `/bot help`")
                 .setTimestamp()
 
             await interaction.reply({ embeds : [HelpCmd] });
