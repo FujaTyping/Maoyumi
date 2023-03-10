@@ -274,13 +274,14 @@ client.on('ready', async ()=>{
 
 //Join servermessage
 client.on('guildCreate', guild => {
+    const Authorprofile = client.config.defultauthorprofile
     const Botname = client.config.botname
     const ServerMessage = new EmbedBuilder()
       .setColor(14024959)
       .setTitle(`ขอบคุณที่เชิญหนูเข้า - Server นี้นะ`)
-      .setDescription(`สวัสดีทุกคนนะคะหนูชื่อ - ${Botname}\nเป็น ChatBot ที่สร้างจาก FujaTyping\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง \`m.help\` เพื่อดูคำสั่งทั้งหมด`)
+      .setDescription(`สวัสดีทุกคนนะคะหนูชื่อ - ${Botname}\nเป็น ChatBot ที่สร้างจาก FujaTyping\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง \`/bot help\` เพื่อดูคำสั่งทั้งหมด`)
       //.setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1069976864178839632/ezgif-4-83f97196ce.png")
-      .setThumbnail("https://cdn.discordapp.com/attachments/1071401485239332864/1072106650258898984/00000-4163793642-Anime_girl_cat_purple_smile.png")
+      .setThumbnail(`${Authorprofile}`)
       .setTimestamp()
       .setFooter({ text: 'Welcome message from system !'});
 
