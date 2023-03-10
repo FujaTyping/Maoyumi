@@ -17,11 +17,12 @@ module.exports = {
     ),
     async execute(interaction, client) {
         const CmdChoics = interaction.options.getSubcommand()
+        const Authorprofile = client.config.defultauthorprofile
 
         if (CmdChoics == "ping") {
             const PingCMD = new EmbedBuilder()
                 .setColor(16777215)
-                .setAuthor({ name: "🏓 pong !" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+                .setAuthor({ name: "🏓 pong !" , iconURL: `${Authorprofile}`})
                 .setTimestamp()
 
             await interaction.reply({ embeds : [PingCMD] });
@@ -32,16 +33,16 @@ module.exports = {
 
             const PingEdit = new EmbedBuilder()
                 .setColor(16777215)
-                .setAuthor({ name: ping_result , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+                .setAuthor({ name: ping_result , iconURL: `${Authorprofile}`})
                 .setTimestamp()
             await interaction.editReply({ embeds : [PingEdit] });
         } else if (CmdChoics == "invite") {
             const InviteCmd = new EmbedBuilder()
                 .setColor(16777215)
-                .setAuthor({ name: "เชิญหนูเข้าเชิฟเวอร์ของคุณกัน !" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
-                .setThumbnail('https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png')
-                .setDescription("เชิญบอท : [>> กดที่นี้เพื่อเชิญบอท <<](https://discord.com/oauth2/authorize?client_id=1060182470630330529&permissions=8&scope=bot%20applications.commands)\nDocs : https://bit.ly/DocsMAO\n...\nคำสั่งมีมากกว่า 28 อย่าง")
-                .setImage("https://cdn.discordapp.com/attachments/1015943699827527710/1079203464816640100/SC.png")
+                .setAuthor({ name: "เชิญหนูเข้าเชิฟเวอร์ของคุณกัน !" , iconURL: `${Authorprofile}`})
+                .setThumbnail(`${Authorprofile}`)
+                .setDescription("เชิญบอท : [>> กดที่นี้เพื่อเชิญบอท <<](https://discord.com/oauth2/authorize?client_id=1060182470630330529&permissions=8&scope=bot%20applications.commands)\nDocs : https://example.com\n...\nคำสั่งมีมากกว่า 28 อย่าง")
+                //.setImage("https://cdn.discordapp.com/attachments/1015943699827527710/1079203464816640100/SC.png")
                 .setFooter({ text: '⚠ ตอนเชิญบอท กรุณาให้สิทธิ สร้างคำสั่งในเชิฟเวอร์ ด้วยนะ !'})
                 .setTimestamp()
 

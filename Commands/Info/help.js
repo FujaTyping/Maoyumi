@@ -7,11 +7,12 @@ module.exports = {
         usage: `m.help`,
     },
     async run (client,message,args) {
-        
+        const Authorprofile = client.config.defultauthorprofile
+        const Botname = client.config.botname
         const CatHelp = new EmbedBuilder()
             .setColor(16777215)
-            .setAuthor({ name: `คำสั่งข่วยเหลือ - MAO` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
-            .setDescription("นี้คือคำสั่งทั้งหมดของหนู !\n.....\nกำลังปรับปรุ่งระบบ help : ตอนนี้สามารถ ดู Command ได้ที่ https://bit.ly/MAO5263")
+            .setAuthor({ name: `คำสั่งข่วยเหลือ - ${Botname}` , iconURL: `${Authorprofile}`})
+            .setDescription("นี้คือคำสั่งทั้งหมดของหนู !\n.....\nกำลังปรับปรุ่งระบบ help : ตอนนี้สามารถ ดู Command ได้ที่ https://example.com")
             /*.addFields(
                 { name: 'แมว หรือ <@1060182470630330529>', value: 'เป็นการคุยกับบอท', inline: true },
                 { name: 'หิว หรือ กิน', value: 'เป็นการใช้ระบบสุ่มอาหาร', inline: true },
@@ -21,7 +22,7 @@ module.exports = {
                 { name: 'm.help', value: 'เป็นการดูคำสั่งทั้งหมดของบอท', inline: true },
                 { name: 'm.rps', value: 'เป็นการเล่นเกมเป่ายิงชุบกับบอท', inline: true },
             )*/
-            .setThumbnail("https://cdn.discordapp.com/attachments/1071401485239332864/1072106650258898984/00000-4163793642-Anime_girl_cat_purple_smile.png")
+            //.setThumbnail("https://cdn.discordapp.com/attachments/1071401485239332864/1072106650258898984/00000-4163793642-Anime_girl_cat_purple_smile.png")
             .setTimestamp()
             .setFooter({ text: 'Bot help - V.0.1 BETA'});
 

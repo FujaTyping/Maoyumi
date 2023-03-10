@@ -7,6 +7,7 @@ module.exports = {
         usage: `m.coin`,
     },
     async run (client,message,args) {
+        const Authorprofile = client.config.defultauthorprofile
         const Coindata = [ "หัว","ก้อย" ];
         const CoinAnswer = Math.floor(Math.random() * Coindata.length);
         let thumimg;
@@ -20,7 +21,7 @@ module.exports = {
 
         const Coinflip = new EmbedBuilder()
             .setColor(14024959)
-            .setAuthor({ name: `เกมโยนเหรียญ - Coinflip` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+            .setAuthor({ name: `เกมโยนเหรียญ - Coinflip` , iconURL: `${Authorprofile}`})
             .setDescription("โยนเหรียญได้ "+"**"+Coindata[CoinAnswer]+"**")
             .setThumbnail(thumimg)
             .setTimestamp()

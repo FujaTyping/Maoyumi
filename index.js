@@ -16,7 +16,7 @@ const client = new Client(
             GatewayIntentBits.GuildMessages,
             GatewayIntentBits.MessageContent,
             GatewayIntentBits.GuildMembers,
-            GatewayIntentBits.GuildVoiceStates,
+            GatewayIntentBits.GuildVoiceStates
         ]
     }
 );
@@ -165,9 +165,10 @@ client.on('messageCreate', async message => {
         if(message.author.bot) return;
 
         message.channel.sendTyping()
+        const ListbanID = client.config.banID
 
         message.reply("<a:TYPING:1074264222864789565>").then(async message => {
-          if (message.author.id == "881775476841009202") { //Blacklist people
+          if (message.author.id == ListbanID) { //Blacklist people
             
             const rawBAns = [
                 "หนูไม่อยากคุยกับคุณแล้วคะ !","เสือกไร !","เป็นเหี้ยอะไรมากไหม ?","ออกไปไกลๆ ไป !","เรื่องของมึง !",`<@${message.author.id}> ไปคุยกับ||พ่อ||มึงไป`,
@@ -178,7 +179,7 @@ client.on('messageCreate', async message => {
             ]
             const BAns = Math.floor(Math.random() * rawBAns.length);
 
-            message.edit(`No Emoji  : `+rawBAns[BAns])
+            message.edit(`<:maoyumi:1083605849605406830>  : `+rawBAns[BAns])
             
         } else {
 
@@ -215,7 +216,7 @@ client.on('messageCreate', async message => {
               Ans = Ans.replaceAll("เรา", "หนู")
               Ans = Ans.replaceAll("ครับ", "คะ")
               
-              message.edit(`No Emoji  : ${Ans}`)
+              message.edit(`<:maoyumi:1083605849605406830>  : ${Ans}`)
             } catch (error) {
               message.edit("```diff\n- "+error+" try again later !\n```")
             }
@@ -270,14 +271,15 @@ client.on('ready', async ()=>{
 
 //Join servermessage
 client.on('guildCreate', guild => {
+    const Botname = client.config.botname
     const ServerMessage = new EmbedBuilder()
-    .setColor(14024959)
-    .setTitle(`ขอบคุณที่เชิญหนูเข้า - Server นี้นะ`)
-    .setDescription("สวัสดีทุกคนนะคะหนูชื่อ - Maoyumi\nเป็น ChatBot ที่สร้างจาก FujaTyping\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง `m.help` เพื่อดูคำสั่งทั้งหมด")
-    //.setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1069976864178839632/ezgif-4-83f97196ce.png")
-    .setThumbnail("https://cdn.discordapp.com/attachments/1071401485239332864/1072106650258898984/00000-4163793642-Anime_girl_cat_purple_smile.png")
-    .setTimestamp()
-    .setFooter({ text: 'Welcome message from system !'});
+      .setColor(14024959)
+      .setTitle(`ขอบคุณที่เชิญหนูเข้า - Server นี้นะ`)
+      .setDescription(`สวัสดีทุกคนนะคะหนูชื่อ - ${Botname}\nเป็น ChatBot ที่สร้างจาก FujaTyping\n.....\nคำสั่งขอหนู ณ ตอนนี้\n- ใช้คำสั่ง \`m.help\` เพื่อดูคำสั่งทั้งหมด`)
+      //.setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1069976864178839632/ezgif-4-83f97196ce.png")
+      .setThumbnail("https://cdn.discordapp.com/attachments/1071401485239332864/1072106650258898984/00000-4163793642-Anime_girl_cat_purple_smile.png")
+      .setTimestamp()
+      .setFooter({ text: 'Welcome message from system !'});
 
     guild.systemChannel.send({ embeds: [ServerMessage] })
 });

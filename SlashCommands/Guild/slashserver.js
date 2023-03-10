@@ -28,6 +28,7 @@ module.exports = {
     ),
     async execute(interaction, client) {
         const CmdChoics = interaction.options.getSubcommand()
+        const Authorprofile = client.config.defultauthorprofile
 
         if (CmdChoics == "info") {
             let owner = await interaction.guild.fetchOwner()
@@ -35,7 +36,7 @@ module.exports = {
     
             const Info = new EmbedBuilder()
                 .setColor(16777215)
-                .setAuthor({ name: "Server info - ข้อมูลเชิฟเวอร์" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1071323436057645126/Settings_S2.png'})
+                .setAuthor({ name: "Server info - ข้อมูลเชิฟเวอร์" , iconURL: `${Authorprofile}`})
                 .setThumbnail(interaction.guild.iconURL())
                 .setDescription(`ชื่อเชิฟเวอร์ : \`${interaction.guild}\`\nID เชิฟเวอร์ : \`${interaction.guild.id}\`\nสร้างเมื่อ : \`${interaction.guild.createdAt.toLocaleString()}\`\n`)
                 .addFields(
@@ -62,14 +63,14 @@ module.exports = {
                 if (duration <= "0" ) {
                     const Timelimut = new EmbedBuilder()
                         .setColor(16711680)
-                        .setAuthor({ name: "กรุณาระบุตัวเลขที่ มากกว่า 0 คะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+                        .setAuthor({ name: "กรุณาระบุตัวเลขที่ มากกว่า 0 คะ !" , iconURL: `${Authorprofile}`})
                         .setTimestamp()
                     
                     await interaction.reply({  embeds: [Timelimut] })
                 } else {
                     const TimeputCmD = new EmbedBuilder()
                         .setColor(14024959)
-                        .setAuthor({ name: "Timeout เรียบร้อยแล้วคะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+                        .setAuthor({ name: "Timeout เรียบร้อยแล้วคะ !" , iconURL: `${Authorprofile}`})
                         .setDescription(`คุณ ${userTarget} ถูก Timeout โดย ${interaction.user.username}`)
                         .setThumbnail(InguildUser.user.avatarURL())
                         .addFields(
@@ -84,7 +85,7 @@ module.exports = {
             } else {
                 const ReqPrems = new EmbedBuilder()
                     .setColor(16711680)
-                    .setAuthor({ name: `คุณ ${interaction.user.username} ไม่มีสิทธิ Timeout คนอื่นนะคะ !` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+                    .setAuthor({ name: `คุณ ${interaction.user.username} ไม่มีสิทธิ Timeout คนอื่นนะคะ !` , iconURL: `${Authorprofile}`})
                     .setTimestamp()
                 
                 await interaction.reply({  embeds: [ReqPrems] })

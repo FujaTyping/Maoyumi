@@ -5,6 +5,7 @@ module.exports = {
     .setName("vegetable")
     .setDescription("เก็บผักหาเงิน"),
     async execute(interaction, client) {
+        const Authorprofile = client.config.defultauthorprofile
         const veget = [
             "🍅","🍆","🌽","🌶","🍄","🥑","🥒","🥬","🥦","🥔","🧄","🧅","🥕"
         ]
@@ -16,7 +17,7 @@ module.exports = {
 
         const ResultVeg = new EmbedBuilder()
             .setColor(14024959)
-            .setAuthor({ name: "เก็บผักข้างบ้านกันคะ !" , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+            .setAuthor({ name: "เก็บผักข้างบ้านกันคะ !" , iconURL: `${Authorprofile}`})
             .setDescription(`+ ได้ ${veget[rawvet]} x${vetcount}\n+ ขายได้ ${realprice} บาท \`(ราคาอาจจะไม่คงที่นะคะ !)\``)
             .setFooter({ text: '⚠ เงินที่ได้ ณ ตอนนี้เงินยังทำอะไรไม่ได้นะคะ !'})
             .setTimestamp()

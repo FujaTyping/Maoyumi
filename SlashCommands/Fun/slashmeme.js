@@ -8,10 +8,11 @@ module.exports = {
     .setDescription("ให้บอทหามีมให้"),
     async execute(interaction, client) {
         const Msgname = interaction.user.username
+        const Authorprofile = client.config.defultauthorprofile
 
         const Load = new EmbedBuilder()
             .setColor(14024959)
-            .setAuthor({ name: `รอแปปหนึงนะคะ กำลังหามีมให้ ${Msgname} 🔎` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+            .setAuthor({ name: `รอแปปหนึงนะคะ กำลังหามีมให้ ${Msgname} 🔎` , iconURL: `${Authorprofile}`})
 
         await interaction.reply({ embeds : [Load] });
         await wait(500);
@@ -19,7 +20,7 @@ module.exports = {
             const data = JSON.parse(response.body);
             const Resmeme = new EmbedBuilder()
                 .setColor(14024959)
-                .setAuthor({ name: `เจอมีมให้คุณแล้ว ${Msgname} !` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+                .setAuthor({ name: `เจอมีมให้คุณแล้ว ${Msgname} !` , iconURL: `${Authorprofile}`})
                 .setImage(`${data['url']}`)
                 .setTimestamp()
 

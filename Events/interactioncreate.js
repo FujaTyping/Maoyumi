@@ -21,9 +21,10 @@ module.exports = {
         
         const ListbanID = client.config.banID
         if (interaction.user.id == ListbanID){ //Blacklist People
+            const Authorprofile = client.config.defultauthorprofile
             const BlackPerms = new EmbedBuilder()
               .setColor(16711680)
-              .setAuthor({ name: `คุณ ${interaction.user.username} ไม่มีสิทธ์ใช้งาน Slash commands ของหนูนะคะ !\n(Banned by the owner)` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+              .setAuthor({ name: `คุณ ${interaction.user.username} ไม่มีสิทธ์ใช้งาน Slash commands ของหนูนะคะ !\n(Banned by the owner)` , iconURL: `${Authorprofile}`})
               .setTimestamp()
       
             interaction.reply({  embeds: [BlackPerms] })

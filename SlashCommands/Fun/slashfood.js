@@ -5,6 +5,7 @@ module.exports = {
     .setName("food")
     .setDescription("ให้บอทสุ่มอาหารให้"),
     async execute(interaction, client) {
+        const Authorprofile = client.config.defultauthorprofile
         const dbFood = [
             "ข้าวไข่เจียว","ข้าวหมูทอด","ข้าวไก่ย่าง","น้ำแข็งใส่","ข้าวไข่ดาว","ข้าวผัดกระเพราหมูสับ","ข้าวหน้าไก่","หมี่กะทิ",
             "ข้าวผัดไข่","ยำวุ้นเส้น","ข้าวผัดปู","ข้าวห่อหมกมะพร้าวอ่อน","ข้าวผัดต้มยำกุ้ง","ส้มตำไข่ฟู","ข้าวคะน้าหมูกรอบเจ",
@@ -16,7 +17,7 @@ module.exports = {
         const FoodAns= Math.floor(Math.random() * dbFood.length);
         const FoodMsg = new EmbedBuilder()
             .setColor(14024959)
-            .setAuthor({ name: `คุณ ${interaction.user.username} ลองกิน ${dbFood[FoodAns]} ดูไหม` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+            .setAuthor({ name: `คุณ ${interaction.user.username} ลองกิน ${dbFood[FoodAns]} ดูไหม` , iconURL: `${Authorprofile}`})
             .setTimestamp()
 
         await interaction.reply({ embeds : [FoodMsg] })
