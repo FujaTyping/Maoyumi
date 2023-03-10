@@ -56,7 +56,7 @@ module.exports = {
                 .setColor(16777215)
                 .setAuthor({ name: "นี้คือคำสั่งทั้งหมดของหนู !" , iconURL: `${Authorprofile}`})
                 .setThumbnail(`${Authorprofile}`)
-                .setDescription("Prefix : `m.` (ปิดใช้งานไปแล้ว)\nคำสั่ง : ตอนนี้ย้ายไปใช้ Slash commands [/] หมดแล้ว\nคำสั่งทั้งหมด : `/bot help`")
+                .setDescription("Prefix : `m.` (ปิดใช้งานไปแล้ว)\nคำสั่ง : ตอนนี้ย้ายไปใช้ Slash commands [ / ] หมดแล้ว\nคำสั่งทั้งหมด : `/bot help`")
                 .setTimestamp()
 
             await interaction.reply({ embeds : [HelpCmd] });
