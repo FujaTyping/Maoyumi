@@ -53,6 +53,7 @@ console.log('[CLIENT] : Loading commands');
 const fs = require("fs");
 let CommandCount = 0;
 let FolderCount = 0;
+const Allcommand = [];
 
 client.commands = new Collection();
 client.slashcommands = new Collection();
@@ -69,7 +70,7 @@ for (const folder of commandFolders) {
         CommandCount=CommandCount+1;
         client.commands.set(props.config.name, props)
     }
-
+    Allcommand.push(...commandFiles.map(file => file.replaceAll(".js","")));
 }
 
 // Readcommandfile-slash
@@ -97,13 +98,15 @@ for (const folder of SlashcommandFolders) {
         //console.log(`[FS] : Loaded ${file}`)
         SlashCommandCount=SlashCommandCount+1;
     }
-
+    Allcommand.push(...SlashcommandFiles.map(file => file.replaceAll(".js","")));
 }
 
+client.allcommand = Allcommand
 console.log(`[FS] : Successfully loaded ${FolderCount} folders`);
 console.log(`[FS] : Successfully loaded ${CommandCount} commands`);
 console.log(`[FS] : Successfully loaded ${SlashCommandFolderCount} [/] folders`);
 console.log(`[FS] : Successfully loaded ${SlashCommandCount} [/] commands`);
+console.log(`[CLIENT] : All commands => ${Allcommand} `);
 
 // ---------------------------------------------------------------------
 
