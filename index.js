@@ -253,7 +253,7 @@ console.log('[SERVICE] : Now online at port : 5263 | localhost:5263')
 
 client.on('ready', async ()=>{
     console.log(`[API] : Connected ${client.user.tag} successfully !`)
-    client.user.setPresence({ activities: [{ name: `${prefix}help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/maoyumi" }]});
+    client.user.setPresence({ activities: [{ name: `/bot help | ${client.guilds.cache.size} Servers` , type: ActivityType.Streaming , url: "https://www.twitch.tv/maoyumi" }]});
     console.log("[WORKER] : Finished")
     await wait(3000)
     await clearevery()

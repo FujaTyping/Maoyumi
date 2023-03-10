@@ -14,6 +14,11 @@ module.exports = {
 		subcommand
 			.setName('ping')
 			.setDescription('ดูการตอบสนองของบอท')
+    )
+    .addSubcommand(subcommand =>
+		subcommand
+			.setName('help')
+			.setDescription('ดูคำสั่งทั้งหมดของบอท')
     ),
     async execute(interaction, client) {
         const CmdChoics = interaction.options.getSubcommand()
@@ -41,12 +46,22 @@ module.exports = {
                 .setColor(16777215)
                 .setAuthor({ name: "เชิญหนูเข้าเชิฟเวอร์ของคุณกัน !" , iconURL: `${Authorprofile}`})
                 .setThumbnail(`${Authorprofile}`)
-                .setDescription("เชิญบอท : [>> กดที่นี้เพื่อเชิญบอท <<](https://discord.com/oauth2/authorize?client_id=1060182470630330529&permissions=8&scope=bot%20applications.commands)\nDocs : https://example.com\n...\nคำสั่งมีมากกว่า 28 อย่าง")
+                .setDescription("ปิดปรับปรุ่งอยู่")
+                //.setDescription("เชิญบอท : [>> กดที่นี้เพื่อเชิญบอท <<](https://discord.com/oauth2/authorize?client_id=1060182470630330529&permissions=8&scope=bot%20applications.commands)\nDocs : https://example.com\n...\nคำสั่งมีมากกว่า 28 อย่าง")
                 //.setImage("https://cdn.discordapp.com/attachments/1015943699827527710/1079203464816640100/SC.png")
                 .setFooter({ text: '⚠ ตอนเชิญบอท กรุณาให้สิทธิ สร้างคำสั่งในเชิฟเวอร์ ด้วยนะ !'})
                 .setTimestamp()
 
             await interaction.reply({ embeds : [InviteCmd] });
+        } else if (CmdChoics == "help") {
+            const HelpCmd = new EmbedBuilder()
+                .setColor(16777215)
+                .setAuthor({ name: "นี้คือคำสั่งทั้งหมดของหนู !" , iconURL: `${Authorprofile}`})
+                .setThumbnail(`${Authorprofile}`)
+                .setDescription("ปิดปรับปรุ่งอยู่")
+                .setTimestamp()
+
+            await interaction.reply({ embeds : [HelpCmd] });
         }
     }
 }
