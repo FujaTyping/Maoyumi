@@ -11,9 +11,9 @@ const cooldown = new Set();
 
 function addToCooldown(ID) {
 cooldown.add(ID);
-setTimeout(() => {
-    cooldown.delete(ID);
-}, 60000 /* 5 seconds */);
+    setTimeout(() => {
+        cooldown.delete(ID);
+    }, 60000 /* 1 mins */);
 }
 
 module.exports = {
