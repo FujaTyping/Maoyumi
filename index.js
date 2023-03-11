@@ -164,7 +164,7 @@ const PAST_MESSAGES = 2
 // Chat Bot
 client.on('messageCreate', async message => {
     //if(message.channelId == "1060184115447599194" || message.channelId == "1061522412715376690" || message.channelId == "1061529756203499571") {
-    if(message.content.includes("มาวยูมิ") || message.content.includes('<@1060182470630330529>') || message.content.includes('Maoyumi') || message.content.includes('maoyumi') || message.content.includes("ม่าวยูมิ")) {
+    if(message.content.includes("มาวยูมิ") || message.content.includes('<@1060182470630330529>') || message.content.includes('Maoyumi') || message.content.includes('maoyumi') || message.content.includes("ม่าวยูมิ") || message.content.includes("ม่าว") || message.content.includes("มาว") || message.content.includes("Mao") || message.content.includes("mao")) {
         if(message.author.bot) return;
 
         message.channel.sendTyping()
