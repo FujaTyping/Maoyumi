@@ -7,23 +7,31 @@ module.exports = {
         usage: `m.skip`,
     },
     async run (client,message,args) {
-        const Authorprofile = client.config.defultauthorprofile
-
+        const MusicAuthorprofile = client.config.defultauthorprofile
         if (!message.member.voice.channel) {
             const NotinVC = new EmbedBuilder()
               .setColor(16711680)
-              .setAuthor({ name: `กรุณาเข้าห้องก่อนจะใช้คำสั่งนะคะ !` , iconURL: `${Authorprofile}`})
+              .setAuthor({ name: `กรุณาเข้าห้องก่อนจะใช้คำสั่งนะคะ !` , iconURL: `${MusicAuthorprofile}`})
               .setTimestamp()
     
             return message.channel.send({  embeds : [NotinVC] })
         } else {
-            const DisableMusic = new EmbedBuilder()
-                .setColor(16711680)
-                .setAuthor({ name: `ปิดใช้งานระบบเล่นเพลงถาวรแล้ว !` , iconURL: `${Authorprofile}`})
-                .setDescription('ถูกปิดใช้งานเนื่องจากขัดต่อข้อกำหนดในการให้บริการของ Discord (ToS)\nในอนาคตอาจจะเปิดให้ใช้งานได้แค่ Spotify กับ Soundcloud เท่านั้น')
-                .setTimestamp()
-
-            return message.channel.send({  embeds : [DisableMusic] })
+        const queue = client.distube.getQueue(message)
+        const NoQspngP = new EmbedBuilder()
+            .setColor(16711680)
+            .setAuthor({ name: `ไม่มีคิวเพลงที่เล่นอยู่ขณะนี้นะคะ !` , iconURL: `${MusicAuthorprofile}`})
+            .setTimestamp()
+        if (!queue) return message.channel.send({ embeds : [NoQspngP] })
+        try {
+        const song = await queue.skip()
+        const SongSkip = new EmbedBuilder()
+            .setColor(14024959)
+            .setAuthor({ name: `ข้ามเพลงเรียบร้อยแล้วคะ !` , iconURL: `${MusicAuthorprofile}`})
+            .setTimestamp()
+        message.channel.send({ embeds : [SongSkip] })
+        } catch (e) {
+        message.channel.send("```diff\n"+`- ${e}`+" try again later !\n```")
+        }
         }
     }
 }

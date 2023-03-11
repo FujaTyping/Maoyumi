@@ -46,7 +46,7 @@ client.distube
     const PlayCMD = new EmbedBuilder()
       .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
       .setURL(`${song.url}`)
-      .setColor(9440999)
+      .setColor(14024959)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
       .setDescription(`กำลังเล่นเพลงในห้อง <#${queue.voiceChannel.id}> - โดย : ${song.user}\nระยะเวลา : \`${song.formattedDuration}\``)
       .setThumbnail(song.thumbnail)
@@ -59,9 +59,9 @@ client.distube
     const AddsongCMD = new EmbedBuilder()
       .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
       .setURL(`${song.url}`)
-      .setColor(9440999)
+      .setColor(14024959)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
-      .setDescription(`เพลงถูกเพิ่มไปยังคิวแล้ว - โดย : ${song.user}\nใช้คำสั่ง \`s!skip\` เพื่อข้ามเพลง`)
+      .setDescription(`เพลงถูกเพิ่มไปยังคิวแล้ว - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
       .setThumbnail(song.thumbnail)
       .setTimestamp()
 
@@ -70,7 +70,7 @@ client.distube
   )
   .on('addList', (queue, playlist) => {
     const AddListCMD = new EmbedBuilder()
-      .setColor(9440999)
+      .setColor(14024959)
       .setAuthor({ name: `${playlist.name}` , iconURL: `${MusicAuthorprofile}`})
       .setDescription(`เพลย์ลิสถูกเพิ่มไปยังคิวแล้ว ทั้งหมด \`${playlist.songs.length}\` เพลง - โดย : ${song.user}\nใช้คำสั่ง \`/music skip\` เพื่อข้ามเพลง`)
       .setTimestamp()
@@ -95,7 +95,7 @@ client.distube
     message.channel.send({ embeds : [NoseaCMD] })
   }
   )
-  .on('finish', queue => queue.textChannel.send('เล่นเพลงเสร็จแล้วคะ !\nใช้คำสั่ง `/music stop` เพื่อนำบอทออกจากห้อง'))
+  .on('finish', queue => queue.textChannel.send('เล่นเพลงเสร็จแล้วคะ !\nใช้คำสั่ง `m.stop` เพื่อนำบอทออกจากห้อง'))
 
 /*
 const webhookClient = new WebhookClient({ url: client.config.webhook });
