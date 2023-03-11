@@ -23,6 +23,80 @@ const client = new Client(
 
 client.config = require("./config.json")
 
+const { DisTube } = require('distube');
+const { SoundCloudPlugin } = require("@distube/soundcloud");
+const MusicAuthorprofile = client.config.defultauthorprofile
+
+client.distube = new DisTube(client, {
+    leaveOnStop: false,
+    emitNewSongOnly: true,
+    emitAddSongWhenCreatingQueue: false,
+    emitAddListWhenCreatingQueue: false,
+    plugins: [
+      new SoundCloudPlugin()
+    ]
+})
+
+const status = queue =>
+  `ระดับเสียง : \`${queue.volume}%\` | วนซ้ำเพลง : \`${
+    queue.repeatMode ? (queue.repeatMode === 2 ? 'คิวเพลงทั้งหมด' : 'เพลงนี้') : 'ปิด'
+  }\``
+client.distube
+  .on('playSong', (queue, song) => {
+    const PlayCMD = new EmbedBuilder()
+      .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
+      .setURL(`${song.url}`)
+      .setColor(9440999)
+      //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
+      .setDescription(`กำลังเล่นเพลงในห้อง <#${queue.voiceChannel.id}> - โดย : ${song.user}\nระยะเวลา : \`${song.formattedDuration}\``)
+      .setThumbnail(song.thumbnail)
+      .setTimestamp()
+
+    queue.textChannel.send({ embeds : [PlayCMD] })
+  }
+  )
+  .on('addSong', (queue, song) => {
+    const AddsongCMD = new EmbedBuilder()
+      .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
+      .setURL(`${song.url}`)
+      .setColor(9440999)
+      //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
+      .setDescription(`เพลงถูกเพิ่มไปยังคิวแล้ว - โดย : ${song.user}\nใช้คำสั่ง \`s!skip\` เพื่อข้ามเพลง`)
+      .setThumbnail(song.thumbnail)
+      .setTimestamp()
+
+    queue.textChannel.send({ embeds : [AddsongCMD] })
+  }
+  )
+  .on('addList', (queue, playlist) => {
+    const AddListCMD = new EmbedBuilder()
+      .setColor(9440999)
+      .setAuthor({ name: `${playlist.name}` , iconURL: `${MusicAuthorprofile}`})
+      .setDescription(`เพลย์ลิสถูกเพิ่มไปยังคิวแล้ว ทั้งหมด \`${playlist.songs.length}\` เพลง - โดย : ${song.user}\nใช้คำสั่ง \`/music skip\` เพื่อข้ามเพลง`)
+      .setTimestamp()
+
+    queue.textChannel.send({ embeds : [AddListCMD] })
+  }
+  )
+  .on('error', (channel, e) => {
+    if (channel) channel.send("```diff\n"+`- ${e.toString().slice(0, 1974)}`+" try again later !\n```")
+    else console.error(e)
+  })
+  .on('empty', queue => {
+    queue.textChannel.send(`ห้องนี้ไม่มีใครอยู่เลย หนูขอออกจากห้องนะครับ !`)
+  })
+  .on('searchNoResult', (message, query) => {
+    const NoseaCMD = new EmbedBuilder()
+      .setColor(16711680)
+      .setAuthor({ name: `${query}` , iconURL: `${MusicAuthorprofile}`})
+      .setDescription(`หนูไม่พบเพลงนี้ - ลองใส่ชื่อเพลง / ลิงค์ เพลงใหม่ดูสิ !`)
+      .setTimestamp()
+
+    message.channel.send({ embeds : [NoseaCMD] })
+  }
+  )
+  .on('finish', queue => queue.textChannel.send('เล่นเพลงเสร็จแล้วคะ !\nใช้คำสั่ง `/music stop` เพื่อนำบอทออกจากห้อง'))
+
 /*
 const webhookClient = new WebhookClient({ url: client.config.webhook });
 console.log(`[CLIENT] : Debug mode is ON`);
@@ -131,10 +205,11 @@ client.on("messageCreate", async message => {
 
     let commandfile = client.commands.get(cmd.slice(prefix.length));
     const ListbanID = client.config.banID
+    const Authorprofile = client.config.defultauthorprofile
     if (message.author.id == ListbanID) { //Blacklist People
       const BlackPerms = new EmbedBuilder()
         .setColor(16711680)
-        .setAuthor({ name: `คุณ ${message.author.username} ไม่มีสิทธ์ใช้งานคำสั่งของหนูนะคะ !\n(Banned by the owner)` , iconURL: 'https://cdn.discordapp.com/attachments/1061529756203499571/1083435558937837608/New_Project_13.png'})
+        .setAuthor({ name: `คุณ ${message.author.username} ไม่มีสิทธ์ใช้งานคำสั่งของหนูนะคะ !\n(Banned by the owner)` , iconURL: `${Authorprofile}`})
         .setTimestamp()
 
       message.reply({  embeds: [BlackPerms] })
@@ -261,7 +336,7 @@ client.on('ready', async ()=>{
     await wait(3000)
     await clearevery()
     term.table( [
-      [ 'Maoyumi#5263' , 'Status : Online' ] ,
+      [ `${client.user.tag}` , 'Status : Online' ] ,
       ] , {
         borderChars: 'lightRounded' ,
         borderAttr: { color: 'magenta' } ,
