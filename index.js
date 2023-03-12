@@ -48,7 +48,7 @@ client.distube
       .setURL(`${song.url}`)
       .setColor(14024959)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
-      .setDescription(`<:soundcloud:1084238066325147778> กำลังเล่นเพลงในห้อง <#${queue.voiceChannel.id}> - โดย : ${song.user}\nผู้แต่ง : **${song.uploader.name}** ระยะเวลา : \`${song.formattedDuration}\``)
+      .setDescription(`<:soundcloud:1084238066325147778>  กำลังเล่นเพลงในห้อง <#${queue.voiceChannel.id}> - โดย : ${song.user}\nผู้แต่ง : \`${song.uploader.name}\` ระยะเวลา : \`${song.formattedDuration}\``)
       .setThumbnail(song.thumbnail)
       .setTimestamp()
 
@@ -61,8 +61,9 @@ client.distube
       .setURL(`${song.url}`)
       .setColor(14024959)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
-      .setDescription(`<:soundcloud:1084238066325147778> เพลงถูกเพิ่มไปยังคิวแล้ว - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
+      .setDescription(`เพลงถูกเพิ่มไปยังคิวแล้ว - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
       .setThumbnail(song.thumbnail)
+      .setFooter({ text: `ℹ แหล่งที่มา : ${song.source}` })
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [AddsongCMD] })
