@@ -43,12 +43,13 @@ const status = queue =>
   }\``
 client.distube
   .on('playSong', (queue, song) => {
+    client.distube.setVolume(queue, 20);
     const PlayCMD = new EmbedBuilder()
       .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
       .setURL(`${song.url}`)
       .setColor(14024959)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
-      .setDescription(`<:soundcloud:1084238066325147778>  กำลังเล่นเพลงในห้อง <#${queue.voiceChannel.id}> - โดย : ${song.user}\nผู้แต่ง : \`${song.uploader.name}\` ระยะเวลา : \`${song.formattedDuration}\``)
+      .setDescription(`<:soundcloud:1084238066325147778>  กำลังเล่นเพลงในห้อง <#${queue.voiceChannel.id}> - โดย : ${song.user}\nผู้แต่ง : \`${song.uploader.name}\` ระยะเวลา : \`${song.formattedDuration}\` ระดับเสียง : \`${queue.volume}\``)
       .setThumbnail(song.thumbnail)
       .setTimestamp()
 
