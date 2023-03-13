@@ -19,6 +19,7 @@ module.exports = {
             const ConLeave = new EmbedBuilder()
                 .setColor(14024959)
                 .setAuthor({ name: `ออกจากห้องแล้วคะ !` , iconURL: `${MusicAuthorprofile}`})
+                .setDescription('.....\nขอบคุณที่ใช้บริการ Maoyumi น้า~~~\nสามารถสนับสนุนบอทได้ที่ :  <:patreon:1084812403268669450>  [Patreon](https://www.patreon.com/FujaTyping/membership)')
                 .setTimestamp()
 
             message.channel.send({ embeds : [ConLeave] })
