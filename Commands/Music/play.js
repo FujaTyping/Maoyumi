@@ -26,23 +26,32 @@ module.exports = {
           if (!string) return message.channel.send({ embeds : [NospngName] })
           //console.log(string)
 
-          scPlugin.search(string).then(results => {
-              const url = results[0].url;
-              //console.log(url)
-              client.distube.play(message.member.voice.channel, url, {
-                member: message.member,
-                textChannel: message.channel,
-                message
-              })
-          }).catch(error => {
-            //console.error(error);
-            const Nosong = new EmbedBuilder()
+          if (string.includes("https://www.youtube.com") || string.includes("https://youtu.be")) {
+            const IsYT = new EmbedBuilder()
               .setColor(16711680)
-              .setAuthor({ name: `หนูไม่พบเพลง : ${string} บน Soundcloud เลยลองหาเพลงอื่นดูสิ !` , iconURL: `${MusicAuthorprofile}`})
-              .setDescription("ขณะนี้ระบบเล่นเพลง เล่นเพลงได้แค่ใน Soundcloud เท่านั้น spotify กำลังมา เร็วนี้ๆ")
+              .setAuthor({ name: `หนูไม่สามารถเล่นเพลง ${string} ได้` , iconURL: `${MusicAuthorprofile}`})
+              .setDescription("เนื่องจากไม่สามารถเล่นเพลงได้จาก Youtube แล้ว\nเพราะขัดต่อข้อกำหนดในการให้บริการของ Discord (ToS)\n❔ : ลองใช้ชื่อเพลงแทนลิ้งค์ดูสิ !")
               .setTimestamp();
-            message.channel.send({ embeds : [Nosong] });
-          });
+            message.channel.send({ embeds : [IsYT] });
+          } else {
+            scPlugin.search(string).then(results => {
+                const url = results[0].url;
+                //console.log(url)
+                client.distube.play(message.member.voice.channel, url, {
+                  member: message.member,
+                  textChannel: message.channel,
+                  message
+                })
+            }).catch(error => {
+              //console.error(error);
+              const Nosong = new EmbedBuilder()
+                .setColor(16711680)
+                .setAuthor({ name: `หนูไม่พบเพลง : ${string} บน Soundcloud เลยลองหาเพลงอื่นดูสิ !` , iconURL: `${MusicAuthorprofile}`})
+                .setDescription("ขณะนี้ระบบเล่นเพลง เล่นเพลงได้แค่ใน Soundcloud เท่านั้น spotify กำลังมา เร็วนี้ๆ\n❔ : ลองใช้ ชื่อเพลง (แนะนำ) / ลิ้งค์เพลง ใหม่ดูสิ !")
+                .setTimestamp();
+              message.channel.send({ embeds : [Nosong] });
+            });
+          }
 
         }
     }
