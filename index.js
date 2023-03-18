@@ -293,6 +293,7 @@ client.on('messageCreate', async message => {
 
               const rawres = response.data.choices[0].text
               let Ans = rawres.replaceAll("ฉัน", "หนู");
+              Ans = Ans.replaceAll("ผม", "หนู")
               Ans = Ans.replaceAll("เรา", "หนู")
               Ans = Ans.replaceAll("ครับ", "คะ")
               
