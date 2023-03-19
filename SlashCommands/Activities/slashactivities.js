@@ -217,7 +217,9 @@ module.exports = {
                     if (collected.size === 0) {
                         const Tooslow = new EmbedBuilder()
                             .setColor(16711680)
-                            .setAuthor({ name: `คุณเลือกกิจกรรมช้าไปนะคะ !\nใช้คำสั่ง /activities ใหม่นะคะ` , iconURL: `${Authorprofile}`})
+                            .setTitle(`<:maoyumi:1083605849605406830>  คุณเลือกกิจกรรมช้าไปนะคะ !`)
+                            .setDescription('ใช้คำสั่ง `/activities` ใหม่นะคะ')
+                            //.setAuthor({ name: `คุณเลือกกิจกรรมช้าไปนะคะ !\nใช้คำสั่ง /activities ใหม่นะคะ` , iconURL: `${Authorprofile}`})
                             .setTimestamp()
                         await interaction.editReply({ embeds : [Tooslow], components: []});
                     }
