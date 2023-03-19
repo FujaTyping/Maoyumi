@@ -62,6 +62,11 @@ module.exports = {
                             value: 'poker'
                         },
                         {
+                            label: 'Land - เกมยึดพื้นที่',
+                            description: 'Land.io',
+                            value: 'land'
+                        },
+                        {
                             label: 'Letter Leage - แข่งเรียงคำ',
                             description: 'Letter Leage',
                             value: 'letterleage'
@@ -190,6 +195,17 @@ module.exports = {
                                 .setAuthor({ name: `กิจกรรม Letter Leage` , iconURL: `${Authorprofile}`})
                                 .setDescription(`Letter Leage ถูกใช้ในห้อง : <#${interaction.member.voice.channel.id}>\n[>> คลิกที่นี้เพื่อเข้าร่วมกิจกรรมนะคะ ! <<](${invite.code})`)
                                 .setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1077548164627841064/LL.png")
+                                .setTimestamp()
+            
+                            await i.update({ embeds : [StartACT], components: []});
+                        });
+                    } else if (i.values[0] === 'land') {
+                        client.discordTogether.createTogetherCode(interaction.member.voice.channel.id, 'land').then(async invite => {
+                            const StartACT = new EmbedBuilder()
+                                .setColor(14024959)
+                                .setAuthor({ name: `กิจกรรม Land.io` , iconURL: `${Authorprofile}`})
+                                .setDescription(`Land.io ถูกใช้ในห้อง : <#${interaction.member.voice.channel.id}>\n[>> คลิกที่นี้เพื่อเข้าร่วมกิจกรรมนะคะ ! <<](${invite.code})`)
+                                .setImage("https://cdn.discordapp.com/attachments/1024635780360056883/1077564723798736906/SH_1.png")
                                 .setTimestamp()
             
                             await i.update({ embeds : [StartACT], components: []});
