@@ -25,6 +25,7 @@ client.config = require("./config.json")
 
 const { DisTube } = require('distube');
 const { SoundCloudPlugin } = require("@distube/soundcloud");
+const { SpotifyPlugin } = require('@distube/spotify')
 const MusicAuthorprofile = client.config.defultauthorprofile
 
 client.distube = new DisTube(client, {
@@ -33,7 +34,10 @@ client.distube = new DisTube(client, {
     emitAddSongWhenCreatingQueue: false,
     emitAddListWhenCreatingQueue: false,
     plugins: [
-      new SoundCloudPlugin()
+      new SoundCloudPlugin(),
+      new SpotifyPlugin({
+        emitEventsAfterFetching: true
+      })
     ]
 })
 
@@ -46,11 +50,12 @@ client.distube
     client.distube.setVolume(queue, 20);
     const PlayCMD = new EmbedBuilder()
       .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
-      .setURL(`${song.url}`)
+      //.setURL(`${song.url}`)
       .setColor(14024959)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
-      .setDescription(`<:soundcloud:1084238066325147778>  กำลังเล่นเพลงในห้อง <#${queue.voiceChannel.id}> - โดย : ${song.user}\nผู้แต่ง : \`${song.uploader.name}\` ระยะเวลา : \`${song.formattedDuration}\` ระดับเสียง : \`${queue.volume}\``)
-      .setThumbnail(song.thumbnail)
+      .setDescription(`กำลังเล่นเพลงในห้อง <#${queue.voiceChannel.id}> - โดย : ${song.user}\nผู้แต่ง : \`${song.uploader.name}\` ระยะเวลา : \`${song.formattedDuration}\` ระดับเสียง : \`${queue.volume}\``)
+      .setImage(song.thumbnail)
+      //.setThumbnail(song.thumbnail)
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [PlayCMD] })
@@ -59,12 +64,12 @@ client.distube
   .on('addSong', (queue, song) => {
     const AddsongCMD = new EmbedBuilder()
       .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
-      .setURL(`${song.url}`)
+      //.setURL(`${song.url}`)
       .setColor(14024959)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
       .setDescription(`เพลงถูกเพิ่มไปยังคิวแล้ว - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
       .setThumbnail(song.thumbnail)
-      .setFooter({ text: `ℹ แหล่งที่มา : ${song.source}` })
+      //.setFooter({ text: `ℹ แหล่งที่มา : ${song.source}` })
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [AddsongCMD] })

@@ -34,23 +34,11 @@ module.exports = {
               .setTimestamp();
             message.channel.send({ embeds : [IsYT] });
           } else {
-            scPlugin.search(string).then(results => {
-                const url = results[0].url;
-                //console.log(url)
-                client.distube.play(message.member.voice.channel, url, {
-                  member: message.member,
-                  textChannel: message.channel,
-                  message
-                })
-            }).catch(error => {
-              //console.error(error);
-              const Nosong = new EmbedBuilder()
-                .setColor(16711680)
-                .setAuthor({ name: `หนูไม่พบเพลง : ${string} บน Soundcloud เลยลองหาเพลงอื่นดูสิ !` , iconURL: `${MusicAuthorprofile}`})
-                .setDescription("ขณะนี้ระบบเล่นเพลง เล่นเพลงได้แค่ใน Soundcloud เท่านั้น spotify กำลังมา เร็วนี้ๆ\n❔ : ลองใช้ ชื่อเพลง (แนะนำ) / ลิ้งค์เพลง ใหม่ดูสิ !")
-                .setTimestamp();
-              message.channel.send({ embeds : [Nosong] });
-            });
+              client.distube.play(message.member.voice.channel, string, {
+                member: message.member,
+                textChannel: message.channel,
+                message
+              })
           }
 
         }
