@@ -48,28 +48,41 @@ const status = queue =>
 client.distube
   .on('playSong', (queue, song) => {
     client.distube.setVolume(queue, 20);
+    let Titlesong ;
+    if (song.source == "youtube") {
+      Titlesong = "title"
+    } else {
+      Titlesong = song.source
+    }
     const PlayCMD = new EmbedBuilder()
       .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
       //.setURL(`${song.url}`)
       .setColor(14024959)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
       .setDescription(`กำลังเล่นเพลงในห้อง <#${queue.voiceChannel.id}> - โดย : ${song.user}\nผู้แต่ง : \`${song.uploader.name}\` ระยะเวลา : \`${song.formattedDuration}\` ระดับเสียง : \`${queue.volume}\``)
-      .setImage(song.thumbnail)
+      7//.setImage(song.thumbnail)
       //.setThumbnail(song.thumbnail)
+      .setFooter({ text: `ℹ แหล่งที่มา : ${Titlesong}` })
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [PlayCMD] })
   }
   )
   .on('addSong', (queue, song) => {
+    let Titlesong ;
+    if (song.source == "youtube") {
+      Titlesong = "title"
+    } else {
+      Titlesong = song.source
+    }
     const AddsongCMD = new EmbedBuilder()
       .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
       //.setURL(`${song.url}`)
       .setColor(14024959)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
       .setDescription(`เพลงถูกเพิ่มไปยังคิวแล้ว - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
-      .setThumbnail(song.thumbnail)
-      //.setFooter({ text: `ℹ แหล่งที่มา : ${song.source}` })
+      //.setThumbnail(song.thumbnail)
+      .setFooter({ text: `ℹ แหล่งที่มา : ${Titlesong}` })
       .setTimestamp()
 
     queue.textChannel.send({ embeds : [AddsongCMD] })

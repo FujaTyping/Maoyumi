@@ -1,6 +1,6 @@
 const {EmbedBuilder, messageLink} = require('discord.js');
-const { SoundCloudPlugin } = require("@distube/soundcloud");
-const scPlugin = new SoundCloudPlugin();
+//const { SoundCloudPlugin } = require("@distube/soundcloud");
+//const scPlugin = new SoundCloudPlugin();
 
 module.exports = {
     config: {
@@ -30,7 +30,7 @@ module.exports = {
             const IsYT = new EmbedBuilder()
               .setColor(16711680)
               .setAuthor({ name: `หนูไม่สามารถเล่นเพลง ${string} ได้` , iconURL: `${MusicAuthorprofile}`})
-              .setDescription("เนื่องจากไม่สามารถเล่นเพลงได้จาก Youtube แล้ว\nเพราะขัดต่อข้อกำหนดในการให้บริการของ Discord (ToS)\n❔ : ลองใช้ชื่อเพลงแทนลิ้งค์ดูสิ !")
+              .setDescription("เนื่องจากไม่สามารถเล่นเพลงได้จาก Youtube แล้ว\nเพราะขัดต่อข้อกำหนดในการให้บริการของ Discord (ToS)\n❔ : ลองใช้ชื่อเพลง (แนะนำ) / ลิ้งค์เพลง จาก Spotify , Soundcloud !")
               .setTimestamp();
             message.channel.send({ embeds : [IsYT] });
           } else {
