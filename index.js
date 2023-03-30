@@ -47,7 +47,7 @@ const status = queue =>
   }\``
 client.distube
   .on('playSong', (queue, song) => {
-    client.distube.setVolume(queue, 20);
+    client.distube.setVolume(queue, 35);
     let Titlesong ;
     if (song.source == "youtube") {
       Titlesong = "title"
