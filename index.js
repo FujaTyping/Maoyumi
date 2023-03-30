@@ -78,7 +78,7 @@ client.distube
     const AddsongCMD = new EmbedBuilder()
       .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
       //.setURL(`${song.url}`)
-      .setColor(14024959)
+      .setColor(9240744)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
       .setDescription(`เพลงถูกเพิ่มไปยังคิวแล้ว - โดย : ${song.user}\nใช้คำสั่ง \`m.skip\` เพื่อข้ามเพลง`)
       //.setThumbnail(song.thumbnail)
