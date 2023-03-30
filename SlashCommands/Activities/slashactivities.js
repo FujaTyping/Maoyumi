@@ -83,8 +83,16 @@ module.exports = {
                     .setAuthor({ name: `กรุณาเข้าห้องก่อนจะใช้งานคำสั่งนะคะ !` , iconURL: `${Authorprofile}`})
                     .setTimestamp()
         
-                    interaction.reply({ embeds : [NotinVC]})
+                await interaction.reply({ embeds : [NotinVC]})
             } else {
+                const UnderMan = new EmbedBuilder()
+                    .setColor(16711680)
+                    .setTitle(`<:maoyumi:1083605849605406830> ตอนนี้ระบบกิจกรรมไม่สามารถใช้งานได้ในขณะนี้ !`)
+                    .setDescription(`ขออภัยในความไม่สะดวกนะคะ คุณ ${interaction.user.username} :()`)
+                    .setTimestamp()
+
+                await interaction.reply({ embeds : [UnderMan]});
+                /*
                 const waitselect = new EmbedBuilder()
                     .setColor(14024959)
                     .setAuthor({ name: `กรุณาเลือกกิจกรรมจากด้านล้างนะคะ !` , iconURL: `${Authorprofile}`})
@@ -224,6 +232,7 @@ module.exports = {
                         await interaction.editReply({ embeds : [Tooslow], components: []});
                     }
                 });
+                */
             }
         }
     }
