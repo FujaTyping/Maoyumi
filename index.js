@@ -262,11 +262,12 @@ client.on('messageCreate', async message => {
     if(message.content.includes("มาวยูมิ") || message.content.includes('<@1060182470630330529>') || message.content.includes('Maoyumi') || message.content.includes('maoyumi') || message.content.includes("ม่าวยูมิ") || message.content.includes("ม่าว") || message.content.includes("มาว") || message.content.includes("Mao") || message.content.includes("mao")) {
         if(message.author.bot) return;
 
+        let UserrealID = message.author.id
         message.channel.sendTyping()
         const ListbanID = client.config.banID
 
         message.reply("<a:TYPING:1074264222864789565>").then(async message => {
-          if (message.author.id == ListbanID) { //Blacklist people
+          if (UserrealID == ListbanID) { //Blacklist people
             
             const rawBAns = [
                 "หนูไม่อยากคุยกับคุณแล้วคะ !","เสือกไร !","เป็นเหี้ยอะไรมากไหม ?","ออกไปไกลๆ ไป !","เรื่องของมึง !",`<@${message.author.id}> ไปคุยกับ||พ่อ||มึงไป`,
