@@ -103,7 +103,7 @@ client.distube
     else console.error(e)
   })
   .on('empty', queue => {
-    queue.textChannel.send(`ห้องนี้ไม่มีใครอยู่เลย หนูขอออกจากห้องนะครับ !`)
+    queue.textChannel.send(`ห้องนี้ไม่มีใครอยู่เลย หนูขอออกจากห้องนะคะ !`)
   })
   .on('searchNoResult', (message, query) => {
     const NoseaCMD = new EmbedBuilder()
