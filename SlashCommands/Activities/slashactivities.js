@@ -85,6 +85,7 @@ module.exports = {
         
                 await interaction.reply({ embeds : [NotinVC]})
             } else {
+                /*
                 const UnderMan = new EmbedBuilder()
                     .setColor(16711680)
                     .setTitle(`<:maoyumi:1083605849605406830> ตอนนี้ระบบกิจกรรมไม่สามารถใช้งานได้ในขณะนี้ !`)
@@ -92,7 +93,8 @@ module.exports = {
                     .setTimestamp()
 
                 await interaction.reply({ embeds : [UnderMan]});
-                /*
+                */
+                
                 const waitselect = new EmbedBuilder()
                     .setColor(14024959)
                     .setAuthor({ name: `กรุณาเลือกกิจกรรมจากด้านล้างนะคะ !` , iconURL: `${Authorprofile}`})
@@ -232,7 +234,7 @@ module.exports = {
                         await interaction.editReply({ embeds : [Tooslow], components: []});
                     }
                 });
-                */
+
             }
         }
     }
