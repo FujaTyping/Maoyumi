@@ -254,7 +254,7 @@ const config = new Configuration({
     apiKey: process.env.OPENAI_KEY
 })
 const openai = new OpenAIApi(config)
-const PAST_MESSAGES = 2
+const PAST_MESSAGES = 3
 
 // Chat Bot
 client.on('messageCreate', async message => {
@@ -270,11 +270,7 @@ client.on('messageCreate', async message => {
           if (UserrealID == ListbanID) { //Blacklist people
             
             const rawBAns = [
-                "หนูไม่อยากคุยกับคุณแล้วคะ !","เสือกไร !","เป็นเหี้ยอะไรมากไหม ?","ออกไปไกลๆ ไป !","เรื่องของมึง !",`<@${message.author.id}> ไปคุยกับ||พ่อ||มึงไป`,
-                `<@${message.author.id}> ไปคุยกับ||แม่||มึงไป`,"อย่ามายุ่งกับหนู !","เสือกๆๆๆ",`F*UCK YOU <@${message.author.id}>`,`<@${message.author.id}> ไอ||ชาติหมา||`,
-                `SH*T`,`ปากดีจังอะเรา <@${message.author.id}>`,"ไอสัส",`<@${message.author.id}> เป็นคนดีมักไม่มีที่ยืน เลยต้องเหี้ยให้กลมกลืนเพื่อให้มีจุดยืนในสังคม`,
-                `ด่าคนอื่นทั้งที เอาดีๆอย่าให้เข้าตัวเอง <@${message.author.id}>`,`ไม่อยากสนิท เดี๋ยวติดเสนียด <@${message.author.id}>`,`รู้แค่เปลือก อย่าเสือกรู้ดี <@${message.author.id}>`,
-                `เรื่องจริงไม่เหมือนฝัน .. เรื่องของฉันไม่ต้องเสือก <@${message.author.id}>`
+                "...","** ไม่มีการตอบกลับ... **",`บอทนี้ไม่สามารถใช้ได้ในชื่อ <@${message.author.id}> ไปใช้บอทตัวอื่นนะคะ :P`,"There's been a glitch | We're not quite sure what went wrong."
             ]
             const BAns = Math.floor(Math.random() * rawBAns.length);
 
