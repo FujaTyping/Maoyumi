@@ -15,6 +15,7 @@ module.exports = {
     .setDescription("เริ่มกิจกรรม"),
     async execute(interaction, client) {
         const Authorprofile = client.config.defultauthorprofile
+        const cuteemoji = client.config.defultauthoremoji
         const row = new ActionRowBuilder()
             .addComponents(
                 new StringSelectMenuBuilder()
@@ -88,7 +89,7 @@ module.exports = {
                 /*
                 const UnderMan = new EmbedBuilder()
                     .setColor(16711680)
-                    .setTitle(`<:maoyumi:1083605849605406830> ตอนนี้ระบบกิจกรรมไม่สามารถใช้งานได้ในขณะนี้ !`)
+                    .setTitle(`${cuteemoji} ตอนนี้ระบบกิจกรรมไม่สามารถใช้งานได้ในขณะนี้ !`)
                     .setDescription(`ขออภัยในความไม่สะดวกนะคะ คุณ ${interaction.user.username} :(`)
                     .setTimestamp()
 
@@ -227,7 +228,7 @@ module.exports = {
                     if (collected.size === 0) {
                         const Tooslow = new EmbedBuilder()
                             .setColor(16711680)
-                            .setTitle(`<:maoyumi:1083605849605406830>  คุณเลือกกิจกรรมช้าไปนะคะ !`)
+                            .setTitle(`${cuteemoji}  คุณเลือกกิจกรรมช้าไปนะคะ !`)
                             .setDescription('ใช้คำสั่ง `/activities` ใหม่นะคะ')
                             //.setAuthor({ name: `คุณเลือกกิจกรรมช้าไปนะคะ !\nใช้คำสั่ง /activities ใหม่นะคะ` , iconURL: `${Authorprofile}`})
                             .setTimestamp()

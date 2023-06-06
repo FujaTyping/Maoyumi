@@ -41,6 +41,8 @@ client.distube = new DisTube(client, {
     ]
 })
 
+const cuteemoji = client.config.defultauthoremoji
+
 const status = queue =>
   `ระดับเสียง : \`${queue.volume}%\` | วนซ้ำเพลง : \`${
     queue.repeatMode ? (queue.repeatMode === 2 ? 'คิวเพลงทั้งหมด' : 'เพลงนี้') : 'ปิด'
@@ -55,7 +57,7 @@ client.distube
       Titlesong = song.source
     }
     const PlayCMD = new EmbedBuilder()
-      .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
+      .setTitle(`${cuteemoji}  ${song.name}`)
       //.setURL(`${song.url}`)
       .setColor(14024959)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
@@ -76,7 +78,7 @@ client.distube
       Titlesong = song.source
     }
     const AddsongCMD = new EmbedBuilder()
-      .setTitle(`<:maoyumi:1083605849605406830>  ${song.name}`)
+      .setTitle(`${cuteemoji}  ${song.name}`)
       //.setURL(`${song.url}`)
       .setColor(9240744)
       //.setAuthor({ name: `${song.name}` , iconURL: 'https://cdn.discordapp.com/attachments/988037995531759658/1082920882441289738/00028-3147869600.png'})
@@ -274,7 +276,7 @@ client.on('messageCreate', async message => {
             ]
             const BAns = Math.floor(Math.random() * rawBAns.length);
 
-            message.edit(`<:maoyumi:1083605849605406830>  : `+rawBAns[BAns])
+            message.edit(`${cuteemoji}  : `+rawBAns[BAns])
             
         } else {
 
@@ -312,7 +314,7 @@ client.on('messageCreate', async message => {
               Ans = Ans.replaceAll("เรา", "หนู")
               Ans = Ans.replaceAll("ครับ", "คะ")
               
-              message.edit(`<:maoyumi:1083605849605406830>  : ${Ans}`)
+              message.edit(`${cuteemoji}  : ${Ans}`)
             } catch (error) {
               message.edit("```diff\n- "+error+" try again later !\n```")
             }
