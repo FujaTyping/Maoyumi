@@ -22,7 +22,7 @@ module.exports = {
           
             const Resmeme = new EmbedBuilder()
                 .setColor(14024959)
-                .setAuthor({ name: `${Msgname} น้องน่ารักมาเลย !` , iconURL: `${Authorprofile}`})
+                .setAuthor({ name: `${Msgname} น้องน่ารักมากเลย !` , iconURL: `${Authorprofile}`})
                 .setImage(data[0].url)
                 .setTimestamp()
   
